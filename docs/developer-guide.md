@@ -31,9 +31,9 @@ Catalog coverage is separate from simulation support. Jackal links into the epis
 
 ## Google Genie and Scenario Studio
 
-Open **Scenario studio** (`#/studio`) to prepare a Project Genie prompt, import an optional reference image and exploration video, and retain their provenance in Atlas. The Google Genie adapter is versioned and records Genie 3, Genie 4 or an unknown model separately from an optional exact backend revision. **There is no live Genie generation or automated robot-control connection.** The adapter reports unverified programmatic access; the existing Gemini planner key does not establish Genie entitlement.
+Open **Scenario studio** (`#/studio`) to prepare a mission brief and world prompt, import an optional reference image and exploration video, and retain their provenance in Atlas. The Google Genie adapter is versioned and records Genie 3, Genie 4 or an unknown model separately from an optional exact backend revision. **There is no live Genie generation or automated robot-control connection.** The adapter reports unverified programmatic access; the existing Gemini planner key does not establish Genie entitlement.
 
-1. Write the mission intent and world prompt. Open Project Genie with your own account, or save a prompt brief before any generation.
+1. Write the mission intent and world prompt, then save the brief to Atlas directly in Scenario studio.
 2. Optionally import a PNG/JPEG/WebP reference (up to 8 MiB) and an MP4/WebM recording (up to 32 MiB). Original bytes are stored in GridFS with server-computed SHA-256 hashes. A brief without a video is explicitly identified as such.
 3. Select a saved exploration and freeze a scenario version. New versions can target Moon / Apollo 17, Earth / Amboy Crater, or Mars / Dingo Gap. Historical design-only versions remain immutable.
 4. Open that version in Robot lab, freeze a measured terrain patch and run. Robot models, duration, speed and seed remain locked until the scenario is detached. The server rejects settings that differ from the saved version.

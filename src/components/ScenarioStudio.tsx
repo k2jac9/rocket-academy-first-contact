@@ -210,10 +210,7 @@ export default function ScenarioStudio({ onOpenLab }: { onOpenLab: (scenario: Sc
           <br />
           Keep the evidence.
         </h1>
-        <p>
-          Sketch a mission in Google Genie. Bring the idea and its provenance into a physical robot
-          experiment.
-        </p>
+        <p>Describe your mission, save its brief, and turn the idea into a physical robot experiment.</p>
       </header>
       <div className="studio-services" aria-label="Integration status">
         <span>
@@ -233,21 +230,13 @@ export default function ScenarioStudio({ onOpenLab }: { onOpenLab: (scenario: Sc
       </div>
       <section className="studio-bridge">
         <div>
-          <span className="eyebrow">01 / EXPLORE IN GENIE</span>
+          <span className="eyebrow">01 / PLAN YOUR EXPLORATION</span>
           <h2>Start with a world. Find a mission.</h2>
           <p>
-            Use your Project Genie account to explore. Import a downloaded video below; this app does not
-            generate Genie worlds or send robot actions to Google.
+            Choose a world and describe the mission below. Save the brief to Atlas, then select it to
+            configure a physical scenario. Reference images and exploration recordings are optional.
           </p>
         </div>
-        <a
-          className="catalog-button catalog-primary"
-          href={GENIE_ADAPTER.productUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Open Project Genie <ArrowUpRight size={16} />
-        </a>
       </section>
       <div className="studio-columns">
         <form

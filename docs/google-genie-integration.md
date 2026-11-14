@@ -12,7 +12,7 @@ At 2026-11-14T21:11:48Z, the configured Gemini credential returned HTTP 200 from
 
 ## Implemented workflow
 
-`#/studio` prepares prompts, links to Project Genie, imports evidence, lists the latest 20 explorations and scenarios, exports JSON provenance, and opens a runnable scenario in Robot lab. It uses the shared catalog visual system. Uploaded media is checked for browser preview before submission. Native image/video controls provide evidence inspection.
+`#/studio` prepares mission briefs and prompts, imports optional evidence, lists the latest 20 explorations and scenarios, exports JSON provenance, and opens a runnable scenario in Robot lab. Authoring starts inside the app; there is no Project Genie launch button. It uses the shared catalog visual system. Uploaded media is checked for browser preview before submission. Native image/video controls provide evidence inspection.
 
 Explorations retain the prompt, mission intent, requested body, operator-reported model identity, optional exact revision, settings notes, adapter identity and original artifact hashes. Missing backend revisions remain null. An import with no video is `exploration_brief`; a video-backed record is `imported_recording`. Neither claims a complete robot episode.
 
