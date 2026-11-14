@@ -914,6 +914,88 @@ summary:focus-visible {
   margin: 24px 0;
   background: var(--surface);
 }
+.episode-explorer {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 100px;
+}
+.episode-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0 16px;
+}
+.episode-filter-grid > div {
+  min-width: 0;
+}
+.episode-filter-grid label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.episode-filter-grid select,
+.episode-filter-grid input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+}
+.episode-filter-actions,
+.episode-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.episode-pagination {
+  margin-top: 20px;
+  justify-content: space-between;
+}
+.episode-results > p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.episode-result-list article {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.episode-replay-button {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: left;
+  background: transparent;
+  color: var(--ink);
+  border: 0;
+  padding: 8px;
+  font: inherit;
+  cursor: pointer;
+}
+.episode-replay-button:hover {
+  background: var(--surface-soft);
+}
+.episode-replay-button small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+}
+.episode-replay-button > span:last-child {
+  font-size: 12px;
+}
 .episode-overview-heading {
   display: flex;
   justify-content: space-between;
@@ -978,6 +1060,22 @@ summary:focus-visible {
   color: var(--muted);
 }
 @media (max-width: 800px) {
+  .episode-filter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .episode-result-list article {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .episode-replay-button {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .episode-result-list article > a {
+    align-self: flex-start;
+  }
   .episode-overview {
     padding: 16px;
   }

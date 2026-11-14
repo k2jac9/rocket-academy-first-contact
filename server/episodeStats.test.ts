@@ -82,17 +82,20 @@ describe('episode statistics boundary', () => {
       durationEpisodes: 1,
       sensorEpisodes: 0,
     });
-    expect(stats).toHaveBeenCalledWith(expect.any(AbortSignal));
+    expect(stats).toHaveBeenCalledWith(expect.any(AbortSignal), {});
   });
 
-  it.each(['?body=mars', '?pipeline=%7B%22%24out%22%3A%22runs%22%7D', '?body=earth&body=moon'])(
-    'rejects unsupported query input %s before querying Atlas',
-    async (query) => {
-      const { api, stats } = fixture();
-      expect((await api(request(query))).status).toBe(422);
-      expect(stats).not.toHaveBeenCalled();
-    },
-  );
+  it.each([
+    '?body=venus',
+    '?pipeline=%7B%22%24out%22%3A%22runs%22%7D',
+    '?body=earth&body=moon',
+    '?cursor=abc',
+    '?limit=5',
+  ])('rejects unsupported query input %s before querying Atlas', async (query) => {
+    const { api, stats } = fixture();
+    expect((await api(request(query))).status).toBe(422);
+    expect(stats).not.toHaveBeenCalled();
+  });
 
   it('retains the local origin boundary', async () => {
     const { api, stats } = fixture();

@@ -8,7 +8,7 @@ import type { ScenarioRecord } from '../scenarios/contracts';
 import { SITE_LOCATIONS, type SurfaceSiteId } from '../domain/surfaceSites';
 import { getSource } from '../domain/mission';
 import { NarrationPanel } from './NarrationPanel';
-import { EpisodeOverview } from './EpisodeOverview';
+import { EpisodeExplorer } from './EpisodeExplorer';
 import { missionNarration, replayNarration } from '../simulation/narration';
 
 async function api<T>(path: string, init?: RequestInit): Promise<T> {
@@ -19,15 +19,6 @@ async function api<T>(path: string, init?: RequestInit): Promise<T> {
   if (!response.ok) throw new Error(body.error?.message ?? 'The episode request failed.');
   return body as T;
 }
-type Summary = {
-  id: string;
-  startedAt: string;
-  durationS: number;
-  termination: string;
-  downloadUrl: string;
-  site?: string;
-  body?: string;
-};
 export function EpisodeLab({
   active,
   patch,
@@ -58,8 +49,8 @@ export function EpisodeLab({
   const [job, setJob] = useState<EpisodeJob | null>(null),
     [message, setMessage] = useState(''),
     [submitting, setSubmitting] = useState(false);
-  const [record, setRecord] = useState<EpisodeRecord | null>(null),
-    [history, setHistory] = useState<Summary[]>([]);
+  const [record, setRecord] = useState<EpisodeRecord | null>(null);
+  const [historyRevision, setHistoryRevision] = useState(0);
   const [frameIndex, setFrameIndex] = useState(0),
     [playing, setPlaying] = useState(false);
   const generation = useRef(0);
@@ -97,12 +88,7 @@ export function EpisodeLab({
       setModels((previous) => [catalogFleet.modelId, previous[1]]);
     }
   }, [catalogFleet, busy]);
-  const refresh = () =>
-    api<{ episodes: Summary[] }>('/api/episodes')
-      .then((data) => setHistory(data.episodes))
-      .catch(() => undefined);
   useEffect(() => {
-    void refresh();
     return () => {
       generation.current++;
     };
@@ -119,7 +105,7 @@ export function EpisodeLab({
             setRecord(next.record);
             setFrameIndex(0);
             setPlaying(!matchMedia('(prefers-reduced-motion: reduce)').matches);
-            void refresh();
+            setHistoryRevision((value) => value + 1);
           }
         })
         .catch((e) => {
@@ -169,6 +155,7 @@ export function EpisodeLab({
       if (token !== generation.current) return;
       setJob(next);
       setRecord(next.record ?? null);
+      if (next.record) setHistoryRevision((value) => value + 1);
       setFrameIndex(0);
     } catch (e) {
       if (token === generation.current) setMessage(e instanceof Error ? e.message : 'Episode failed.');
@@ -203,6 +190,19 @@ export function EpisodeLab({
           <p>Choose your fleet, explore Earth, Moon or Mars, and record a shared simulation.</p>
         </div>
         <div className="episode-heading-actions">
+          <button
+            className="secondary-button"
+            onClick={() => {
+              const panel = document.getElementById('episode-library');
+              panel?.focus({ preventScroll: true });
+              panel?.scrollIntoView({
+                behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+                block: 'start',
+              });
+            }}
+          >
+            Episode Explorer
+          </button>
           <button
             className="secondary-button"
             onClick={() => {
@@ -505,26 +505,12 @@ export function EpisodeLab({
               episode ? `first-contact-${episode.id}-narration` : `first-contact-${terrainSite}-briefing`
             }
           />
-          <EpisodeOverview active={active} revision={job?.state === 'complete' ? job.id : ''} />
-          <div className="episode-history">
-            <h3>Saved physics episodes</h3>
-            {history.length === 0 ? (
-              <p className="muted">Generated episodes will appear here.</p>
-            ) : (
-              history.map((item) => (
-                <button key={item.id} disabled={busy} onClick={() => void load(item.id)}>
-                  <span>
-                    <strong>{item.site ?? 'Recorded terrain'}</strong>
-                    <br />
-                    {new Date(item.startedAt).toLocaleString()}
-                  </span>
-                  <span>
-                    {item.durationS.toFixed(1)} s · {item.termination.replaceAll('_', ' ')} · Replay
-                  </span>
-                </button>
-              ))
-            )}
-          </div>
+          <EpisodeExplorer
+            active={active}
+            revision={historyRevision}
+            replayDisabled={busy}
+            onLoad={(id) => void load(id)}
+          />
         </div>
       </div>
     </section>

@@ -215,10 +215,13 @@ export class AtlasRepository {
     this.database = database;
     this.failure = failure;
   }
-  protected async operation<T>(work: () => Promise<T>): Promise<T> {
+  protected async operation<T>(work: () => Promise<T>, requestSignal?: AbortSignal): Promise<T> {
     try {
       return await work();
     } catch (error) {
+      // A browser navigation/filter change is not evidence of a database outage.
+      // Keep genuine driver failures and internal deadlines on the shared health path.
+      if (requestSignal?.aborted && error === requestSignal.reason) throw error;
       return this.failure(error);
     }
   }

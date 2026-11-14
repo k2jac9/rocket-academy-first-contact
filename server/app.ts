@@ -19,6 +19,7 @@ import { SHA256, verifyScenarioExecution } from './scenarios.ts';
 import { GENIE_ADAPTER } from '../src/scenarios/contracts.ts';
 import { createElevenLabsSpeech } from './elevenlabs.ts';
 import type { ElevenLabsSpeech } from './elevenlabs.ts';
+import { parseEpisodeQuery } from './episodeQuery.ts';
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 function requestId(request: Request): string {
@@ -208,9 +209,9 @@ export function createApiHandler(dependencies: {
         if (!episodes)
           throw new ApiError(503, 'PHYSICS_UNAVAILABLE', 'The physics episode service is unavailable.');
         if (url.pathname === '/api/episodes/stats' && request.method === 'GET') {
-          if (url.search)
-            throw new ApiError(422, 'INVALID_QUERY', 'Episode statistics do not accept query parameters.');
-          return json(await episodes.stats(request.signal));
+          return json(
+            await episodes.stats(request.signal, parseEpisodeQuery(url.searchParams, false).filters),
+          );
         }
         if (url.pathname === '/api/episodes' && request.method === 'POST') {
           const value = await readJsonRequest(request);
@@ -229,7 +230,7 @@ export function createApiHandler(dependencies: {
           return json(await episodes.create(requestId(request), value), 202);
         }
         if (url.pathname === '/api/episodes' && request.method === 'GET')
-          return json({ episodes: await episodes.list() });
+          return json(await episodes.list(parseEpisodeQuery(url.searchParams), request.signal));
         const path = /^\/api\/episodes\/([^/]+)(\/mcap)?$/.exec(url.pathname);
         if (path && request.method === 'GET') {
           const id = path[1].toLowerCase();

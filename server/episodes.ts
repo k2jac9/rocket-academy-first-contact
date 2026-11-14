@@ -7,6 +7,8 @@ import { fileURLToPath } from 'node:url';
 import { validateEpisodeRequest } from '../src/simulation/episode.ts';
 import type { EpisodeJob, PhysicsEpisode } from '../src/simulation/episode.ts';
 import type { EpisodeStore } from './episodeStore.ts';
+import type { EpisodeQuery } from './episodeQuery.ts';
+import type { EpisodeFilters } from '../src/simulation/episodeQuery.ts';
 import { encodeEpisodeMcap } from './episodeRecording.ts';
 import { ApiError } from './errors.ts';
 import { bytesHash, canonicalJson, jsonHash } from './hash.ts';
@@ -21,8 +23,8 @@ export class EpisodeService {
   constructor(store: EpisodeStore) {
     this.store = store;
   }
-  stats(signal?: AbortSignal) {
-    return this.store.stats(signal);
+  stats(signal?: AbortSignal, filters: EpisodeFilters = {}) {
+    return this.store.stats(signal, filters);
   }
   async create(id: string, value: unknown, lineage?: ScenarioLineage): Promise<EpisodeJob> {
     let input;
@@ -205,8 +207,8 @@ export class EpisodeService {
     if (!record) throw new ApiError(404, 'EPISODE_NOT_FOUND', 'Episode not found.');
     return { id, state: 'complete', message: 'Saved episode loaded.', record };
   }
-  list() {
-    return this.store.list();
+  list(query?: EpisodeQuery, signal?: AbortSignal) {
+    return this.store.list(query, signal);
   }
   async download(id: string) {
     const record = await this.store.find(id);

@@ -7,6 +7,9 @@ import { bytesHash } from './hash.ts';
 import { ApiError } from './errors.ts';
 import { AtlasRepository } from './atlasConnection.ts';
 import { readEpisodeStats } from './episodeStats.ts';
+import { readEpisodePage } from './episodePage.ts';
+import type { EpisodeQuery } from './episodeQuery.ts';
+import type { EpisodeFilters } from '../src/simulation/episodeQuery.ts';
 
 type Stored = Document & {
   _id: string;
@@ -26,9 +29,10 @@ function record(doc: Stored): EpisodeRecord {
   };
 }
 export class EpisodeStore extends AtlasRepository {
-  async stats(signal?: AbortSignal) {
-    return this.operation(async () =>
-      readEpisodeStats((await this.database()).collection('physics_episodes'), signal),
+  async stats(signal?: AbortSignal, filters: EpisodeFilters = {}) {
+    return this.operation(
+      async () => readEpisodeStats((await this.database()).collection('physics_episodes'), signal, filters),
+      signal,
     );
   }
   async find(id: string, hash?: string): Promise<EpisodeRecord | null> {
@@ -46,39 +50,11 @@ export class EpisodeStore extends AtlasRepository {
       return record(doc);
     });
   }
-  async list() {
-    return this.operation(async () => {
-      const docs = await (
-        await this.database()
-      )
-        .collection<Stored>('physics_episodes')
-        .find(
-          { state: 'complete' },
-          {
-            projection: {
-              _id: 1,
-              'episode.startedAt': 1,
-              'episode.durationS': 1,
-              'episode.termination': 1,
-              'episode.input.terrain.source.label': 1,
-              'episode.input.terrain.source.body': 1,
-              artifact: 1,
-            },
-          },
-        )
-        .sort({ 'episode.startedAt': -1 })
-        .limit(20)
-        .toArray();
-      return docs.map((d) => ({
-        id: d._id,
-        startedAt: d.episode!.startedAt,
-        durationS: d.episode!.durationS,
-        termination: d.episode!.termination,
-        site: d.episode!.input?.terrain?.source?.label ?? 'Legacy site',
-        body: d.episode!.input?.terrain?.source?.body ?? null,
-        downloadUrl: `/api/episodes/${d._id}/mcap`,
-      }));
-    });
+  async list(query: EpisodeQuery = { filters: {}, limit: 20 }, signal?: AbortSignal) {
+    return this.operation(
+      async () => readEpisodePage((await this.database()).collection('physics_episodes'), query, signal),
+      signal,
+    );
   }
   async save(episode: EpisodeMetadata, bytes: Uint8Array, requestHash: string) {
     return this.operation(async () => {

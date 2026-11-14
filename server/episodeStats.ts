@@ -1,10 +1,9 @@
 import type { Collection, Document } from 'mongodb';
-import { EPISODE_BODIES, EPISODE_END_REASONS, EPISODE_MODEL_IDS } from '../src/simulation/episodeStats.ts';
+import { EPISODE_BODIES, EPISODE_END_REASONS } from '../src/simulation/episodeStats.ts';
 import type { EpisodeStats } from '../src/simulation/episodeStats.ts';
+import type { EpisodeFilters } from '../src/simulation/episodeQuery.ts';
+import { episodeFilter, episodeRobotIds, knownOrUnknown } from './episodeQuery.ts';
 
-const knownOrUnknown = (value: unknown, allowed: readonly string[]) => ({
-  $cond: [{ $in: [value, allowed] }, value, 'unknown'],
-});
 const validNumber = (field: string, integer = false) => ({
   $cond: [
     { $isNumber: field },
@@ -25,9 +24,9 @@ const breakdown = (field: string): Document[] => [
 ];
 
 /** Fixed, read-only pipeline. No request text becomes a database expression. */
-export function episodeStatsPipeline(): Document[] {
+export function episodeStatsPipeline(filters: EpisodeFilters = {}): Document[] {
   return [
-    { $match: { state: 'complete' } },
+    { $match: episodeFilter(filters) },
     {
       $project: {
         _id: 0,
@@ -37,33 +36,7 @@ export function episodeStatsPipeline(): Document[] {
         sensorSamples: {
           $cond: [validNumber('$episode.sensorSamples', true), '$episode.sensorSamples', null],
         },
-        robots: {
-          $let: {
-            vars: {
-              models: {
-                $cond: [{ $isArray: '$episode.robotModels' }, '$episode.robotModels', []],
-              },
-            },
-            in: {
-              $cond: [
-                { $gt: [{ $size: '$$models' }, 0] },
-                {
-                  $setUnion: [
-                    {
-                      $map: {
-                        input: '$$models',
-                        as: 'robot',
-                        in: knownOrUnknown('$$robot.modelId', EPISODE_MODEL_IDS),
-                      },
-                    },
-                    [],
-                  ],
-                },
-                ['unknown'],
-              ],
-            },
-          },
-        },
+        robots: episodeRobotIds,
       },
     },
     {
@@ -97,11 +70,12 @@ type Facets = Document &
 export async function readEpisodeStats(
   collection: Collection,
   requestSignal?: AbortSignal,
+  filters: EpisodeFilters = {},
 ): Promise<EpisodeStats> {
   const signal = AbortSignal.any([AbortSignal.timeout(8_000), ...(requestSignal ? [requestSignal] : [])]);
   signal.throwIfAborted();
   const [result] = await collection
-    .aggregate<Facets>(episodeStatsPipeline(), { maxTimeMS: 5_000, signal })
+    .aggregate<Facets>(episodeStatsPipeline(filters), { maxTimeMS: 5_000, signal })
     .toArray();
   return {
     schemaVersion: '1.0.0',

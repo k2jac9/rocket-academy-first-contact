@@ -47,7 +47,7 @@ Imported generative experiences default to exploration/review only. Their refere
 2. In **Explore worlds**, choose Apollo 17 or Amboy Crater for a prepared starter location, or select Dingo Gap and place a rover inside the reconstruction.
 3. Select **Use patch in robot lab** to freeze a complete 16 m terrain crop. Missing elevation cells stop capture.
 4. Choose the model for each robot, duration, speed and seed. Select **Generate & save episode**.
-5. Replay the stored states, inspect the camera previews, and download the compressed MCAP. Saved episodes can be reopened from history.
+5. Replay the stored states, inspect the camera previews, and download the compressed MCAP. Use **Episode Explorer** at the top of Robot lab to filter saved episodes by world, terrain site, robot model, end reason and UTC date range, then reopen or download a matching episode.
 
 These are experimental contact-physics episodes: source robot visual/collision geometry and inertias, rigid wheels, assumed controls/friction and simple virtual sensor rendering. Detailed appearance does not establish physical accuracy. Model revisions and asset hashes are recorded; keep the bundled mesh assets alongside MCAP exports. The terrain sample interval is not a measurement-accuracy claim. See [asset attribution](../NOTICE.md) and the [architecture and remaining milestones](synthetic-episode-lab.md).
 
@@ -223,7 +223,21 @@ The API accepts local hosts and an explicit origin allowlist. Defaults cover `lo
 
 ## Local API
 
-`GET /api/episodes/stats` supplies Robot lab's Atlas overview. It aggregates all complete physical episodes into counts, recorded seconds, camera-pair counts, metric coverage, and body/end-reason/model breakdowns. It accepts no query parameters and returns no sensor payloads. See the [verification report](qa/2026-11-14-atlas-overview.md) and [implementation plan](atlas-implementation-plan.md) for the next discovery steps.
+`GET /api/episodes` supplies Robot lab's Episode Explorer. It returns `{ episodes, nextCursor }`, with metadata only and a default page size of 20. Existing consumers can continue reading the `episodes` array. Follow `nextCursor` to reach older recordings; a null cursor means the last page. The same filters apply to `GET /api/episodes/stats`, whose counts cover all matching complete physics episodes independently of page size. Neither endpoint returns sensor payloads.
+
+| Parameter | Accepted values |
+| --- | --- |
+| `body` | `earth`, `moon`, `mars`, `unknown` |
+| `site` | `dingo-gap`, `apollo-17`, `amboy-crater`, `unknown` |
+| `robot` | `husky`, `jackal`, legacy `scout` / `surveyor`, `unknown`; matches any participating model |
+| `termination` | `duration_reached`, `rollover`, `terrain_boundary`, `unknown` |
+| `from`, `to` | Inclusive UTC calendar days, `YYYY-MM-DD`; missing dates are excluded when date filtering |
+| `limit` | Integer 1–50, default 20; list endpoint only |
+| `cursor` | Opaque cursor returned by the preceding list page; reuse the same filters; list endpoint only |
+
+Omit a parameter to select all values. Unknown categories include missing or unsupported metadata. Unsupported/duplicate parameters, invalid calendar dates, reversed ranges and mismatched cursors return 422. Example: `/api/episodes?body=earth&robot=husky&termination=rollover&limit=5`; use the same query without `limit` for `/api/episodes/stats`.
+
+Ordering is descending `(startedAt, episode ID)`, with missing/non-string dates last. Refresh returns to the first page and includes newly saved episodes. This is a live library, not a frozen dataset: list and overview are separate reads, and edits/deletions can change membership. Completed records are not edited by this workflow. The cursor is a pagination marker, not an authorization token. See [Step 2 verification and query-plan limits](qa/2026-11-14-episode-explorer.md) and the [implementation plan](atlas-implementation-plan.md).
 
 Optional narration uses `GET /api/speech/status`, `GET /api/speech/voices`, and `POST /api/speech` with `{ text, voiceId }`. The POST returns MP3 bytes, a SHA-256 header and cache-hit status. See [ElevenLabs setup and limits](elevenlabs-narration.md).
 

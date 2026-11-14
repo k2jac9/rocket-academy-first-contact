@@ -36,6 +36,7 @@ vi.mock('mongodb', async (original) => {
             createIndex: driver.createIndex,
             findOne: driver.findOne,
             find: () => ({ sort: () => ({ limit: () => ({ toArray: driver.toArray }) }) }),
+            aggregate: () => ({ toArray: driver.toArray }),
           }),
         };
       }
@@ -60,6 +61,33 @@ afterEach(() => {
 });
 
 describe('Atlas connection resilience', () => {
+  it.each(['list', 'stats'] as const)('keeps Atlas healthy when the browser cancels %s', async (kind) => {
+    const store = new AtlasStore(config);
+    await store.connect();
+    const controller = new AbortController();
+    const cancelled = new DOMException('Browser left the page', 'AbortError');
+    driver.toArray.mockImplementationOnce(async () => {
+      controller.abort(cancelled);
+      throw controller.signal.reason;
+    });
+    const operation =
+      kind === 'list'
+        ? store.episodes.list(undefined, controller.signal)
+        : store.episodes.stats(controller.signal);
+    await expect(operation).rejects.toBe(cancelled);
+    expect(store.status().connected).toBe(true);
+    await expect(store.episodes.list()).resolves.toEqual({ episodes: [], nextCursor: null });
+    expect(driver.connect).toHaveBeenCalledOnce();
+  });
+  it('still reports a query deadline or network failure as unhealthy', async () => {
+    const store = new AtlasStore(config);
+    await store.connect();
+    driver.toArray.mockRejectedValueOnce(new DOMException('Internal deadline', 'TimeoutError'));
+    await expect(store.episodes.list(undefined, new AbortController().signal)).rejects.toMatchObject({
+      code: 'ATLAS_UNAVAILABLE',
+    });
+    expect(store.status().connected).toBe(false);
+  });
   it('shares concurrent startup and reuses one bounded majority-write client', async () => {
     const store = new AtlasStore(config);
     await Promise.all([store.connect(), store.connect(), store.checkHealth()]);

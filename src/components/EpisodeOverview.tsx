@@ -17,7 +17,15 @@ const labels: Record<string, string> = {
 };
 const number = new Intl.NumberFormat(undefined, { maximumFractionDigits: 1 });
 
-export function EpisodeOverview({ active, revision }: { active: boolean; revision: string }) {
+export function EpisodeOverview({
+  active,
+  revision,
+  filterQuery = '',
+}: {
+  active: boolean;
+  revision: string;
+  filterQuery?: string;
+}) {
   const id = useId();
   const [data, setData] = useState<EpisodeStats | null>(null);
   const [busy, setBusy] = useState(false);
@@ -31,7 +39,7 @@ export function EpisodeOverview({ active, revision }: { active: boolean; revisio
     setBusy(true);
     setError('');
     try {
-      const response = await fetch('/api/episodes/stats', {
+      const response = await fetch(`/api/episodes/stats${filterQuery ? `?${filterQuery}` : ''}`, {
         signal: AbortSignal.any([controller.signal, AbortSignal.timeout(15_000)]),
       });
       const result = await response.json().catch(() => null);
@@ -54,7 +62,7 @@ export function EpisodeOverview({ active, revision }: { active: boolean; revisio
       setBusy(false);
     }
     return () => operation.current?.abort();
-  }, [active, revision]);
+  }, [active, revision, filterQuery]);
 
   const totals = data?.totals;
   const worlds = data?.byBody.filter((item) => item.key !== 'unknown' && item.count > 0).length ?? 0;
@@ -74,7 +82,11 @@ export function EpisodeOverview({ active, revision }: { active: boolean; revisio
           <RefreshCw size={15} aria-hidden="true" /> Refresh
         </button>
       </div>
-      <p className="muted">All saved physics episodes, across Earth, Moon and Mars.</p>
+      <p className="muted">
+        {filterQuery
+          ? 'All physics episodes matching the applied filters, across every page.'
+          : 'All saved physics episodes, across Earth, Moon and Mars.'}
+      </p>
       {busy && <p role="status">Updating Atlas overview…</p>}
       {error && (
         <p className="operation-error" role="alert">
