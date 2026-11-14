@@ -1,5 +1,14 @@
 import { afterAll, describe, expect, it } from 'vitest';
-import { DoubleSide, Mesh, MeshBasicMaterial, PerspectiveCamera, PlaneGeometry, Raycaster, Vector2, Vector3 } from 'three';
+import {
+  DoubleSide,
+  Mesh,
+  MeshBasicMaterial,
+  PerspectiveCamera,
+  PlaneGeometry,
+  Raycaster,
+  Vector2,
+  Vector3,
+} from 'three';
 import { panLocalCamera } from './navigation';
 
 const geometry = new PlaneGeometry(1000, 1000);

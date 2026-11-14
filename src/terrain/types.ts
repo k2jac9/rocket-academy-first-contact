@@ -1,6 +1,6 @@
-import type { MarkerKind, SceneMode, TerrainPoint } from '../domain/mission';
+import type { MarkerKind, SceneMode, TerrainLayer, TerrainPoint } from '../domain/mission';
 
-export type { MarkerKind, SceneMode, TerrainPoint } from '../domain/mission';
+export type { MarkerKind, SceneMode, TerrainLayer, TerrainPoint } from '../domain/mission';
 
 export type TerrainStatus = {
   state: 'loading' | 'ready' | 'error' | 'token-required';
@@ -11,6 +11,7 @@ export type TerrainStatus = {
 
 export type TerrainSceneProps = {
   mode: SceneMode;
+  layer: TerrainLayer;
   ionToken: string;
   placementMode: MarkerKind | null;
   rover: TerrainPoint | null;
@@ -18,4 +19,7 @@ export type TerrainSceneProps = {
   onPlace: (kind: MarkerKind, point: TerrainPoint) => void;
   onStatus: (status: TerrainStatus) => void;
   resetViewSignal: number;
+  robotPosition?: TerrainPoint | null;
+  trajectory?: TerrainPoint[];
+  focusMissionSignal?: number;
 };

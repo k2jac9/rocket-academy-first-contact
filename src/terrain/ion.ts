@@ -11,11 +11,7 @@ type IonEndpoint = {
  * only to the exact HTTPS origin for which ion issued them. No endpoint response
  * is exported.
  */
-export async function resolveIonAsset(
-  assetId: number,
-  browserToken: string,
-  lifecycleSignal: AbortSignal,
-) {
+export async function resolveIonAsset(assetId: number, browserToken: string, lifecycleSignal: AbortSignal) {
   const endpointUrl = new URL(`https://api.cesium.com/v1/assets/${assetId}/endpoint`);
   endpointUrl.searchParams.set('access_token', browserToken);
 
@@ -57,17 +53,20 @@ export async function resolveIonAsset(
     name: 'ABORTABLE_ION_FETCH',
     preprocessURL(url: string) {
       const target = new URL(url);
-      if (contentVersion !== null && target.protocol === 'https:' && target.origin === new URL(endpoint.url).origin) {
+      if (
+        contentVersion !== null &&
+        target.protocol === 'https:' &&
+        target.origin === new URL(endpoint.url).origin
+      ) {
         target.searchParams.set('v', contentVersion);
       }
       return target.toString();
     },
     async fetchData(url: string, options: RequestInit = {}) {
       const requestUrl = new URL(url);
-      const isIssuedOrigin = () => requestUrl.protocol === 'https:' && requestUrl.origin === new URL(endpoint.url).origin;
-      const signal = options.signal
-        ? AbortSignal.any([options.signal, lifecycleSignal])
-        : lifecycleSignal;
+      const isIssuedOrigin = () =>
+        requestUrl.protocol === 'https:' && requestUrl.origin === new URL(endpoint.url).origin;
+      const signal = options.signal ? AbortSignal.any([options.signal, lifecycleSignal]) : lifecycleSignal;
 
       const request = () => {
         const headers = new Headers(options.headers);
@@ -80,11 +79,7 @@ export async function resolveIonAsset(
       };
 
       let response = await request();
-      if (
-        (response.status === 401 || response.status === 403) &&
-        isIssuedOrigin() &&
-        !signal.aborted
-      ) {
+      if ((response.status === 401 || response.status === 403) && isIssuedOrigin() && !signal.aborted) {
         // Concurrent tile failures share one refresh, then get one retry each.
         refresh ??= getEndpoint().finally(() => {
           refresh = null;

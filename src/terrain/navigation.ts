@@ -20,10 +20,9 @@ export function panLocalCamera(
   up.normalize();
 
   // A key step covers about 4% of the vertical span at the orbit target.
-  const step = Math.max(camera.position.distanceTo(target), 1) *
-    2 * Math.tan(camera.fov * Math.PI / 360) * 0.04;
-  const offset = right.multiplyScalar(horizontalSteps * step)
-    .addScaledVector(up, verticalSteps * step);
+  const step =
+    Math.max(camera.position.distanceTo(target), 1) * 2 * Math.tan((camera.fov * Math.PI) / 360) * 0.04;
+  const offset = right.multiplyScalar(horizontalSteps * step).addScaledVector(up, verticalSteps * step);
   camera.position.add(offset);
   target.add(offset);
   camera.updateMatrixWorld();

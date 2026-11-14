@@ -1,6 +1,6 @@
 {
   "name": "rocket-academy-first-contact",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Plan planetary robot missions on real NASA terrain.",
   "type": "module",
@@ -9,16 +9,23 @@
     "node": ">=24"
   },
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "node scripts/dev.mjs",
     "build": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit",
-    "preview": "vite preview --host 0.0.0.0",
+    "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "dev:ui": "vite --host 127.0.0.1",
+    "dev:api": "node --env-file-if-exists=.env.local --watch server/index.ts",
+    "start:api": "node --env-file-if-exists=.env.local server/index.ts",
+    "format": "prettier --write src server scripts vite.config.ts"
   },
   "dependencies": {
+    "@foxglove/schemas": "2.3.1",
+    "@mcap/core": "2.4.0",
     "3d-tiles-renderer": "0.5.4",
     "lucide-react": "1.73.0",
+    "mongodb": "7.9.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "three": "0.187.0"
@@ -29,6 +36,7 @@
     "@types/react-dom": "19.3.0",
     "@types/three": "0.187.0",
     "@vitejs/plugin-react": "6.3.0",
+    "prettier": "3.10.1",
     "typescript": "7.0.2",
     "vite": "8.3.8",
     "vitest": "5.1.0"
