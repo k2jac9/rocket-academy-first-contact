@@ -223,6 +223,8 @@ The API accepts local hosts and an explicit origin allowlist. Defaults cover `lo
 
 ## Local API
 
+Database schema rollout is currently paused. New saves carry a storage-envelope version; the live collections have not yet enabled the prepared validators. See the [schema-validation handoff, permission requirement and rollback commands](atlas-schema-validation.md) before resuming Step 3.
+
 `GET /api/episodes` supplies Robot lab's Episode Explorer. It returns `{ episodes, nextCursor }`, with metadata only and a default page size of 20. Existing consumers can continue reading the `episodes` array. Follow `nextCursor` to reach older recordings; a null cursor means the last page. The same filters apply to `GET /api/episodes/stats`, whose counts cover all matching complete physics episodes independently of page size. Neither endpoint returns sensor payloads.
 
 | Parameter | Accepted values |

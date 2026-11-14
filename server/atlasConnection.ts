@@ -32,6 +32,12 @@ export const ATLAS_CLIENT_OPTIONS: MongoClientOptions = {
 export function atlasError(error: unknown): unknown {
   if (error instanceof ApiError) return error;
   if (error instanceof MongoError) {
+    if (error.code === 121)
+      return new ApiError(
+        422,
+        'STORAGE_SCHEMA_REJECTED',
+        'The record does not match the database storage schema. Check the server and validator versions before retrying.',
+      );
     if (error.code === 13 || error.code === 18)
       return new ApiError(
         503,

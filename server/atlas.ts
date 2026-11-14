@@ -12,6 +12,7 @@ import { EpisodeStore } from './episodeStore.ts';
 import { ExplorationStore } from './explorationStore.ts';
 import { AtlasConnection } from './atlasConnection.ts';
 import type { AtlasStatus } from './atlasConnection.ts';
+import { STORAGE_SCHEMA_VERSION } from './storageSchemas.ts';
 export type { AtlasStatus } from './atlasConnection.ts';
 
 export const MAX_MCAP_BYTES = 16 * 1024 * 1024;
@@ -119,7 +120,13 @@ export class AtlasStore extends AtlasConnection implements MissionStore {
       SOURCE_CATALOG.map((source) => ({
         updateOne: {
           filter: { _id: sourceCatalogId(source) },
-          update: { $setOnInsert: { ...source, catalogVersion: '1.0.0' } },
+          update: {
+            $setOnInsert: {
+              ...source,
+              catalogVersion: '1.0.0',
+              storageSchemaVersion: STORAGE_SCHEMA_VERSION,
+            },
+          },
           upsert: true,
         },
       })),
@@ -128,7 +135,7 @@ export class AtlasStore extends AtlasConnection implements MissionStore {
       ROBOT_CATALOG.map((robot) => ({
         updateOne: {
           filter: { _id: `${robot.id}:${robot.revision}` },
-          update: { $setOnInsert: { ...robot } },
+          update: { $setOnInsert: { ...robot, storageSchemaVersion: STORAGE_SCHEMA_VERSION } },
           upsert: true,
         },
       })),
@@ -153,6 +160,7 @@ export class AtlasStore extends AtlasConnection implements MissionStore {
         { _id: id },
         {
           $setOnInsert: {
+            storageSchemaVersion: STORAGE_SCHEMA_VERSION,
             mission,
             requestHash,
             createdAt,
@@ -212,6 +220,7 @@ export class AtlasStore extends AtlasConnection implements MissionStore {
     if (existing) return existing;
     try {
       await runs.insertOne({
+        storageSchemaVersion: STORAGE_SCHEMA_VERSION,
         _id: run.runId,
         state: 'persisting',
         requestHash,
@@ -245,6 +254,7 @@ export class AtlasStore extends AtlasConnection implements MissionStore {
         { _id: missionId },
         {
           $setOnInsert: {
+            storageSchemaVersion: STORAGE_SCHEMA_VERSION,
             mission: run.mission,
             requestHash: missionId,
             createdAt: run.startedAt,
@@ -257,6 +267,7 @@ export class AtlasStore extends AtlasConnection implements MissionStore {
         { _id: planId },
         {
           $setOnInsert: {
+            storageSchemaVersion: STORAGE_SCHEMA_VERSION,
             missionId,
             plan: run.plan,
             planner: run.planner,
@@ -272,6 +283,7 @@ export class AtlasStore extends AtlasConnection implements MissionStore {
         { _id: `${run.runId}:execution` },
         {
           $setOnInsert: {
+            storageSchemaVersion: STORAGE_SCHEMA_VERSION,
             runId: run.runId,
             planId,
             planner: run.planner,

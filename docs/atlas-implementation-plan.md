@@ -30,7 +30,7 @@ Ship one independently useful step at a time, ordered by implementation effort a
 | --- | --- | --- | --- | --- |
 | 1 | Live Atlas episode overview in Robot lab | Small | Existing complete physics records | Complete — [verification](qa/2026-11-14-atlas-overview.md) |
 | 2 | Episode Explorer filters and stable pagination | Small/medium | 1 | Complete — [verification](qa/2026-11-14-episode-explorer.md) |
-| 3 | Database schema validation with a compatibility audit | Medium | Existing writers and legacy shapes audited | Next |
+| 3 | Database schema validation with a compatibility audit | Medium | Migration credential with `collMod`; remaining integration checks | Paused by owner — [implementation and handoff](atlas-schema-validation.md); live rollout not applied |
 | 4 | Backup, restore and alert verification | Medium; account access dependent | Authorized Atlas management access | Planned; settings unverified |
 | 5 | Keyword search over versioned episode summaries | Medium | 2; search permissions/capacity checked | Planned |
 | 6 | Reviewed dataset manifests and split groups | Medium/large | 2–3; explicit eligibility rules | Planned |
@@ -112,9 +112,10 @@ Atlas becomes more useful immediately through observable metadata, then gains di
 
 1. [x] Finish Step 1 and record verification evidence.
 2. [x] Implement Step 2 after Step 1 passes.
-3. [ ] Reassess estimates and prerequisites at each completed step; update the status table and evidence links.
+3. [ ] Resume Step 3 from the [schema-validation handoff](atlas-schema-validation.md); complete integration verification and obtain migration access before live enforcement.
+4. [ ] Reassess estimates and prerequisites at each completed step; update the status table and evidence links.
 
-Steps 1–2 are available in **Robot lab → Episode Explorer**. Use the shortcut at the top of Robot lab to reach the filters, overview, replay and MCAP downloads. The next implementation is Step 3: audit stored document shapes before enabling compatible database validators. Steps 3–9 remain unimplemented.
+Steps 1–2 are available in **Robot lab → Episode Explorer**. Step 3's code and compatibility audit are prepared: 39 existing records across nine collections match the proposed rules. The owner requested pausing the rollout on November 14. Live validators remain absent; the app credential lacks `collMod`, and the full integration check still needs completion. Resume Step 3 from its handoff. Steps 4–9 remain unimplemented.
 
 Step 2 query-plan inspection found the existing state index in use and a bounded sort over projected metadata. No new index was added for the 10-record corpus. Legacy date normalization currently prevents an index-provided sort; reassess a canonical indexed timestamp after the Step 3 compatibility audit, before claiming large-corpus performance. Browser cancellation no longer marks the shared Atlas connection unavailable.
 

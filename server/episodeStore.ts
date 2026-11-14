@@ -6,6 +6,7 @@ import type { EpisodeMetadata, EpisodeRecord } from '../src/simulation/episode.t
 import { bytesHash } from './hash.ts';
 import { ApiError } from './errors.ts';
 import { AtlasRepository } from './atlasConnection.ts';
+import { STORAGE_SCHEMA_VERSION } from './storageSchemas.ts';
 import { readEpisodeStats } from './episodeStats.ts';
 import { readEpisodePage } from './episodePage.ts';
 import type { EpisodeQuery } from './episodeQuery.ts';
@@ -64,7 +65,12 @@ export class EpisodeStore extends AtlasRepository {
         collection = db.collection<Stored>('physics_episodes');
       const existing = await this.find(episode.id, requestHash);
       if (existing) return existing;
-      await collection.insertOne({ _id: episode.id, requestHash, state: 'persisting' });
+      await collection.insertOne({
+        _id: episode.id,
+        requestHash,
+        state: 'persisting',
+        storageSchemaVersion: STORAGE_SCHEMA_VERSION,
+      });
       const bucket = new GridFSBucket(db, { bucketName: 'episode_artifacts' });
       const artifactId = new ObjectId();
       const artifact = { id: artifactId.toHexString(), sha256: bytesHash(bytes), bytes: bytes.length };

@@ -10,5 +10,6 @@ test-results/
 .DS_Store
 .venv-sim/
 .episodes/
+.atlas-schema/
 __pycache__/
 .robot-sources/

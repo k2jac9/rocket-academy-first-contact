@@ -61,6 +61,21 @@ afterEach(() => {
 });
 
 describe('Atlas connection resilience', () => {
+  it('redacts schema rejection details without marking Atlas unavailable', async () => {
+    const store = new AtlasStore(config);
+    await store.connect();
+    driver.findOne.mockRejectedValueOnce(
+      new MongoServerError({ code: 121, message: 'Document validation failed: private payload' }),
+    );
+    await expect(store.episodes.find('fixture')).rejects.toMatchObject({
+      status: 422,
+      code: 'STORAGE_SCHEMA_REJECTED',
+      retryable: false,
+    });
+    expect(store.status().connected).toBe(true);
+    driver.findOne.mockRejectedValueOnce(new MongoServerError({ code: 121, message: 'private payload' }));
+    await expect(store.episodes.find('fixture')).rejects.not.toThrow(/private payload/);
+  });
   it.each(['list', 'stats'] as const)('keeps Atlas healthy when the browser cancels %s', async (kind) => {
     const store = new AtlasStore(config);
     await store.connect();

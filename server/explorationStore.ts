@@ -5,6 +5,7 @@ import type { Document, GridFSFile } from 'mongodb';
 import type { ExplorationArtifact, ExplorationRecord, ScenarioRecord } from '../src/scenarios/contracts.ts';
 import { ApiError } from './errors.ts';
 import { AtlasRepository } from './atlasConnection.ts';
+import { STORAGE_SCHEMA_VERSION } from './storageSchemas.ts';
 import { bytesHash, jsonHash } from './hash.ts';
 import { compileScenario, explorationRecord, validateExploration, validateScenario } from './scenarios.ts';
 
@@ -132,7 +133,14 @@ export class ExplorationStore extends AtlasRepository {
       try {
         await collection.updateOne(
           { _id: id },
-          { $setOnInsert: { requestHash, createdAt: new Date().toISOString(), record } },
+          {
+            $setOnInsert: {
+              requestHash,
+              createdAt: new Date().toISOString(),
+              record,
+              storageSchemaVersion: STORAGE_SCHEMA_VERSION,
+            },
+          },
           { upsert: true },
         );
       } catch (error) {
