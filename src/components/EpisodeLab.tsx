@@ -7,6 +7,8 @@ import type { FleetRobotId } from '../robots/catalog';
 import type { ScenarioRecord } from '../scenarios/contracts';
 import { SITE_LOCATIONS, type SurfaceSiteId } from '../domain/surfaceSites';
 import { getSource } from '../domain/mission';
+import { NarrationPanel } from './NarrationPanel';
+import { missionNarration, replayNarration } from '../simulation/narration';
 
 async function api<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(path, init),
@@ -26,6 +28,7 @@ type Summary = {
   body?: string;
 };
 export function EpisodeLab({
+  active,
   patch,
   error,
   capturing,
@@ -36,6 +39,7 @@ export function EpisodeLab({
   scenarioVersion,
   selectedSite,
 }: {
+  active: boolean;
   patch: TerrainPatch | null;
   error: string;
   capturing: boolean;
@@ -197,7 +201,22 @@ export function EpisodeLab({
           </h2>
           <p>Choose your fleet, explore Earth, Moon or Mars, and record a shared simulation.</p>
         </div>
-        <span className="episode-pill">Experimental · MuJoCo</span>
+        <div className="episode-heading-actions">
+          <button
+            className="secondary-button"
+            onClick={() => {
+              const panel = document.getElementById('mission-audio');
+              panel?.focus({ preventScroll: true });
+              panel?.scrollIntoView({
+                behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+                block: 'center',
+              });
+            }}
+          >
+            Mission audio
+          </button>
+          <span className="episode-pill">Experimental · MuJoCo</span>
+        </div>
       </div>
       <RobotCatalog
         disabled={busy || Boolean(activeScenario)}
@@ -475,6 +494,16 @@ export function EpisodeLab({
             physical robots are not validated. Gravity follows the selected world; soil, atmosphere and
             thermal effects are not modeled.
           </p>
+          <NarrationPanel
+            active={active}
+            title={episode ? 'Replay narration' : 'Mission briefing'}
+            initialText={
+              episode ? replayNarration(episode) : missionNarration(terrainSource, models, duration)
+            }
+            fileName={
+              episode ? `first-contact-${episode.id}-narration` : `first-contact-${terrainSite}-briefing`
+            }
+          />
           <div className="episode-history">
             <h3>Saved physics episodes</h3>
             {history.length === 0 ? (

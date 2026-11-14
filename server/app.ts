@@ -17,6 +17,8 @@ import type { ExplorationStore } from './explorationStore.ts';
 import { MAX_EXPLORATION_ARTIFACT_BYTES } from './explorationStore.ts';
 import { SHA256, verifyScenarioExecution } from './scenarios.ts';
 import { GENIE_ADAPTER } from '../src/scenarios/contracts.ts';
+import { createElevenLabsSpeech } from './elevenlabs.ts';
+import type { ElevenLabsSpeech } from './elevenlabs.ts';
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 function requestId(request: Request): string {
@@ -73,8 +75,10 @@ export function createApiHandler(dependencies: {
   planner: GeminiPlanner;
   episodes?: EpisodeService;
   explorations?: ExplorationStore;
+  speech?: ElevenLabsSpeech;
 }) {
   const { config, store, planner } = dependencies;
+  const speech = dependencies.speech ?? createElevenLabsSpeech(config);
   const pendingRuns = new Map<
     string,
     { hash: string; promise: Promise<{ record: RunRecord; status: number }> }
@@ -122,6 +126,19 @@ export function createApiHandler(dependencies: {
         return new Response(null, { status: 204, headers });
       }
       const url = new URL(request.url);
+      if (url.pathname === '/api/speech/status' && request.method === 'GET') return json(speech.status());
+      if (url.pathname === '/api/speech/voices' && request.method === 'GET')
+        return json(await speech.voices(request.signal));
+      if (url.pathname === '/api/speech' && request.method === 'POST') {
+        const audio = await speech.generate(await readJsonRequest(request), request.signal);
+        headers.set('content-type', 'audio/mpeg');
+        headers.set('content-length', String(audio.bytes.length));
+        headers.set('content-disposition', 'attachment; filename="first-contact-narration.mp3"');
+        headers.set('x-audio-sha256', audio.sha256);
+        headers.set('x-narration-model', audio.model);
+        headers.set('x-narration-cache', audio.cached ? 'hit' : 'miss');
+        return new Response(new Uint8Array(audio.bytes), { headers });
+      }
       if (url.pathname === '/api/integrations/genie' && request.method === 'GET') return json(GENIE_ADAPTER);
       if (url.pathname === '/api/integrations/genie/execute' && request.method === 'POST')
         throw new ApiError(

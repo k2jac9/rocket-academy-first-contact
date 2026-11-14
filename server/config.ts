@@ -5,6 +5,9 @@ export interface ServerConfig {
   readonly allowedHosts: readonly string[];
   readonly geminiApiKey: string;
   readonly geminiModel: string;
+  readonly elevenLabsApiKey: string;
+  readonly elevenLabsModel: string;
+  readonly elevenLabsVoiceId: string;
   readonly mongodbUri: string;
   readonly mongodbDb: string;
 }
@@ -19,6 +22,12 @@ export function readConfig(environment: Record<string, string | undefined> = pro
   const geminiModel = environment.GEMINI_MODEL?.trim() || 'gemini-3.8-flash';
   if (!/^[a-zA-Z0-9][a-zA-Z0-9._-]{0,99}$/.test(geminiModel))
     throw new Error('GEMINI_MODEL has an invalid model identifier.');
+  const elevenLabsModel = environment.ELEVENLABS_MODEL?.trim() || 'eleven_multilingual_v2';
+  const elevenLabsVoiceId = environment.ELEVENLABS_VOICE_ID?.trim() || '';
+  if (!/^[a-zA-Z0-9_-]{1,80}$/.test(elevenLabsModel))
+    throw new Error('ELEVENLABS_MODEL has an invalid model identifier.');
+  if (elevenLabsVoiceId && !/^[a-zA-Z0-9_-]{1,80}$/.test(elevenLabsVoiceId))
+    throw new Error('ELEVENLABS_VOICE_ID has an invalid voice identifier.');
   const mongodbDb = environment.MONGODB_DB?.trim() || 'rocket_academy';
   if (!/^[a-zA-Z0-9_-]{1,63}$/.test(mongodbDb))
     throw new Error('MONGODB_DB must use letters, digits, underscores, or hyphens.');
@@ -60,6 +69,9 @@ export function readConfig(environment: Record<string, string | undefined> = pro
     allowedHosts: [`127.0.0.1:${port}`, `localhost:${port}`],
     geminiApiKey: environment.GEMINI_API_KEY?.trim() || '',
     geminiModel,
+    elevenLabsApiKey: environment.ELEVENLABS_API_KEY?.trim() || '',
+    elevenLabsModel,
+    elevenLabsVoiceId,
     mongodbUri: environment.MONGODB_URI?.trim() || '',
     mongodbDb,
   };

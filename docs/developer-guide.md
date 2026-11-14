@@ -166,6 +166,9 @@ cp .env.example .env.local
 | `MONGODB_DB` | Node server only | Dedicated application database; the example uses `first_contact`, while an unset value defaults to `rocket_academy` |
 | `GEMINI_API_KEY` | Node server only | Gemini API credential for planning |
 | `GEMINI_MODEL` | Node server only | Optional model override; `/api/status` reports the configured/default model |
+| `ELEVENLABS_API_KEY` | Node server only | Optional speech generation; requires Text to Speech and Voices read access |
+| `ELEVENLABS_MODEL` | Node server only | Narration model; defaults to `eleven_multilingual_v2` |
+| `ELEVENLABS_VOICE_ID` | Node server only | Optional preferred voice from the returned account voices |
 | `VITE_CESIUM_ION_TOKEN` | Browser | Optional public, restricted ion token for Moon/Mars terrain |
 | `FIRST_CONTACT_API_PORT` | Node and Vite configuration | Optional API port; default `8787` |
 | `FIRST_CONTACT_ALLOWED_ORIGINS` | Node server only | Optional comma-separated exact HTTP(S) origins |
@@ -219,6 +222,8 @@ Run `npm run check:atlas` for read-only connection, index, and saved-artifact ha
 The API accepts local hosts and an explicit origin allowlist. Defaults cover `localhost` and `127.0.0.1` at the development, preview, and API ports. If you deliberately change the frontend origin, configure its exact origin and restart. This is a local-development boundary, not a substitute for authentication and authorization on a public service.
 
 ## Local API
+
+Optional narration uses `GET /api/speech/status`, `GET /api/speech/voices`, and `POST /api/speech` with `{ text, voiceId }`. The POST returns MP3 bytes, a SHA-256 header and cache-hit status. See [ElevenLabs setup and limits](elevenlabs-narration.md).
 
 The legacy mission/planning/run POST routes below use JSON with `Content-Type: application/json` and a 256 KiB body limit. Episode and exploration routes have their own contracts and limits in [the simulation guide](../simulation/README.md) and [Genie integration guide](google-genie-integration.md). Errors use `{ "error": { "code", "message", "retryable" } }` without returning provider credentials.
 

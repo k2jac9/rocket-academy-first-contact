@@ -1103,6 +1103,7 @@ export default function App() {
 
       {labActivated && (
         <EpisodeLab
+          active={workspaceView === 'lab'}
           selectedSite={isSurfaceSite(mode) ? mode : SITE_FOR_BODY[source.body]}
           scenarioVersion={studioScenario}
           catalogFleet={catalogFleet}
@@ -1293,19 +1294,20 @@ export default function App() {
             </div>
           </form>
           <div className="server-setup">
-            <h3>Atlas and Gemini</h3>
+            <h3>Atlas, Gemini and ElevenLabs</h3>
             <p>
               Set the server connections in <code>.env.local</code>, then restart <code>npm run dev</code>.
               Keep these values server-side.
             </p>
             <pre>
               {
-                'MONGODB_URI=your_atlas_connection_string\nMONGODB_DB=first_contact\nGEMINI_API_KEY=your_gemini_api_key'
+                'MONGODB_URI=your_atlas_connection_string\nMONGODB_DB=first_contact\nGEMINI_API_KEY=your_gemini_api_key\nELEVENLABS_API_KEY=your_elevenlabs_api_key'
               }
             </pre>
             <p>
               The local service saves missions and runs to Atlas, stores MCAP files in GridFS, and requests
-              Gemini plans. Connection status is shown in Robot orchestration.
+              Gemini plans. ElevenLabs adds optional mission narration in Robot lab. Connection status is
+              shown in the corresponding tools.
             </p>
           </div>
         </Dialog>

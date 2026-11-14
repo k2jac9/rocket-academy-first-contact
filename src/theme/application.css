@@ -1312,3 +1312,101 @@ summary:focus-visible {
 .app-shell.view-catalog > .footer {
   display: none;
 }
+
+.narration-panel {
+  margin: 24px 0;
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.episode-heading-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.narration-heading,
+.narration-actions,
+.narration-voice-row,
+.narration-player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.narration-heading {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.narration-heading h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 12px;
+}
+.narration-voice-row {
+  align-items: flex-end;
+  margin: 18px 0;
+}
+.narration-voice-field {
+  flex: 1 1 180px;
+  display: grid;
+  gap: 8px;
+}
+.narration-panel label {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.narration-script {
+  display: grid;
+  gap: 8px;
+}
+.narration-panel select,
+.narration-panel textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--surface);
+  font: inherit;
+}
+.narration-panel textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.narration-actions {
+  margin-top: 14px;
+}
+.narration-note {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.narration-setup {
+  padding: 14px;
+  background: var(--surface-soft);
+  line-height: 1.7;
+}
+.narration-player {
+  margin-top: 16px;
+}
+.narration-player audio {
+  flex: 1 1 230px;
+  width: 100%;
+  min-width: 0;
+}
+.narration-player p {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 12px;
+}
+@media (max-width: 600px) {
+  .narration-panel {
+    padding: 16px;
+  }
+}

@@ -109,12 +109,19 @@ The physical pilot is experimental. Sensor calibration, planetary contact models
 
 ## Built for the next iteration
 
+### Give the mission a voice
+
+In **Robot lab**, select **Mission audio** for an editable briefing or saved-episode summary. Load your ElevenLabs voices, generate narration, then play or download the MP3. Audio is a presentation track, independent of the recorded robot timeline.
+
+Set the server-only `ELEVENLABS_API_KEY` in `.env.local`, or run `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/configure-elevenlabs.ps1` on Windows for a masked prompt. Enable Text to Speech and Voices read permissions, restart the API and refresh the panel. Generation uses your ElevenLabs account credits; audio never plays automatically. See [narration setup and limits](docs/elevenlabs-narration.md).
+
 | Layer | Implementation |
 | --- | --- |
 | Interactive workspace | React · TypeScript · Three.js · Vite |
 | Local API and validation | Node.js 24 · shared TypeScript contracts |
 | Physical execution | Python · MuJoCo |
 | Mission planning | Deterministic baseline · optional Gemini |
+| Mission narration | Optional ElevenLabs text-to-speech · editable scripts · MP3 playback/export |
 | Episode memory | MongoDB Atlas · GridFS · SHA-256 lineage |
 | Portable recordings | MCAP · explicit schemas, frames and timestamps |
 
@@ -136,6 +143,7 @@ The Atlas diagnostic checks the configured connection, indexes and representativ
 | Physics scope and remaining milestones | [Synthetic episode lab](docs/synthetic-episode-lab.md) |
 | Shared interface language | [Design system](docs/design-system.md) |
 | Original film and preview details | [Media notes](docs/media/README.md) |
+| Mission audio and voice configuration | [ElevenLabs narration](docs/elevenlabs-narration.md) |
 
 ---
 
