@@ -73,6 +73,30 @@ describe('mission export', () => {
     expect(manifest.markers.rover.position.x).toBe(10);
   });
 
+  it.each(['amboy-crater', 'apollo-17'] as const)(
+    'round-trips %s measured-terrain provenance through JSON',
+    (mode) => {
+      const manifest = createMissionManifest({ mode, rover, goal, createdAt });
+      const parsed = JSON.parse(JSON.stringify(manifest));
+      expect(validateMissionManifest(parsed)).toEqual({ valid: true, manifest: parsed });
+      expect(parsed.source.georeference.originProjectedM).toEqual(
+        getSource(mode).georeference!.originProjectedM,
+      );
+    },
+  );
+
+  it.each(['amboy-crater', 'apollo-17'] as const)(
+    'keeps exported %s georeference edits separate from the source catalog',
+    (mode) => {
+      const original = structuredClone(getSource(mode).georeference);
+      const manifest = createMissionManifest({ mode, rover, goal, createdAt });
+      manifest.source.georeference!.originProjectedM[0] += 1;
+      manifest.source.georeference!.originElevationM += 1;
+      expect(getSource(mode).georeference).toEqual(original);
+      expect(validateMissionManifest(manifest).valid).toBe(false);
+    },
+  );
+
   it('does not serialize unexpected credentials or extra marker properties', () => {
     const input = {
       mode: 'dingo-gap',
@@ -133,6 +157,23 @@ describe('mission export', () => {
 });
 
 describe('mission validation', () => {
+  describe.each(['amboy-crater', 'apollo-17'] as const)('%s georeference', (mode) => {
+    it.each([
+      ['changed value', (origin: number[]) => [origin[0] + 1, origin[1]]],
+      ['reordered coordinates', (origin: number[]) => [...origin].reverse()],
+      ['missing coordinate', (origin: number[]) => origin.slice(0, 1)],
+      ['extra coordinate', (origin: number[]) => [...origin, 0]],
+      ['string coordinate', (origin: number[]) => [String(origin[0]), origin[1]]],
+      ['object instead of array', (origin: number[]) => ({ 0: origin[0], 1: origin[1], length: 2 })],
+    ] as const)('rejects %s', (_name, change) => {
+      const parsed = JSON.parse(JSON.stringify(createMissionManifest({ mode, rover, goal, createdAt })));
+      parsed.source.georeference.originProjectedM = change(parsed.source.georeference.originProjectedM);
+      const result = validateMissionManifest(parsed);
+      expect(result.valid).toBe(false);
+      if (!result.valid) expect(result.errors.join(' ')).toContain('source.georeference.originProjectedM');
+    });
+  });
+
   it.each([null, [], 'not-a-mission', 42, {}].map((value) => ({ value })))(
     'rejects malformed input without throwing: $value',
     ({ value }) => {

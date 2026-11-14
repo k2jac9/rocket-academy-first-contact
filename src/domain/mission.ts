@@ -368,7 +368,13 @@ export function distanceMeters(start: TerrainPoint, end: TerrainPoint): number {
 function sourceMetadata(source: TerrainSource): MissionSource {
   return {
     ...(source.georeference
-      ? { georeference: source.georeference, imagerySha256: source.imagerySha256 }
+      ? {
+          georeference: {
+            ...source.georeference,
+            originProjectedM: [...source.georeference.originProjectedM],
+          },
+          imagerySha256: source.imagerySha256,
+        }
       : {}),
     layer: source.layer,
     geometryKind: source.geometryKind,
@@ -439,6 +445,21 @@ function requireKeys(
 
 /** Match all fixed provenance fields and reject additions instead of retaining hidden payloads. */
 function requireExact(value: unknown, expected: unknown, path: string, errors: string[]): void {
+  // JSON transport creates new arrays; provenance must match by value and order.
+  if (Array.isArray(expected)) {
+    if (!Array.isArray(value) || value.length !== expected.length) {
+      errors.push(`${path} does not match the supported mission contract`);
+      return;
+    }
+    requireKeys(
+      value as unknown as Record<string, unknown>,
+      expected.map((_item, index) => String(index)),
+      path,
+      errors,
+    );
+    expected.forEach((item, index) => requireExact(value[index], item, `${path}[${index}]`, errors));
+    return;
+  }
   if (!isRecord(expected)) {
     if (value !== expected) errors.push(`${path} does not match the supported mission contract`);
     return;

@@ -97,6 +97,23 @@ describe('local orchestration boundary', () => {
     expect(await response.json()).toMatchObject({ error: { code: 'ATLAS_NOT_CONFIGURED' } });
   });
 
+  describe.each(['amboy-crater', 'apollo-17'] as const)('%s mission requests', (mode) => {
+    it.each([
+      ['/api/missions', {}, 'ATLAS_NOT_CONFIGURED'],
+      ['/api/plans', { objective: 'Inspect the goal' }, 'PLANNER_NOT_CONFIGURED'],
+      ['/api/runs', { plan, planner: { kind: 'baseline' } }, 'ATLAS_NOT_CONFIGURED'],
+    ] as const)('accepts JSON provenance before the %s service gate', async (path, input, code) => {
+      const measuredMission = createMissionManifest({
+        mode,
+        rover: { x: 0, y: 0, z: 0 },
+        goal: { x: 5, y: 0, z: 0 },
+      });
+      const response = await unconfiguredApi()(request(path, { mission: measuredMission, ...input }));
+      expect(response.status).toBe(503);
+      expect(await response.json()).toMatchObject({ error: { code } });
+    });
+  });
+
   it('rejects an untrusted web origin before handling a mission', async () => {
     const response = await unconfiguredApi()(
       request('/api/missions', { mission: mission() }, { origin: 'https://untrusted.example' }),
