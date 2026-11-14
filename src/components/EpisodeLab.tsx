@@ -8,6 +8,7 @@ import type { ScenarioRecord } from '../scenarios/contracts';
 import { SITE_LOCATIONS, type SurfaceSiteId } from '../domain/surfaceSites';
 import { getSource } from '../domain/mission';
 import { NarrationPanel } from './NarrationPanel';
+import { EpisodeOverview } from './EpisodeOverview';
 import { missionNarration, replayNarration } from '../simulation/narration';
 
 async function api<T>(path: string, init?: RequestInit): Promise<T> {
@@ -504,6 +505,7 @@ export function EpisodeLab({
               episode ? `first-contact-${episode.id}-narration` : `first-contact-${terrainSite}-briefing`
             }
           />
+          <EpisodeOverview active={active} revision={job?.state === 'complete' ? job.id : ''} />
           <div className="episode-history">
             <h3>Saved physics episodes</h3>
             {history.length === 0 ? (

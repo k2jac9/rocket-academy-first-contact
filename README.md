@@ -144,6 +144,7 @@ The Atlas diagnostic checks the configured connection, indexes and representativ
 | Shared interface language | [Design system](docs/design-system.md) |
 | Original film and preview details | [Media notes](docs/media/README.md) |
 | Mission audio and voice configuration | [ElevenLabs narration](docs/elevenlabs-narration.md) |
+| Atlas roadmap and delivery status | [Sequential implementation plan](docs/atlas-implementation-plan.md) |
 
 ---
 

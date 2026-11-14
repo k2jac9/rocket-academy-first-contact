@@ -21,6 +21,9 @@ export class EpisodeService {
   constructor(store: EpisodeStore) {
     this.store = store;
   }
+  stats(signal?: AbortSignal) {
+    return this.store.stats(signal);
+  }
   async create(id: string, value: unknown, lineage?: ScenarioLineage): Promise<EpisodeJob> {
     let input;
     try {

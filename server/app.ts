@@ -207,6 +207,11 @@ export function createApiHandler(dependencies: {
         const episodes = dependencies.episodes;
         if (!episodes)
           throw new ApiError(503, 'PHYSICS_UNAVAILABLE', 'The physics episode service is unavailable.');
+        if (url.pathname === '/api/episodes/stats' && request.method === 'GET') {
+          if (url.search)
+            throw new ApiError(422, 'INVALID_QUERY', 'Episode statistics do not accept query parameters.');
+          return json(await episodes.stats(request.signal));
+        }
         if (url.pathname === '/api/episodes' && request.method === 'POST') {
           const value = await readJsonRequest(request);
           if (value && typeof value === 'object' && 'scenarioVersionId' in value) {

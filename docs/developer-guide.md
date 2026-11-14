@@ -223,6 +223,8 @@ The API accepts local hosts and an explicit origin allowlist. Defaults cover `lo
 
 ## Local API
 
+`GET /api/episodes/stats` supplies Robot lab's Atlas overview. It aggregates all complete physical episodes into counts, recorded seconds, camera-pair counts, metric coverage, and body/end-reason/model breakdowns. It accepts no query parameters and returns no sensor payloads. See the [verification report](qa/2026-11-14-atlas-overview.md) and [implementation plan](atlas-implementation-plan.md) for the next discovery steps.
+
 Optional narration uses `GET /api/speech/status`, `GET /api/speech/voices`, and `POST /api/speech` with `{ text, voiceId }`. The POST returns MP3 bytes, a SHA-256 header and cache-hit status. See [ElevenLabs setup and limits](elevenlabs-narration.md).
 
 The legacy mission/planning/run POST routes below use JSON with `Content-Type: application/json` and a 256 KiB body limit. Episode and exploration routes have their own contracts and limits in [the simulation guide](../simulation/README.md) and [Genie integration guide](google-genie-integration.md). Errors use `{ "error": { "code", "message", "retryable" } }` without returning provider credentials.

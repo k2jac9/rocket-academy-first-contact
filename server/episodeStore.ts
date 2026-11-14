@@ -6,6 +6,7 @@ import type { EpisodeMetadata, EpisodeRecord } from '../src/simulation/episode.t
 import { bytesHash } from './hash.ts';
 import { ApiError } from './errors.ts';
 import { AtlasRepository } from './atlasConnection.ts';
+import { readEpisodeStats } from './episodeStats.ts';
 
 type Stored = Document & {
   _id: string;
@@ -25,6 +26,11 @@ function record(doc: Stored): EpisodeRecord {
   };
 }
 export class EpisodeStore extends AtlasRepository {
+  async stats(signal?: AbortSignal) {
+    return this.operation(async () =>
+      readEpisodeStats((await this.database()).collection('physics_episodes'), signal),
+    );
+  }
   async find(id: string, hash?: string): Promise<EpisodeRecord | null> {
     return this.operation(async () => {
       const doc = await (await this.database()).collection<Stored>('physics_episodes').findOne({ _id: id });

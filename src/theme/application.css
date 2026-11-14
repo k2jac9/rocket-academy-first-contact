@@ -908,6 +908,87 @@ summary:focus-visible {
 .episode-history button:hover {
   background: var(--surface-soft);
 }
+.episode-overview {
+  border: 1px solid var(--line);
+  padding: 24px;
+  margin: 24px 0;
+  background: var(--surface);
+}
+.episode-overview-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.episode-overview-heading h3 {
+  margin: 8px 0 0;
+}
+.episode-overview-totals {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.episode-overview-totals dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+.episode-overview-totals dd {
+  margin: 8px 0 0;
+  font-size: 27px;
+  font-variant-numeric: tabular-nums;
+}
+.episode-overview-totals small {
+  color: var(--muted);
+  font-size: 14px;
+}
+.episode-overview-breakdowns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+.episode-overview-breakdowns h4 {
+  font-size: 13px;
+  margin: 4px 0 12px;
+}
+.episode-overview-breakdowns dl {
+  margin: 0;
+}
+.episode-overview-breakdowns dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  font-size: 13px;
+}
+.episode-overview-breakdowns dt {
+  color: var(--muted);
+}
+.episode-overview-breakdowns dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.episode-overview-note,
+.episode-overview-updated {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+@media (max-width: 800px) {
+  .episode-overview {
+    padding: 16px;
+  }
+  .episode-overview-totals {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .episode-overview-breakdowns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
 .episode-ready {
   color: var(--success) !important;
 }
