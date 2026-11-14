@@ -1,8 +1,10 @@
 import { randomUUID } from 'node:crypto';
+import { Readable, Writable } from 'node:stream';
+import { pipeline } from 'node:stream/promises';
 import { MongoClient, MongoNetworkError, ObjectId, GridFSBucket } from 'mongodb';
 import type { Db, Document } from 'mongodb';
 import { readConfig } from '../server/config.ts';
-import { ATLAS_CLIENT_OPTIONS } from '../server/atlasConnection.ts';
+import { ATLAS_CLIENT_OPTIONS, atlasError } from '../server/atlasConnection.ts';
 import { AtlasStore } from '../server/atlas.ts';
 import { EpisodeStore } from '../server/episodeStore.ts';
 import { createMissionManifest } from '../src/domain/mission.ts';
@@ -24,7 +26,22 @@ const config = readConfig({
     ...process.env,
     MONGODB_URI: process.env.MONGODB_MIGRATION_URI ?? process.env.MONGODB_URI,
   }),
-  client = new MongoClient(config.mongodbUri, ATLAS_CLIENT_OPTIONS);
+  client = new MongoClient(config.mongodbUri, { ...ATLAS_CLIENT_OPTIONS, monitorCommands: true });
+// Diagnose slow/failed commands without logging command bodies, record values or connection details.
+client.on('commandSucceeded', (event) => {
+  if (event.duration > 2000)
+    console.log(JSON.stringify({ slowCommand: event.commandName, durationMs: Math.round(event.duration) }));
+});
+client.on('commandFailed', (event) => {
+  const code = (event.failure as Error & { code?: unknown }).code;
+  console.error(
+    JSON.stringify({
+      failedCommand: event.commandName,
+      durationMs: Math.round(event.duration),
+      code: typeof code === 'number' ? code : undefined,
+    }),
+  );
+});
 async function rejected(work: () => Promise<unknown>, code: number | string) {
   try {
     await work();
@@ -34,8 +51,47 @@ async function rejected(work: () => Promise<unknown>, code: number | string) {
   }
   throw new ValidationCheckError(`Expected rejection ${code}, but write succeeded.`);
 }
-async function streamBytes(stream: ReadableStream<Uint8Array>) {
-  return new Uint8Array(await new Response(stream).arrayBuffer());
+async function streamBytes(stream: ReadableStream<Uint8Array> | Readable, expectedBytes: number) {
+  check(
+    Number.isSafeInteger(expectedBytes) && expectedBytes > 0 && expectedBytes <= 16 * 1024 * 1024,
+    'Artifact exceeds the verification size bound.',
+  );
+  const chunks: Buffer[] = [];
+  let received = 0;
+  await pipeline(
+    stream instanceof Readable
+      ? stream
+      : Readable.fromWeb(stream as import('node:stream/web').ReadableStream<Uint8Array>),
+    new Writable({
+      write(chunk, _encoding, next) {
+        received += chunk.length;
+        if (received > expectedBytes)
+          return next(new ValidationCheckError('Artifact exceeds its recorded byte count.'));
+        chunks.push(Buffer.from(chunk));
+        next();
+      },
+    }),
+    { signal: AbortSignal.timeout(60000) },
+  );
+  check(received === expectedBytes, 'Artifact is shorter than its recorded byte count.');
+  return Buffer.concat(chunks);
+}
+const started = performance.now();
+let phase = 'configuration';
+function enter(value: string) {
+  phase = value;
+  console.log(JSON.stringify({ phase, elapsedMs: Math.round(performance.now() - started) }));
+}
+function failure(error: unknown): never {
+  const e = error as { name?: unknown; code?: unknown };
+  console.error(
+    JSON.stringify({
+      phase,
+      driverError: typeof e?.name === 'string' ? e.name : 'unknown',
+      code: typeof e?.code === 'number' ? e.code : undefined,
+    }),
+  );
+  throw atlasError(error);
 }
 try {
   check(
@@ -65,16 +121,39 @@ try {
     !(await db.listCollections({ name: { $regex: `^${prefix}` } }, { nameOnly: true }).hasNext()),
     'Fixture namespace already exists.',
   );
-  let phase = 'create';
   try {
     for (const name of schemaNames) {
+      enter(`copy ${name}`);
       await db.createCollection(namespace(name), canModify ? {} : desired(name, 'error'));
-      const docs = await db.collection(name).find({}, { maxTimeMS: 10000 }).limit(1001).toArray();
-      check(docs.length <= 1000, 'Fixture legacy-copy limit is 1,000 records per collection.');
-      if (docs.length) await db.collection(namespace(name)).insertMany(docs);
+      const size = await db
+        .collection(name)
+        .aggregate(
+          [{ $group: { _id: null, bytes: { $sum: { $bsonSize: '$$ROOT' } }, count: { $sum: 1 } } }],
+          { maxTimeMS: 10000 },
+        )
+        .next();
+      check(
+        (size?.bytes ?? 0) <= 32 * 1024 * 1024 && (size?.count ?? 0) <= 1000,
+        'Legacy fixture copy is limited to 32 MiB and 1,000 records per collection.',
+      );
+      // Keep legacy bytes and schema checks intact while avoiding a round trip through the laptop.
+      await db
+        .collection(name)
+        .aggregate(
+          [
+            { $limit: 1001 },
+            { $merge: { into: namespace(name), on: '_id', whenMatched: 'fail', whenNotMatched: 'insert' } },
+          ],
+          { maxTimeMS: 15000, signal: AbortSignal.timeout(20000) },
+        )
+        .toArray();
+      check(
+        (await db.collection(namespace(name)).countDocuments({}, { maxTimeMS: 5000 })) <= 1000,
+        'Fixture copy exceeded its record bound.',
+      );
     }
     const snapshot = canModify ? await captureSnapshot(db, prefix, namespace) : null;
-    phase = 'warning rollout';
+    enter('warning rollout');
     const temp = db.collection(namespace('physics_episodes'));
     const bad: Document = { _id: randomUUID(), state: 'complete' };
     if (snapshot) {
@@ -92,7 +171,7 @@ try {
       }
       check(blocked, 'Invalid existing fixture did not block enforcement.');
       await temp.deleteOne({ _id: bad._id });
-      phase = 'enforcement';
+      enter('enforcement');
       await applyValidation(db, snapshot, prefix, 'enforce', namespace);
     } else {
       const warning = await db.createCollection(
@@ -105,9 +184,12 @@ try {
         'Warning collection did not retain the invalid test record.',
       );
     }
-    phase = 'enforced writes';
+    enter('enforced writes');
     for (const name of schemaNames) await rejected(() => db.collection(namespace(name)).insertOne({}), 121);
-    const sample = await temp.findOne({ state: 'complete' });
+    const sample = await temp.findOne(
+      { state: 'complete' },
+      { sort: { 'artifact.bytes': 1 }, maxTimeMS: 5000 },
+    );
     check(
       sample?.episode && sample.artifact,
       'A saved physics episode is needed for the storage round-trip check.',
@@ -139,9 +221,12 @@ try {
       protected override async db(): Promise<Db> {
         return isolated;
       }
+      protected override fail(error: unknown): never {
+        return failure(error);
+      }
     }
     const store = new FixtureStore(config);
-    phase = 'mission and run writers';
+    enter('mission and run writers');
     const mission = createMissionManifest({
       mode: 'dingo-gap',
       rover: { x: 0, y: 0, z: 0 },
@@ -168,20 +253,21 @@ try {
     await store.saveRun(run, bytes, requestHash);
     await store.saveRun(run, bytes, requestHash);
     const runDownload = await store.downloadRun(run.runId),
-      runBytes = await streamBytes(runDownload.stream);
+      runBytes = await streamBytes(runDownload.stream, runDownload.artifact.bytes);
     check(bytesHash(runBytes) === bytesHash(bytes), 'Run artifact hash changed.');
     await inspectRunMcap(runBytes);
     check((await store.findRun(run.runId))?.run.runId === run.runId, 'Run replay identity changed.');
-    phase = 'physics writer and retry recovery';
-    const sourceBucket = new GridFSBucket(db, { bucketName: 'episode_artifacts' }),
-      chunks: Buffer[] = [];
-    for await (const chunk of sourceBucket.openDownloadStream(new ObjectId(sample.artifact.id)))
-      chunks.push(chunk);
-    const physicsBytes = Buffer.concat(chunks);
+    enter('physics source download');
+    const sourceBucket = new GridFSBucket(db, { bucketName: 'episode_artifacts' });
+    const physicsBytes = await streamBytes(
+      sourceBucket.openDownloadStream(new ObjectId(sample.artifact.id)),
+      sample.artifact.bytes,
+    );
     check(bytesHash(physicsBytes) === sample.artifact.sha256, 'Source physics artifact hash mismatch.');
     await temp.deleteOne({ _id: sample._id }); // Only the isolated metadata copy, never the source recording.
     const invalid = structuredClone(sample.episode);
     delete invalid.engine;
+    enter('physics rejected save and cleanup');
     await rejected(
       () => store.episodes.save(invalid, physicsBytes, sample.requestHash),
       'STORAGE_SCHEMA_REJECTED',
@@ -220,18 +306,22 @@ try {
         };
       },
     });
-    const recoveryStore = new EpisodeStore(async () => failing);
+    enter('physics lost acknowledgement recovery');
+    const recoveryStore = new EpisodeStore(async () => failing, failure);
     await recoveryStore.save(sample.episode, physicsBytes, sample.requestHash);
+    enter('physics idempotent retry');
     await store.episodes.save(sample.episode, physicsBytes, sample.requestHash);
     check(
       (await db.collection(namespace('episode_artifacts.files')).countDocuments({})) === 1,
       'Retry duplicated physics artifacts.',
     );
     check(
-      bytesHash(await streamBytes((await store.episodes.download(sample.episode.id)).stream)) ===
-        sample.artifact.sha256,
+      bytesHash(
+        await streamBytes((await store.episodes.download(sample.episode.id)).stream, sample.artifact.bytes),
+      ) === sample.artifact.sha256,
       'Physics replay artifact changed.',
     );
+    enter('physics persisting transition');
     const pending: Document = {
       _id: randomUUID(),
       requestHash: '0'.repeat(64),
@@ -254,7 +344,7 @@ try {
       (await store.episodes.find(pending._id))?.id === pending._id,
       'Interrupted publication could not transition to complete.',
     );
-    phase = 'exploration and scenario writers';
+    enter('exploration and scenario writers');
     const brief = {
       title: 'Storage validation fixture',
       body: 'moon',
@@ -290,7 +380,7 @@ try {
       audit.every((r) => r.invalid === 0),
       'A current writer produced an incompatible document.',
     );
-    phase = 'rollback';
+    enter('rollback');
     if (snapshot) {
       await applyValidation(db, snapshot, prefix, 'rollback', namespace);
       await temp.insertOne(bad);
@@ -320,6 +410,7 @@ try {
       `Fixture phase ${phase} failed (${error instanceof ValidationCheckError ? error.message : ((error as { code?: unknown }).code ?? 'redacted error')}).`,
     );
   } finally {
+    enter('cleanup');
     const collections = await db
       .listCollections({ name: { $regex: `^${prefix}` } }, { nameOnly: true })
       .toArray();

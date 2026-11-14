@@ -1,8 +1,8 @@
-# Atlas schema validation: implementation and paused rollout
+# Atlas schema validation: tested implementation and deferred activation
 
-**Handoff: November 14, 2026. Paused at the owner's request. Step 3 is not complete.**
+**Handoff updated November 14, 2026. Testing completed within available permissions; live activation deferred at the owner's request. Step 3 is not complete.**
 
-The code and read-only compatibility audit are prepared. No validators have been installed on the nine live application collections. Do not describe the database as enforcing these rules yet. Resume this step before advancing the sequential Atlas plan.
+The code, read-only compatibility audit and isolated writer tests are complete. No validators have been installed on the nine live application collections. The owner explicitly selected “Finish testing; defer live activation.” Do not describe the database as enforcing these rules yet. Resume activation only when requested and migration access is available.
 
 ## Current evidence
 
@@ -19,7 +19,7 @@ The code and read-only compatibility audit are prepared. No validators have been
 | `scenario_versions` | 6 | 0 |
 | **Total** | **39** | **0** |
 
-All existing envelopes are unversioned. The audit found mission payload version 2.0.0, run/plan/exploration/scenario payload version 1.0.0, and physics payloads without an explicit schema version. All existing run and physics publications are complete. Current `persisting` shapes are covered by the proposed contract and still need the complete live integration verification below.
+All existing envelopes are unversioned. The audit found mission payload version 2.0.0, run/plan/exploration/scenario payload version 1.0.0, and physics payloads without an explicit schema version. All existing run and physics publications are complete. The final read-only audit still found the same 39 records, zero incompatible records and no live validators. Current `persisting` shapes passed the isolated structural transition test below.
 
 The configured application account has `readWrite` on the application database. Its effective privileges include creating collections, indexes and Search indexes, but **not `collMod`**. An attempted warning-mode change on an isolated test collection returned MongoDB code 13. The test collections were removed; the live collections were never targeted for mutation. Keep the application account's scope unchanged. A separate migration credential needs read/write verification access and `collMod` for the managed collections; credentials must stay outside Git and chat.
 
@@ -34,20 +34,30 @@ The configured application account has `readWrite` on the application database. 
 - MongoDB code 121 becomes HTTP 422 `STORAGE_SCHEMA_REJECTED`, with a safe message and no database payload details. It does not mark Atlas unavailable. Existing network/access handling remains separate.
 - GridFS files/chunks are outside this validator rollout. Their driver-managed storage protocol and application artifact checks remain unchanged.
 
-## Verification still to finish
+## Completed verification and remaining boundary
 
-The isolated integration script copies up to 1,000 documents per managed collection into a unique `schema_check_<UUID>_` namespace, exercises repository writers and artifacts there, then drops only its own allowlisted collections. It must be run with `--fixtures`; it does not mutate the source records. If interrupted, inspect and remove only the namespace created by that invocation.
+The isolated integration script copies existing documents inside Atlas with `$merge` into a unique `schema_check_<UUID>_` namespace. It limits each collection to 1,000 records and 32 MiB, preserves legacy document values, exercises repository writers and artifacts there, then drops only its own allowlisted collections. It must be run with `--fixtures`; it does not mutate the source records. If interrupted, inspect and remove only the namespace created by that invocation.
 
-With the current limited account, the second test run created new collections with strict error validators and a separate warning-mode probe. It progressed through legacy-document insertion, malformed-write rejection on all nine collections, timestamp/version/metric rejection, and mission/run save, idempotency and MCAP readback. It then **failed with `ATLAS_UNAVAILABLE` during the physics writer/retry phase**. Cleanup completed and was confirmed. Do not count this as a successful full integration run. Investigate the failing operation and add bounded stream deadlines/progress reporting if needed before repeating the full test.
+The previously unfinished physics check is now resolved for storage-contract testing. Instrumentation localized a repeated failure to downloading the fixture's existing MCAP: that transfer exceeded a 60-second deadline before the save tests began. The diagnostic now reports individual phases, logs only safe command names/durations/error codes, copies fixture documents server-side, selects the smallest existing physics recording, and bounds artifact reads by both time and recorded byte count. Application upload/connection deadlines were not changed. This is not a throughput benchmark or proof that larger downloads will finish within the deadline on the current connection.
 
-Physics failed-save cleanup, lost-acknowledgement recovery, interrupted-publication completion, and exploration/scenario writer checks remain unconfirmed by that run. Live `collMod` warning-to-error transitions and rollback were not exercised because the account lacks permission. Unit tests cover rollback guards, wrong targets, replaced collections, changed rules, invalid-record gating and resumption of partial rollouts, but they do not substitute for the live check.
+The completed Atlas fixture run reached all available checks in approximately **43 seconds**, then confirmed cleanup:
+
+- All 39 legacy documents were accepted by strict validators in isolated collections.
+- Malformed inserts were rejected across all nine collections. Invalid timestamp types, unknown storage versions, negative/fractional sample counts, NaN/Infinity duration and missing complete-record artifacts were rejected.
+- A separate warning-mode collection retained an invalid synthetic record as expected.
+- Actual mission/run writers, idempotent repeats, conflicting request detection, run replay identity, MCAP hash comparison and MCAP inspection passed.
+- Actual physics writer rejection cleaned up its placeholder and completed artifact. A simulated lost acknowledgement after a successful final update recovered the completed record. Repeating the request produced one artifact; download hash comparison passed.
+- A minimal `persisting` envelope was accepted, remained unavailable as a complete episode, and could transition to a structurally complete record. This does not add an automatic recovery queue for every interrupted save.
+- Exploration and scenario writers, repeated requests and recorded lineage passed. No external AI generation or new physical simulation was invoked.
+
+**Still unverified:** live `collMod` warning-to-error transitions and rollback, because the account lacks permission. The script reports `collModRollout: false` and rollback as unit-tested only. Unit tests cover rollback guards, wrong targets, replaced collections, changed rules, invalid-record gating and resumption of partial rollouts; they do not substitute for exercising the commands against Atlas with the migration credential.
 
 ## Resume procedure
 
-Estimated live rollout window: **5–10 minutes after a working migration credential is available**, subject to resolving the unfinished integration check. This is an estimate, not a measured migration duration. No live document copying or rewriting is required. Reads can continue. Coordinate collection-setting changes with any other administrator; these commands are not a cross-collection transaction.
+Estimated live rollout window: **5–10 minutes after a working migration credential is available**, including rerunning the fixture with `collMod` and verifying activation. This is an estimate, not a measured migration duration. No live document copying or rewriting is required. Reads can continue. Coordinate collection-setting changes with any other administrator; these commands are not a cross-collection transaction.
 
 1. Reconfirm Git state and read this handoff. Obtain the separate migration connection through a masked local prompt. If stored locally, use ignored `.env.migration.local` containing `MONGODB_MIGRATION_URI`; retain the existing app URI/database in `.env.local`.
-2. Re-run the read-only audit and finish the isolated writer/rollback verification with the migration credential. Do not enable rejection until the full test passes. Inspect any exceptions without deleting or silently changing historical evidence.
+2. Re-run the read-only audit and the isolated verification with the migration credential, which enables the additional `collMod` transition and rollback checks. Confirm `collModRollout: true` and `rollback: "verified"` before enabling live rejection. Inspect any exceptions without deleting or silently changing historical evidence.
 
 ```powershell
 node --env-file-if-exists=.env.local scripts/atlas_schema.ts audit
