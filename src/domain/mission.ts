@@ -1,4 +1,5 @@
-export type SceneMode = 'dingo-gap' | 'moon' | 'mars' | 'earth';
+import { RASTER_SOURCES, isSurfaceSite } from './surfaceSites.ts';
+export type SceneMode = 'dingo-gap' | 'moon' | 'mars' | 'earth' | 'apollo-17' | 'amboy-crater';
 export type TerrainLayer = 'imagery' | 'terrain';
 export type MarkerKind = 'rover' | 'goal';
 export type CelestialBody = 'moon' | 'mars' | 'earth';
@@ -19,9 +20,23 @@ export interface CoordinateSpace {
 }
 
 export interface TerrainSource {
+  readonly georeference?: {
+    transformVersion: string;
+    projectionWkt: string;
+    originProjectedM: number[];
+    originElevationM: number;
+    originLatitudeDeg: number;
+    originLongitudeDeg: number;
+    verticalReference: string;
+    longitudeConvention: string;
+    latitudeConvention: string;
+    sourceSpacingM: number;
+  };
+  readonly imagerySha256?: string;
   readonly id: SceneMode;
   readonly layer: TerrainLayer;
-  readonly geometryKind: 'reference-sphere' | 'streamed-terrain';
+  readonly geometryKind: 'reference-sphere' | 'streamed-terrain' | 'heightfield';
+  readonly heightfieldUrl?: string;
   readonly radiusM: number;
   readonly imageryUrl: string | null;
   readonly imagerySourceUrl?: string;
@@ -68,6 +83,7 @@ function bodyFixedSpace(body: 'Moon' | 'Mars'): CoordinateSpace {
 
 /** Source provenance is pinned where possible. ion content versions are not pinned. */
 const TERRAIN_SOURCES: readonly TerrainSource[] = [
+  ...RASTER_SOURCES,
   {
     id: 'dingo-gap',
     layer: 'terrain',
@@ -260,10 +276,13 @@ export const SOURCES: readonly TerrainSource[] = [
     credit: 'NASA Earth Observatory · Blue Marble Next Generation',
     registration: 'approximate-spherical',
   }),
-  TERRAIN_SOURCES[0]!,
+  TERRAIN_SOURCES.find((source) => source.id === 'dingo-gap')!,
+  ...RASTER_SOURCES,
 ];
 
 export interface MissionSource {
+  georeference?: TerrainSource['georeference'];
+  imagerySha256?: string;
   layer: TerrainLayer;
   geometryKind: TerrainSource['geometryKind'];
   radiusM: number;
@@ -320,7 +339,7 @@ export type MissionValidationResult =
 export function getSource(mode: SceneMode, layer: TerrainLayer = 'imagery'): TerrainSource {
   if (!SOURCES.some((item) => item.id === mode)) throw new Error('Unknown terrain source mode');
   if (layer !== 'imagery' && layer !== 'terrain') throw new Error('Unsupported source layer');
-  const resolvedLayer = mode === 'dingo-gap' ? 'terrain' : layer;
+  const resolvedLayer = isSurfaceSite(mode) ? 'terrain' : layer;
   const source = (resolvedLayer === 'terrain' ? TERRAIN_SOURCES : SOURCES).find((item) => item.id === mode);
   if (!source) throw new Error('This terrain layer is not available for the selected body');
   return source;
@@ -348,6 +367,9 @@ export function distanceMeters(start: TerrainPoint, end: TerrainPoint): number {
 
 function sourceMetadata(source: TerrainSource): MissionSource {
   return {
+    ...(source.georeference
+      ? { georeference: source.georeference, imagerySha256: source.imagerySha256 }
+      : {}),
     layer: source.layer,
     geometryKind: source.geometryKind,
     radiusM: source.radiusM,
@@ -446,6 +468,11 @@ function validatePosition(
   // Broad sanity bounds only. These are neither terrain intersection tests nor geodetic validation.
   if (mode === 'dingo-gap' && radius > 1_000)
     errors.push(`${path} exceeds the Dingo Gap local coordinate bound`);
+  if (
+    source.geometryKind === 'heightfield' &&
+    (Math.abs(value.x) > 256 || Math.abs(value.y) > 256 || Math.abs(value.z) > 300)
+  )
+    errors.push(`${path} exceeds the measured site bounds`);
   if (mode === 'moon' && (radius < 1_000_000 || radius > 2_500_000))
     errors.push(`${path} is outside the Moon body-radius bounds`);
   if (mode === 'mars' && (radius < 2_500_000 || radius > 4_500_000))

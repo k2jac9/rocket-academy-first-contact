@@ -1,0 +1,4 @@
+-r requirements.txt
+trimesh==5.2.1
+pycollada==0.9.3
+xacro==2.1.1

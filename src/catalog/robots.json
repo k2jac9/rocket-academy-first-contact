@@ -1,0 +1,4828 @@
+{
+  "capturedAt": "2026-11-14",
+  "categories": [
+    {
+      "id": "humanoid",
+      "label": "Humanoids"
+    },
+    {
+      "id": "quadruped",
+      "label": "Quadrupeds"
+    },
+    {
+      "id": "mobile-manipulator",
+      "label": "Mobile manipulators"
+    },
+    {
+      "id": "companion",
+      "label": "Companions"
+    },
+    {
+      "id": "drone",
+      "label": "Drones"
+    },
+    {
+      "id": "field",
+      "label": "Field robots"
+    }
+  ],
+  "robots": [
+    {
+      "id": "1x-neo",
+      "name": "NEO (Early Access)",
+      "manufacturer": "1X",
+      "category": "humanoid",
+      "purpose": "Home assistance development",
+      "availability": "preorder",
+      "priceUsd": 20000,
+      "priceNote": "US$20,000 Early Access ownership; US$200 refundable deposit. A separate US$499/month subscription option is advertised.",
+      "sourceUrl": "https://www.1x.tech/neo",
+      "catalogUrl": "https://omblet.com/robots/1x-neo",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/1x-neo.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/1x-neo-gallery-1.webp",
+          "alt": "1X NEO (Early Access) — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/1x-neo-gallery-2.webp",
+          "alt": "1X NEO (Early Access) — head and fabric detail"
+        },
+        {
+          "image": "/catalog/portraits/1x-neo-gallery-3.webp",
+          "alt": "1X NEO (Early Access) — hand and wrist detail"
+        }
+      ],
+      "logo": "/catalog/brands/1x-icon.png",
+      "imageStyle": "width:200%;top:8%",
+      "color": "#f5ecc7",
+      "specifications": [
+        {
+          "section": "Compute",
+          "label": "Computer",
+          "value": "1X NEO Cortex based on NVIDIA Jetson Thor",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Configuration",
+          "label": "Joint degrees of freedom",
+          "value": "22 per hand, 7 per arm, 6 per leg, 3 neck and 2 spine",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Configuration",
+          "label": "Operating modes",
+          "value": "Basic autonomy; scheduled remote expert guidance and app/VR remote control",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Wireless",
+          "value": "Wi-Fi, Bluetooth and 5G",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Environment",
+          "label": "Ingress protection",
+          "value": "Body IP44; hands IP68; ratings apply to the stated components",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Interaction",
+          "label": "Microphones",
+          "value": "Four beamforming microphones",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Arm payload",
+          "value": "18 lb",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Carrying load",
+          "value": "55 lb; distinct from the 154 lb lift rating",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Walking speed",
+          "value": "1.4 m/s",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Exterior",
+          "value": "Soft polymer lattice under a washable nylon suit",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Height",
+          "value": "5 ft 6 in",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "66 lb",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "842 Wh",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Charging behaviour",
+          "value": "Autonomously plugs itself in to recharge",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Quick charging",
+          "value": "Manufacturer claims six minutes of charging per hour of runtime; full-charge time not specified",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "4 hours; workload unspecified",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Official order page advertises US deliveries starting in 2026; this does not establish individual shipment or stock status.",
+          "sourceUrl": "https://www.1x.tech/order",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "US$20,000 Early Access ownership; US$200 refundable deposit. A separate US$499/month subscription option is advertised.",
+          "sourceUrl": "https://www.1x.tech/order",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Cameras",
+          "value": "Dual 8.85 MP stereo fisheye cameras at 90 Hz",
+          "sourceUrl": "https://www.1x.tech/neo",
+          "checkedAt": "2026-10-26"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "agility-digit-5",
+      "name": "Digit 5",
+      "manufacturer": "Agility Robotics",
+      "category": "humanoid",
+      "purpose": "Industrial material handling",
+      "availability": "announced",
+      "priceUsd": null,
+      "priceNote": "No configured USD price confirmed in the reviewed source; request current package pricing.",
+      "sourceUrl": "https://www.agilityrobotics.com/solutions/digit-5",
+      "catalogUrl": "https://omblet.com/robots/agility-digit-5",
+      "checkedAt": "2026-10-25",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/agility-digit-5.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/agility-digit-5-gallery-1.webp",
+          "alt": "Agility Robotics Digit 5 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/agility-digit-5-gallery-2.webp",
+          "alt": "Agility Robotics Digit 5 — head and upper torso"
+        },
+        {
+          "image": "/catalog/portraits/agility-digit-5-gallery-3.webp",
+          "alt": "Agility Robotics Digit 5 — visible forearm and hand with adjacent torso"
+        }
+      ],
+      "logo": "/catalog/brands/agility.png",
+      "imageStyle": "width:155%;top:9.7%",
+      "color": "#dceee5",
+      "specifications": [
+        {
+          "section": "Configuration",
+          "label": "End effectors",
+          "value": "Swappable grippers with ISO-standard mounting flanges",
+          "sourceUrl": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Development",
+          "label": "Fleet integration",
+          "value": "Agility Arc; WMS, WES and MES integration",
+          "sourceUrl": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Payload",
+          "value": "Up to 50 lb (22.7 kg); announced lifting target",
+          "sourceUrl": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Reach height",
+          "value": "Up to 2.2 m; not arm radius",
+          "sourceUrl": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Height",
+          "value": "1.81 m; announced configuration",
+          "sourceUrl": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "129 kg; announced configuration",
+          "sourceUrl": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Charge-time target",
+          "value": "9 minutes; manufacturer announcement",
+          "sourceUrl": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime target",
+          "value": "90 minutes; workload unspecified",
+          "sourceUrl": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Commercial enquiry; 2027 rollout planned for North America, EU and UK, subject to regional requirements.",
+          "sourceUrl": "https://www.agilityrobotics.com/solutions/digit-5",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Planned rollout",
+          "value": "Early access H1 2027; general availability expected by end 2027",
+          "sourceUrl": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No configured USD price confirmed in the reviewed source; request current package pricing.",
+          "sourceUrl": "https://www.agilityrobotics.com/solutions/digit-5",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Perception",
+          "value": "Onboard cameras, depth sensors and IMUs",
+          "sourceUrl": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "boston-dynamics-atlas",
+      "name": "Atlas",
+      "manufacturer": "Boston Dynamics",
+      "category": "humanoid",
+      "purpose": "Industrial material handling",
+      "availability": "research",
+      "priceUsd": null,
+      "priceNote": "No public price on the reviewed product page; request a configuration-specific quote.",
+      "sourceUrl": "https://bostondynamics.com/products/atlas/",
+      "catalogUrl": "https://omblet.com/robots/boston-dynamics-atlas",
+      "checkedAt": "2026-10-25",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/boston-dynamics-atlas.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/boston-dynamics-atlas-gallery-1.webp",
+          "alt": "Boston Dynamics Atlas — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/boston-dynamics-atlas-gallery-2.webp",
+          "alt": "Boston Dynamics Atlas — hardware detail"
+        },
+        {
+          "image": "/catalog/portraits/boston-dynamics-atlas-gallery-3.webp",
+          "alt": "Boston Dynamics Atlas — construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/boston-dynamics.jpg",
+      "imageStyle": "width:200%;top:8%",
+      "color": "#ddebf5",
+      "specifications": [
+        {
+          "section": "Configuration",
+          "label": "Joint degrees of freedom",
+          "value": "56",
+          "sourceUrl": "https://bostondynamics.com/products/atlas/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Deployment",
+          "label": "Workflow integration",
+          "value": "Barcode scanning supported; Orbit integration with MES/WMS is described as forthcoming",
+          "sourceUrl": "https://bostondynamics.com/products/atlas/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Reach",
+          "value": "2.3 m",
+          "sourceUrl": "https://bostondynamics.com/products/atlas/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Weight capacity",
+          "value": "30 kg sustained; 50 kg instantaneous",
+          "sourceUrl": "https://bostondynamics.com/products/atlas/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Height / mass",
+          "value": "1.9 m / 90 kg",
+          "sourceUrl": "https://bostondynamics.com/products/atlas/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Battery replacement",
+          "value": "Manufacturer describes autonomous battery swapping at a station",
+          "sourceUrl": "https://bostondynamics.com/products/atlas/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "4 hours, manufacturer reported; task conditions not specified on the product page",
+          "sourceUrl": "https://bostondynamics.com/products/atlas/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Protection",
+          "label": "Ingress rating",
+          "value": "IP67",
+          "sourceUrl": "https://bostondynamics.com/products/atlas/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Protection",
+          "label": "Operating temperature",
+          "value": "−20 to 40 °C",
+          "sourceUrl": "https://bostondynamics.com/products/atlas/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Selective early-adopter enquiries; the page does not establish general retail availability.",
+          "sourceUrl": "https://bostondynamics.com/products/atlas/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No public price on the reviewed product page; request a configuration-specific quote.",
+          "sourceUrl": "https://bostondynamics.com/products/atlas/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Perception",
+          "value": "Tactile sensing and 360° camera view",
+          "sourceUrl": "https://bostondynamics.com/products/atlas/",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "figure-03",
+      "name": "Figure 03",
+      "manufacturer": "Figure",
+      "category": "humanoid",
+      "purpose": "Household manipulation development",
+      "availability": "research",
+      "priceUsd": null,
+      "priceNote": "No public configured USD price or general retail checkout on the reviewed official pages; contact Figure.",
+      "sourceUrl": "https://www.figure.ai/figure",
+      "catalogUrl": "https://omblet.com/robots/figure-03",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/figure-03.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/figure-03-gallery-1.webp",
+          "alt": "Figure 03 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/figure-03-gallery-2.webp",
+          "alt": "Figure 03 — head and upper torso"
+        },
+        {
+          "image": "/catalog/portraits/figure-03-gallery-3.webp",
+          "alt": "Figure 03 — visible forearm and hand with adjacent torso"
+        }
+      ],
+      "logo": "/catalog/brands/figure-icon.png",
+      "imageStyle": "width:200%;top:8%",
+      "color": "#e9ebed",
+      "specifications": [
+        {
+          "section": "Connectivity",
+          "label": "Data offload",
+          "value": "10 Gbps mmWave capability",
+          "sourceUrl": "https://www.figure.ai/news/introducing-figure-03",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Development",
+          "label": "AI system",
+          "value": "Helix vision-language-action model",
+          "sourceUrl": "https://www.figure.ai/figure",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Payload",
+          "value": "20 kg; configuration and test conditions unspecified",
+          "sourceUrl": "https://www.figure.ai/figure",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Speed",
+          "value": "1.2 m/s",
+          "sourceUrl": "https://www.figure.ai/figure",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Coverings",
+          "value": "Tool-free removable, washable textiles",
+          "sourceUrl": "https://www.figure.ai/news/introducing-figure-03",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Height",
+          "value": "5 ft 8 in",
+          "sourceUrl": "https://www.figure.ai/figure",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "61 kg",
+          "sourceUrl": "https://www.figure.ai/figure",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Charging",
+          "value": "2 kW wireless inductive charging through coils in the feet",
+          "sourceUrl": "https://www.figure.ai/news/introducing-figure-03",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Drive system",
+          "value": "Electric",
+          "sourceUrl": "https://www.figure.ai/figure",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "5 hours; workload unspecified",
+          "sourceUrl": "https://www.figure.ai/figure",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer development and enquiry route; public page does not establish general consumer availability.",
+          "sourceUrl": "https://www.figure.ai/figure",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No public configured USD price or general retail checkout on the reviewed official pages; contact Figure.",
+          "sourceUrl": "https://www.figure.ai/figure",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Fingertips",
+          "value": "Compliant fingertips with tactile sensors",
+          "sourceUrl": "https://www.figure.ai/news/introducing-figure-03",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Palm sensing",
+          "value": "Embedded camera in each palm",
+          "sourceUrl": "https://www.figure.ai/news/introducing-figure-03",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Tactile sensitivity",
+          "value": "Manufacturer claims fingertip sensors detect forces equivalent to three grams",
+          "sourceUrl": "https://www.figure.ai/news/introducing-figure-03",
+          "checkedAt": "2026-10-27"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "unitree-g1",
+      "name": "G1",
+      "manufacturer": "Unitree",
+      "category": "humanoid",
+      "purpose": "Humanoid development",
+      "availability": "research",
+      "priceUsd": 13500,
+      "priceNote": "US$13,500 base G1; excludes tax and shipping. EDU is quote-only.",
+      "sourceUrl": "https://www.unitree.com/g1/",
+      "catalogUrl": "https://omblet.com/robots/unitree-g1",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/unitree-g1.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/unitree-g1-gallery-1.webp",
+          "alt": "Unitree G1 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/unitree-g1-gallery-2.webp",
+          "alt": "Unitree G1 — hardware detail"
+        },
+        {
+          "image": "/catalog/portraits/unitree-g1-gallery-3.webp",
+          "alt": "Unitree G1 — construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/unitree.svg",
+      "imageStyle": "width:200%;top:8%",
+      "color": "#ddebf5",
+      "specifications": [
+        {
+          "section": "Actuation",
+          "label": "Maximum knee torque",
+          "value": "90 N·m base G1; 120 N·m EDU",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Actuation",
+          "label": "Waist joints",
+          "value": "1 DoF base G1; EDU optionally adds 2 further waist axes",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Compute",
+          "label": "Processor",
+          "value": "8-core CPU; additional compute modules offered for EDU",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Configuration",
+          "label": "Hands",
+          "value": "Dex3-1 force-controlled hands optional on EDU; not included on base G1",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Configuration",
+          "label": "Joint degrees of freedom",
+          "value": "23 (G1); 23–43 (EDU, configuration dependent)",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Configuration",
+          "label": "Leg / arm joints",
+          "value": "6 DoF per leg; 5 per arm",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Wireless",
+          "value": "Wi-Fi 6 and Bluetooth 5.2",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Development",
+          "label": "Secondary development",
+          "value": "EDU only; not listed for base G1",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Interaction",
+          "label": "Audio",
+          "value": "Four microphones and 5 W speaker",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Arm load",
+          "value": "About 2 kg (G1); about 3 kg (EDU). Depends on arm extension and posture.",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Folded dimensions",
+          "value": "690 × 450 × 300 mm",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass with battery",
+          "value": "About 35 kg (G1); 35 kg+ (EDU)",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Standing dimensions",
+          "value": "1320 × 450 × 200 mm",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "9,000 mAh quick-release",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Charger",
+          "value": "54 V, 5 A",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "About 2 hours; varies with use and configuration",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Research/development platform advertised with base pricing; confirm variant and regional delivery with Unitree.",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "US$13,500 base G1; excludes tax and shipping. EDU is quote-only.",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Perception",
+          "value": "Depth camera and 3D LiDAR",
+          "sourceUrl": "https://www.unitree.com/g1/",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "anybotics-anymal-d",
+      "name": "ANYmal D (Inspection Payload)",
+      "manufacturer": "ANYbotics",
+      "category": "quadruped",
+      "purpose": "Industrial inspection",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "Quote required for robot, inspection configuration and deployment; no public configured USD price.",
+      "sourceUrl": "https://www.anybotics.com/robotics/anymal/",
+      "catalogUrl": "https://omblet.com/robots/anybotics-anymal-d",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/anybotics-anymal-d.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/anybotics-anymal-d-gallery-1.webp",
+          "alt": "ANYbotics ANYmal D (Inspection Payload) — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/anybotics-anymal-d-gallery-2.webp",
+          "alt": "ANYbotics ANYmal D (Inspection Payload) — front sensor housing and adjacent body"
+        },
+        {
+          "image": "/catalog/portraits/anybotics-anymal-d-gallery-3.webp",
+          "alt": "ANYbotics ANYmal D (Inspection Payload) — leg joints and lower limb detail"
+        }
+      ],
+      "logo": "/catalog/brands/anybotics-icon.png",
+      "imageStyle": null,
+      "color": "#e9ebed",
+      "specifications": [
+        {
+          "section": "Compute",
+          "label": "Memory and storage",
+          "value": "Two 8 GB RAM modules and two 240 GB SSDs across onboard computers",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Compute",
+          "label": "Processors",
+          "value": "Two 8th-generation six-core Intel Core i7 CPUs",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Wireless",
+          "value": "Dual-band IEEE 802.11ac Wi-Fi; LTE Cat 12 optional",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Development",
+          "label": "Developer interface",
+          "value": "gRPC API for missions and data; Ubuntu 20.04 onboard",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Environment",
+          "label": "Ingress protection",
+          "value": "IP67",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Environment",
+          "label": "Lighting requirements",
+          "value": "At least 20 lux for automatic docking and teleoperation; autonomous walking and inspection do not require ambient light",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Environment",
+          "label": "Operating temperature",
+          "value": "Specified 0–40°C; typical operation listed as −10–50°C",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Terrain limits",
+          "value": "Stairs up to 45° with 230 mm maximum rise, 210 mm minimum run and 800 mm minimum width; steps 250 mm; gaps 300 mm; slopes ±30°",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Mobility",
+          "label": "Walking speed",
+          "value": "Up to 1.3 m/s; recommended 0.75 m/s; terrain can reduce speed",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Lying height",
+          "value": "470 mm",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "55.7 kg with inspection payload; 50 kg without",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Walking dimensions",
+          "value": "930 × 530 × 890 mm (L × W × H), default walking posture",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "Swappable 932.4 Wh Li-ion",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Charging time",
+          "value": "3 hours full; 100 minutes to 70%",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Inspection range",
+          "value": "Up to 2 km for a typical inspection mission; workload dependent",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "90–120 minutes per charge, dependent on payload and inspection workload",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Official sales-enquiry route; confirm Generation D configuration and service coverage for the deployment region.",
+          "sourceUrl": "https://www.anybotics.com/robotics/anymal/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "Quote required for robot, inspection configuration and deployment; no public configured USD price.",
+          "sourceUrl": "https://www.anybotics.com/robotics/anymal/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Inspection camera",
+          "value": "20× optical zoom; up to 3840 × 2160 at 30 fps",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Navigation sensors",
+          "value": "360° lidar, six depth cameras and two teleoperation cameras",
+          "sourceUrl": "https://www.anybotics.com/robotics/anymal/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Thermal measurement range",
+          "value": "−40 to +550°C; sensor measurement range, not operating temperature",
+          "sourceUrl": "https://www.anybotics.com/anymal-technical-specifications.pdf",
+          "checkedAt": "2026-10-26"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "boston-dynamics-spot",
+      "name": "Spot",
+      "manufacturer": "Boston Dynamics",
+      "category": "quadruped",
+      "purpose": "Inspection & sensing",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "No public price on the reviewed product page; request a configuration-specific quote.",
+      "sourceUrl": "https://bostondynamics.com/products/spot/",
+      "catalogUrl": "https://omblet.com/robots/boston-dynamics-spot",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/boston-dynamics-spot.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/boston-dynamics-spot-gallery-1.webp",
+          "alt": "Boston Dynamics Spot — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/boston-dynamics-spot-gallery-2.webp",
+          "alt": "Boston Dynamics Spot — hardware detail"
+        },
+        {
+          "image": "/catalog/portraits/boston-dynamics-spot-gallery-3.webp",
+          "alt": "Boston Dynamics Spot — construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/boston-dynamics.jpg",
+      "imageStyle": null,
+      "color": "#f5ecc7",
+      "specifications": [
+        {
+          "section": "Connectivity",
+          "label": "Network",
+          "value": "2.4 / 5 GHz Wi-Fi (802.11 b/g/n) and Ethernet",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Development",
+          "label": "Developer access",
+          "value": "Software API and hardware interface control documentation available",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Development",
+          "label": "Payload interface",
+          "value": "M5 T-slot rails; two DB25 ports, each supplying up to 150 W at unregulated 35–58.8 V DC",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum slope",
+          "value": "±30°",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum speed",
+          "value": "1.6 m/s",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum step height",
+          "value": "300 mm",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Mounted payload",
+          "value": "14 kg maximum",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass with battery",
+          "value": "33.8 kg",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Walking height",
+          "value": "610 mm default; adjustable from 520 to 700 mm",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Width / sitting height",
+          "value": "500 mm wide; 191 mm high when sitting",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Average runtime",
+          "value": "90 minutes; varies with payload and environment",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Battery capacity",
+          "value": "564 Wh",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Charging time",
+          "value": "Approximately 60 minutes",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Standby time",
+          "value": "180 minutes; distinct from 90-minute average operating runtime",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Protection",
+          "label": "Ingress rating",
+          "value": "IP54",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Protection",
+          "label": "Operating temperature",
+          "value": "−20 to 55 °C",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer offers a sales enquiry route; regional supply and delivery date require confirmation.",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No public price on the reviewed product page; request a configuration-specific quote.",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Terrain sensing",
+          "value": "360° horizontal field of view; 4 m range; requires more than 2 lux",
+          "sourceUrl": "https://bostondynamics.com/products/spot/",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "deep-robotics-x30",
+      "name": "X30",
+      "manufacturer": "DEEP Robotics",
+      "category": "quadruped",
+      "purpose": "Industrial inspection and mapping",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "No configured USD price confirmed in the reviewed manufacturer source; request current package pricing.",
+      "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+      "catalogUrl": "https://omblet.com/robots/deep-robotics-x30",
+      "checkedAt": "2026-10-26",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/deep-robotics-x30.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/deep-robotics-x30-gallery-1.webp",
+          "alt": "DEEP Robotics X30 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/deep-robotics-x30-gallery-2.webp",
+          "alt": "DEEP Robotics X30 — front sensor housing and adjacent body"
+        },
+        {
+          "image": "/catalog/portraits/deep-robotics-x30-gallery-3.webp",
+          "alt": "DEEP Robotics X30 — leg joints and lower limb detail"
+        }
+      ],
+      "logo": "/catalog/brands/deep-robotics-icon.png",
+      "imageStyle": null,
+      "color": "#f5ecc7",
+      "specifications": [
+        {
+          "section": "Connectivity",
+          "label": "Interfaces",
+          "value": "Ethernet and 72 V battery power output",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Environment",
+          "label": "Operating temperature",
+          "value": "−20 to 55°C",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Environment",
+          "label": "Protection",
+          "value": "IP67",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum speed",
+          "value": "At least 4 m/s; manufacturer laboratory figure",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Slope",
+          "value": "Up to 45°",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Step and obstacle height",
+          "value": "At least 20 cm",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "56 kg including battery",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Standing dimensions",
+          "value": "1,000 × 695 × 470 mm, as ordered in the current product page",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Battery handling",
+          "value": "Quick replacement supported",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Endurance",
+          "value": "2.5–4 hours",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Range",
+          "value": "At least 10 km",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Industrial sales enquiry; confirm configuration, delivery destinations and deployment support with DEEP Robotics.",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No configured USD price confirmed in the reviewed manufacturer source; request current package pricing.",
+          "sourceUrl": "https://en.deeprobotics.cn/en/wap/product3.html",
+          "checkedAt": "2026-10-26"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "ghost-robotics-vision-60",
+      "name": "Vision 60",
+      "manufacturer": "Ghost Robotics",
+      "category": "quadruped",
+      "purpose": "Industrial inspection and remote sensing",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "No verified public USD price for this configuration; request a manufacturer or authorized-dealer quotation.",
+      "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+      "catalogUrl": "https://omblet.com/robots/ghost-robotics-vision-60",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/ghost-robotics-vision-60.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/ghost-robotics-vision-60-gallery-1.webp",
+          "alt": "Ghost Robotics Vision 60 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/ghost-robotics-vision-60-gallery-2.webp",
+          "alt": "Ghost Robotics Vision 60 — front sensor housing and adjacent body"
+        },
+        {
+          "image": "/catalog/portraits/ghost-robotics-vision-60-gallery-3.webp",
+          "alt": "Ghost Robotics Vision 60 — leg joints and lower limb detail"
+        }
+      ],
+      "logo": "/catalog/brands/ghost-robotics-icon.png",
+      "imageStyle": null,
+      "color": "#dceee5",
+      "specifications": [
+        {
+          "section": "Compute",
+          "label": "Computer",
+          "value": "NVIDIA Xavier, 32 GB RAM and 2 TB NVMe SSD",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Communications",
+          "value": "2.4/5.8 GHz Wi-Fi and 4G/LTE; external radios supported",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Connectivity",
+          "label": "External interfaces",
+          "value": "Three Ethernet ports, one USB 3.1 port and six GMSL2 camera ports",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Development",
+          "label": "Developer interfaces",
+          "value": "C/C++, ROS/ROS 2 and MAVLink interfaces",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Environment",
+          "label": "Ingress protection",
+          "value": "IP67, manufacturer specification",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Environment",
+          "label": "Temperature limits",
+          "value": "−40 to 55°C operating; no cold start below −20°C; no charging below 0°C, with reduced charging rate above 40°C",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Mobility",
+          "label": "Ride height",
+          "value": "419 mm to underside of body",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Speed",
+          "value": "0.9 m/s standard walk; 1.2 m/s fast walk; up to 2.4 m/s sprint, terrain and payload dependent",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Motion",
+          "label": "Leg actuation",
+          "value": "Three DoF per leg; 12-motor back-drivable drivetrain",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Payload",
+          "label": "Payload capacity",
+          "value": "10 kg; user-selectable payload compensation",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Dimensions",
+          "value": "950 × 570 × 685 mm; standing overall length, width and height",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Tare mass",
+          "value": "51 kg",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Charging time",
+          "value": "Approximately three hours with standard battery",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Payload power",
+          "value": "12 V regulated and 32–42 V unregulated",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Standby endurance",
+          "value": "21 hours with sensors, computer and radio operating",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Walking endurance",
+          "value": "3.15 hours at 0.9 m/s; terrain and payload dependent",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Official sales-enquiry route; regional supply, configuration and lead time require confirmation.",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No verified public USD price for this configuration; request a manufacturer or authorized-dealer quotation.",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Integrated sensors",
+          "value": "Five 1080p RGB cameras, four D435 depth sensors and dual-antenna RTK GPS",
+          "sourceUrl": "https://www.ghostrobotics.io/vision-60",
+          "checkedAt": "2026-10-26"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "unitree-go2",
+      "name": "Go2",
+      "manufacturer": "Unitree",
+      "category": "quadruped",
+      "purpose": "Exploration & development",
+      "availability": "available",
+      "priceUsd": 1600,
+      "priceNote": "Advertised starting price US$1,600; confirm configuration, shipping and tax.",
+      "sourceUrl": "https://www.unitree.com/go2/",
+      "catalogUrl": "https://omblet.com/robots/unitree-go2",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/unitree-go2.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/unitree-go2-gallery-1.webp",
+          "alt": "Unitree Go2 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/unitree-go2-gallery-2.webp",
+          "alt": "Unitree Go2 — hardware detail"
+        },
+        {
+          "image": "/catalog/portraits/unitree-go2-gallery-3.webp",
+          "alt": "Unitree Go2 — construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/unitree.svg",
+      "imageStyle": null,
+      "color": "#f5ecc7",
+      "specifications": [
+        {
+          "section": "Actuation",
+          "label": "Motors",
+          "value": "12 joint motors",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Configuration",
+          "label": "Variants",
+          "value": "Air, Pro, X and EDU; capabilities differ",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Wireless",
+          "value": "Dual-band Wi-Fi 6 and Bluetooth",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Development",
+          "label": "Secondary development",
+          "value": "EDU supported; X partially supported; Air/Pro not supported in the configuration table",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Development",
+          "label": "Software updates",
+          "value": "OTA via the cloud with user authorization",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Climb angle",
+          "value": "30° Air; 40° Pro/X/EDU; conditions affect performance",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Payload by variant",
+          "value": "Air: about 7 kg (10 kg maximum); Pro: about 8 kg (10 kg maximum); X/EDU: about 8 kg (12 kg maximum)",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Speed by variant",
+          "value": "Air: 0–2.5 m/s; Pro: 0–3.5 m/s; X/EDU: 0–3.7 m/s, with approximately 5 m/s maximum claimed",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Step clearance by variant",
+          "value": "About 15 cm Air; 16 cm Pro, X and EDU",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Crouching dimensions",
+          "value": "76 × 31 × 20 cm",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass with battery",
+          "value": "About 15 kg",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Standing dimensions",
+          "value": "70 × 31 × 40 cm",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "8,000 mAh Air/Pro/X; 15,000 mAh EDU",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Dock compatibility",
+          "value": "X and EDU support a charging dock; Air and Pro do not in the configuration table",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "About 1–2 hours Air/Pro/X; 2–4 hours EDU; workload dependent",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer offers a sales enquiry route; regional supply and delivery date require confirmation.",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "Advertised starting price US$1,600; confirm configuration, shipping and tax.",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Camera",
+          "value": "Wide-angle HD camera; depth camera listed for EDU only",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Foot force sensing",
+          "value": "Listed for EDU only",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "LiDAR",
+          "value": "L2; advertised 360° × 96° field of view",
+          "sourceUrl": "https://www.unitree.com/go2/",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": "unitree-go2",
+      "simulationModelId": null
+    },
+    {
+      "id": "agilex-limo-cobot",
+      "name": "LIMO COBOT",
+      "manufacturer": "AgileX Robotics",
+      "category": "mobile-manipulator",
+      "purpose": "Mobile manipulation education",
+      "availability": "research",
+      "priceUsd": null,
+      "priceNote": "Manufacturer sales quote; end effector, integration and regional terms are configuration-dependent. No public configured USD price verified.",
+      "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+      "catalogUrl": "https://omblet.com/robots/agilex-limo-cobot",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/agilex-limo-cobot.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/agilex-limo-cobot-gallery-1.webp",
+          "alt": "AgileX Robotics LIMO COBOT — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/agilex-limo-cobot-gallery-2.webp",
+          "alt": "AgileX Robotics LIMO COBOT — upper manipulator and visible sensors"
+        },
+        {
+          "image": "/catalog/portraits/agilex-limo-cobot-gallery-3.webp",
+          "alt": "AgileX Robotics LIMO COBOT — mobile base and lower chassis"
+        }
+      ],
+      "logo": "/catalog/brands/agilex-icon.png",
+      "imageStyle": null,
+      "color": "#e9ebed",
+      "specifications": [
+        {
+          "section": "Compute",
+          "label": "Computer",
+          "value": "NVIDIA Jetson Orin Nano",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Configuration",
+          "label": "Mobility",
+          "value": "Four reconfigurable motion modes; tracks and Mecanum wheels available",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Development",
+          "label": "Navigation resources",
+          "value": "Gmapping, Cartographer, RTAB-Map, DWA and TEB",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Development",
+          "label": "Software",
+          "value": "ROS 2 courses; ROS 1/2, Python and C++ development resources",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Arm degrees of freedom",
+          "value": "6",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Arm payload",
+          "value": "250 g",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Arm working radius",
+          "value": "280 mm",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Listed arm precision",
+          "value": "±0.5 mm; manufacturer terminology",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Terrain limits",
+          "value": "Up to 45° climb in tracked mode; 24 mm obstacle crossing, manufacturer figures",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "5.6 kg in the LIMO COBOT table",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "2.5 hours for LIMO COBOT; workload unspecified",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Official sales enquiry route; confirm regional supply, tooling, installation and lead time.",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "Manufacturer sales quote; end effector, integration and regional terms are configuration-dependent. No public configured USD price verified.",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Depth camera",
+          "value": "Orbbec Astra+; current product feature text and FAQ",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "LiDAR",
+          "value": "EAI T-mini Pro",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Motion sensor",
+          "value": "IMU",
+          "sourceUrl": "https://global.agilex.ai/products/limo-corot",
+          "checkedAt": "2026-10-26"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "boston-dynamics-stretch",
+      "name": "Stretch",
+      "manufacturer": "Boston Dynamics",
+      "category": "mobile-manipulator",
+      "purpose": "Warehouse case handling",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "No public price on the reviewed product page; request a configuration-specific quote.",
+      "sourceUrl": "https://bostondynamics.com/products/stretch/",
+      "catalogUrl": "https://omblet.com/robots/boston-dynamics-stretch",
+      "checkedAt": "2026-10-25",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/boston-dynamics-stretch.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/boston-dynamics-stretch-gallery-1.webp",
+          "alt": "Boston Dynamics Stretch — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/boston-dynamics-stretch-gallery-2.webp",
+          "alt": "Boston Dynamics Stretch — hardware detail"
+        },
+        {
+          "image": "/catalog/portraits/boston-dynamics-stretch-gallery-3.webp",
+          "alt": "Boston Dynamics Stretch — construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/boston-dynamics.jpg",
+      "imageStyle": null,
+      "color": "#ddebf5",
+      "specifications": [
+        {
+          "section": "Capabilities",
+          "label": "Applications",
+          "value": "Trailer unloading and case picking",
+          "sourceUrl": "https://bostondynamics.com/products/stretch/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Capabilities",
+          "label": "Recovery",
+          "value": "Advertised retrieval of boxes that fall during unloading",
+          "sourceUrl": "https://bostondynamics.com/products/stretch/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Capabilities",
+          "label": "Throughput disclosure",
+          "value": "Hundreds of cases per hour advertised; no standardized rate or test conditions supplied on the reviewed page",
+          "sourceUrl": "https://bostondynamics.com/products/stretch/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Deployment",
+          "label": "Integration",
+          "value": "Existing warehouse infrastructure; operator training offered",
+          "sourceUrl": "https://bostondynamics.com/products/stretch/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Deployment",
+          "label": "Task setup",
+          "value": "Manufacturer describes real-time case decisions without pre-programming each box arrangement",
+          "sourceUrl": "https://bostondynamics.com/products/stretch/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Package limit",
+          "value": "Up to 50 lb, manufacturer stated",
+          "sourceUrl": "https://bostondynamics.com/products/stretch/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Package types",
+          "value": "Plain and printed cartons in orderly or shifted container loads; suitability depends on the case mix",
+          "sourceUrl": "https://bostondynamics.com/products/stretch/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime disclosure",
+          "value": "Single- or multiple-shift operation advertised; hours and battery capacity not specified on the reviewed page",
+          "sourceUrl": "https://bostondynamics.com/products/stretch/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer offers a sales enquiry route; regional supply and delivery date require confirmation.",
+          "sourceUrl": "https://bostondynamics.com/products/stretch/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No public price on the reviewed product page; request a configuration-specific quote.",
+          "sourceUrl": "https://bostondynamics.com/products/stretch/",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "hello-robot-stretch-4",
+      "name": "Stretch 4",
+      "manufacturer": "Hello Robot",
+      "category": "mobile-manipulator",
+      "purpose": "Mobile manipulation research",
+      "availability": "available",
+      "priceUsd": 29950,
+      "priceNote": "US$29,950 base system. Dock US$1,495 and Jetson add-on US$2,995; shipping/taxes quoted separately.",
+      "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+      "catalogUrl": "https://omblet.com/robots/hello-robot-stretch-4",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/hello-robot-stretch-4.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/hello-robot-stretch-4-gallery-1.webp",
+          "alt": "Hello Robot Stretch 4 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/hello-robot-stretch-4-gallery-2.webp",
+          "alt": "Hello Robot Stretch 4 — hardware detail"
+        },
+        {
+          "image": "/catalog/portraits/hello-robot-stretch-4-gallery-3.webp",
+          "alt": "Hello Robot Stretch 4 — construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/hello-robot.png",
+      "imageStyle": "width:200%;top:8%",
+      "color": "#f6e4d8",
+      "specifications": [
+        {
+          "section": "Compute",
+          "label": "Primary computer",
+          "value": "Intel NUC 15, Core Ultra 5 225H; 32 GiB RAM and 1 TB NVMe storage",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Configuration",
+          "label": "Motion axes",
+          "value": "9 DoF platform with three-wheel omnidrive, lift, telescoping arm and three-axis wrist",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Expansion interfaces",
+          "value": "Base: HDMI, Ethernet and 3 × USB 3.2 Type A; head: USB 3.2 Type A and Type C; wrist: USB 2.0 Type A",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Development",
+          "label": "Software",
+          "value": "Open-source ROS 2 and Python SDK",
+          "sourceUrl": "https://hello-robot.com/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Development",
+          "label": "Tool interface",
+          "value": "Quick-release plate with 24 V Feetech RS485 bus",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Environment",
+          "label": "Humidity",
+          "value": "10–90% RH, non-condensing",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Arm payload",
+          "value": "2.5 kg extended; 4 kg retracted",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Included gripper",
+          "value": "Stretch Gripper 4 with 200 mm aperture",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Lift / arm speed",
+          "value": "50 cm/s lift; 70 cm/s arm extension",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Lift travel",
+          "value": "120 cm",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Reach",
+          "value": "55 cm plus 6 cm wrist",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Wrist rotation",
+          "value": "310° for each of yaw, pitch and roll",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum speed",
+          "value": "60 cm/s",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Threshold clearance",
+          "value": "Up to 20 mm",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Height / base diameter",
+          "value": "160 cm / 43 cm, per launch datasheet",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "46 kg; 33 kg with ballast removed",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "512 Wh LiFePO4; quick-swap capability",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "8 hours with light CPU load",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Protection",
+          "label": "Ingress rating",
+          "value": "IP20",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Protection",
+          "label": "Operating temperature",
+          "value": "10–30 °C",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer quotes typical shipping 2–4 weeks after purchase order or prepayment.",
+          "sourceUrl": "https://hello-robot.com/purchase/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "US$29,950 base system. Dock US$1,495 and Jetson add-on US$2,995; shipping/taxes quoted separately.",
+          "sourceUrl": "https://hello-robot.com/purchase/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Head cameras",
+          "value": "Two 2.3 MP global-shutter RGB cameras plus one 12 MP RGB camera",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "Head lidar",
+          "value": "Two Hesai J128 hemispherical 3D lidars",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "Wrist depth camera",
+          "value": "Luxonis OAK-D SR stereo camera with 4 TOPS processing",
+          "sourceUrl": "https://hello-robot.com/wp-content/uploads/2026/05/HelloRobot-DataSheet-Stretch-4-Rev5_AsLaunched.pdf",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "pal-tiago",
+      "name": "TIAGo",
+      "manufacturer": "PAL Robotics",
+      "category": "mobile-manipulator",
+      "purpose": "Mobile manipulation research",
+      "availability": "research",
+      "priceUsd": null,
+      "priceNote": "No configured USD price confirmed in the reviewed manufacturer source; request current package pricing.",
+      "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+      "catalogUrl": "https://omblet.com/robots/pal-tiago",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/pal-tiago.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/pal-tiago-gallery-1.webp",
+          "alt": "PAL Robotics TIAGo — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/pal-tiago-gallery-2.webp",
+          "alt": "PAL Robotics TIAGo — upper manipulator and visible sensors"
+        },
+        {
+          "image": "/catalog/portraits/pal-tiago-gallery-3.webp",
+          "alt": "PAL Robotics TIAGo — mobile base and lower chassis"
+        }
+      ],
+      "logo": "/catalog/brands/pal-robotics-icon.svg",
+      "imageStyle": null,
+      "color": "#dceee5",
+      "specifications": [
+        {
+          "section": "Actuation",
+          "label": "Arm",
+          "value": "7 degrees of freedom",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Actuation",
+          "label": "Head",
+          "value": "2 degrees of freedom",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Actuation",
+          "label": "Torso lift",
+          "value": "35 cm",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Compute",
+          "label": "Computer options",
+          "value": "Intel Core i5 or i7; 8 or 16 GB RAM; 250 or 500 GB SSD, configuration dependent",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Expansion interfaces",
+          "value": "1 × USB 3.0, 1 × USB 2.0 and 2 × Gigabit Ethernet; service panel provides HDMI and USB 3.0",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Wireless",
+          "value": "Wi-Fi 6 (802.11ax) and Bluetooth 4.0",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Development",
+          "label": "Software",
+          "value": "Ubuntu LTS with PREEMPT-RT and ROS",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Arm reach",
+          "value": "87 cm without end effector",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Manipulation",
+          "label": "End effector",
+          "value": "Parallel gripper standard on arm configurations; alternative hands and grippers optional",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Payload",
+          "value": "3 kg excluding end effector",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Drive",
+          "value": "Differential drive standard; omnidirectional option",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum indoor speed",
+          "value": "1.5 m/s",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Base footprint",
+          "value": "54 cm diameter",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Height",
+          "value": "110–145 cm",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "70 kg",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "36 V, 20 Ah",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Charging dock",
+          "value": "Optional",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Payload power",
+          "value": "12 V, 5 A output",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "4–5 hours with one battery; 8–10 hours with two",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Research platform offered by manufacturer enquiry; shipping eligibility and lead time require regional confirmation.",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No configured USD price confirmed in the reviewed manufacturer source; request current package pricing.",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Perception",
+          "value": "Head RGB-D camera, laser scanner and rear sonar",
+          "sourceUrl": "https://pal-robotics.com/datasheet/tiago/",
+          "checkedAt": "2026-10-26"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "pollen-reachy-2",
+      "name": "Reachy 2",
+      "manufacturer": "Pollen Robotics",
+      "category": "mobile-manipulator",
+      "purpose": "Embodied AI research",
+      "availability": "research",
+      "priceUsd": null,
+      "priceNote": "No public price on the reviewed product page; request a configuration-specific quote.",
+      "sourceUrl": "https://pollen-robotics.com/reachy-2/",
+      "catalogUrl": "https://omblet.com/robots/pollen-reachy-2",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/pollen-reachy-2.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/pollen-reachy-2-gallery-1.webp",
+          "alt": "Pollen Robotics Reachy 2 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/pollen-reachy-2-gallery-2.webp",
+          "alt": "Pollen Robotics Reachy 2 — hardware detail"
+        },
+        {
+          "image": "/catalog/portraits/pollen-reachy-2-gallery-3.webp",
+          "alt": "Pollen Robotics Reachy 2 — construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/pollen-icon.svg",
+      "imageStyle": "width:200%;top:8%",
+      "color": "#dceee5",
+      "specifications": [
+        {
+          "section": "Compute",
+          "label": "AI processing",
+          "value": "Documentation places AI workloads on customer-provided external computers",
+          "sourceUrl": "https://docs.pollen-robotics.com/hardware-guide/specifications/general/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Compute",
+          "label": "Onboard computer",
+          "value": "Fanless SolidRun Bedrock V3000 CPU computer",
+          "sourceUrl": "https://docs.pollen-robotics.com/hardware-guide/specifications/general/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Configuration",
+          "label": "Height adjustment",
+          "value": "Manual adjustment",
+          "sourceUrl": "https://docs.pollen-robotics.com/hardware-guide/specifications/general/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Configuration",
+          "label": "Neck joints",
+          "value": "3 DoF using an Orbita 3D actuator",
+          "sourceUrl": "https://docs.pollen-robotics.com/hardware-guide/specifications/general/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Development",
+          "label": "Control interfaces",
+          "value": "Python SDK and VR teleoperation",
+          "sourceUrl": "https://pollen-robotics.com/reachy-2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Development",
+          "label": "Hardware access",
+          "value": "Open hardware and software",
+          "sourceUrl": "https://pollen-robotics.com/reachy-2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Development",
+          "label": "Middleware",
+          "value": "ROS 2 Humble",
+          "sourceUrl": "https://pollen-robotics.com/reachy-2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Arm configuration",
+          "value": "7 DoF and approximately 3 kg payload per arm",
+          "sourceUrl": "https://pollen-robotics.com/reachy-2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Manipulation",
+          "label": "Grippers",
+          "value": "100 mm opening; nominal 10 N and peak 50 N force; 400 g each with interchangeable tips",
+          "sourceUrl": "https://docs.pollen-robotics.com/hardware-guide/specifications/grippers/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Mobility",
+          "label": "Drive system",
+          "value": "Omnidirectional base with three omniwheels",
+          "sourceUrl": "https://pollen-robotics.com/reachy-2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Adjustable height",
+          "value": "136–166 cm",
+          "sourceUrl": "https://pollen-robotics.com/reachy-2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Base dimensions",
+          "value": "50 cm diameter and 25 cm high",
+          "sourceUrl": "https://docs.pollen-robotics.com/hardware-guide/specifications/mobile-base/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Full robot mass",
+          "value": "Up to 50 kg",
+          "sourceUrl": "https://pollen-robotics.com/reachy-2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Base runtime",
+          "value": "8 hours stated for the mobile base; full robot workload not specified",
+          "sourceUrl": "https://docs.pollen-robotics.com/hardware-guide/specifications/mobile-base/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Lab platform listed by Pollen Robotics; contact the manufacturer for configuration and delivery.",
+          "sourceUrl": "https://pollen-robotics.com/reachy-2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No public price on the reviewed product page; request a configuration-specific quote.",
+          "sourceUrl": "https://pollen-robotics.com/reachy-2/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Vision",
+          "value": "Stereo and RGB-D cameras; LiDAR on mobile base",
+          "sourceUrl": "https://pollen-robotics.com/reachy-2/",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "casio-moflin-pe-m10",
+      "name": "Moflin PE-M10",
+      "manufacturer": "CASIO",
+      "category": "companion",
+      "purpose": "Interactive robot pet",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "Official product page reviewed; no unambiguous current USD package price verified. Confirm price, included accessories and regional stock.",
+      "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+      "catalogUrl": "https://omblet.com/robots/casio-moflin-pe-m10",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/casio-moflin-pe-m10.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/casio-moflin-pe-m10-gallery-1.webp",
+          "alt": "CASIO Moflin PE-M10 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/casio-moflin-pe-m10-gallery-2.webp",
+          "alt": "CASIO Moflin PE-M10 — eye and surrounding fur"
+        },
+        {
+          "image": "/catalog/portraits/casio-moflin-pe-m10-gallery-3.webp",
+          "alt": "CASIO Moflin PE-M10 — side fur and pale underside seam"
+        }
+      ],
+      "logo": "/catalog/brands/casio-icon.png",
+      "imageStyle": null,
+      "color": "#f3e0e1",
+      "specifications": [
+        {
+          "section": "Configuration",
+          "label": "Included charger",
+          "value": "Moflin Bed and AC adaptor",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Companion application",
+          "value": "MofLife for iOS/Android; Bluetooth pairing and CASIO ID required for app use",
+          "sourceUrl": "https://www.casio.com/content/dam/casio/global/support/manuals/moflin/pdf/2022/p/PE-M10_WM_EN.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Wireless",
+          "value": "Bluetooth 5.1",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Development",
+          "label": "Software updates",
+          "value": "MofLife app installs software updates and displays remaining battery charge",
+          "sourceUrl": "https://www.casio.com/content/dam/casio/global/support/manuals/moflin/pdf/2022/p/PE-M10_WM_EN.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Environment",
+          "label": "Humidity",
+          "value": "20–80% RH, non-condensing",
+          "sourceUrl": "https://www.casio.com/content/dam/casio/global/support/manuals/moflin/pdf/2022/p/PE-M10_WM_EN.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Environment",
+          "label": "Temperature",
+          "value": "5–35°C",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Interaction",
+          "label": "Audio",
+          "value": "One speaker and one microphone",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Interaction",
+          "label": "Movement",
+          "value": "Two head axes: rotation and tilt",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Charger dimensions",
+          "value": "Moflin Bed PE-HS1-M: 140 × 100 × 190 mm; approximately 280 g",
+          "sourceUrl": "https://www.casio.com/content/dam/casio/global/support/manuals/moflin/pdf/2022/p/PE-M10_WM_EN.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Dimensions",
+          "value": "Approximately 130 × 90 × 180 mm",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "Approximately 260 g",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "3.7 V, 1,200 mAh lithium-ion",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Charger supply",
+          "value": "Moflin Bed: approximately 4.7 W; supplied adaptor accepts 100–240 V AC and outputs 5.9 V DC / 2 A",
+          "sourceUrl": "https://www.casio.com/content/dam/casio/global/support/manuals/moflin/pdf/2022/p/PE-M10_WM_EN.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Charging time",
+          "value": "Approximately 3.5 hours at 25°C",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "Approximately 5 hours at 25°C",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "PE-M10 silver/gold listed through the official US Moflin store; confirm colour and stock.",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "Official product page reviewed; no unambiguous current USD package price verified. Confirm price, included accessories and regional stock.",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Other sensors",
+          "value": "Acceleration/gyro, light and temperature",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Touch",
+          "value": "One head sensor and four body sensors",
+          "sourceUrl": "https://support.casio.com/global/en/moflin/manual/PE-M10_en/JEAWSYzhcohyhc.html",
+          "checkedAt": "2026-10-26"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "elephant-robotics-marscat-white",
+      "name": "MarsCat (Standard Set, White)",
+      "manufacturer": "Elephant Robotics",
+      "category": "companion",
+      "purpose": "Programmable robotic pet",
+      "availability": "discontinued",
+      "priceUsd": 1199,
+      "priceNote": "US$1,199 sale price (US$1,399 list) for Standard Set, White, standard warranty; shipping, taxes and tariffs extra.",
+      "sourceUrl": "https://shop.elephantrobotics.com/products/marscat-a-bionic-cat-a-home-robot",
+      "catalogUrl": "https://omblet.com/robots/elephant-robotics-marscat-white",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/elephant-robotics-marscat-white.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/elephant-robotics-marscat-white-gallery-1.webp",
+          "alt": "Elephant Robotics MarsCat (Standard Set, White) — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/elephant-robotics-marscat-white-gallery-2.webp",
+          "alt": "Elephant Robotics MarsCat (Standard Set, White) — front housing detail"
+        },
+        {
+          "image": "/catalog/portraits/elephant-robotics-marscat-white-gallery-3.webp",
+          "alt": "Elephant Robotics MarsCat (Standard Set, White) — lower body construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/elephant.png",
+      "imageStyle": null,
+      "color": "#f6e4d8",
+      "specifications": [
+        {
+          "section": "Compute",
+          "label": "Processor",
+          "value": "Raspberry Pi 3 B; quad-core Cortex-A53; 1 GB RAM",
+          "sourceUrl": "https://static.elephantrobotics.com/wp-content/uploads/2022/02/parameters-3.jpg",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Configuration",
+          "label": "Bundle scope",
+          "value": "Standard Set includes charger and two toys; charging station and bowl belong to Premium/Developed sets",
+          "sourceUrl": "https://shop.elephantrobotics.com/products/marscat-a-bionic-cat-a-home-robot",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Configuration",
+          "label": "Joints",
+          "value": "16: two head, twelve leg and two tail joints",
+          "sourceUrl": "https://static.elephantrobotics.com/wp-content/uploads/2022/02/parameters-3.jpg",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Companion application",
+          "value": "MarsApp links are provided for Android and iOS; current app availability should be checked before purchase",
+          "sourceUrl": "https://www.elephantrobotics.com/en/mars-en/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Wireless behavior",
+          "value": "Offline operation; Wi-Fi and Bluetooth enabled through programming",
+          "sourceUrl": "https://static.elephantrobotics.com/wp-content/uploads/2022/02/parameters-3.jpg",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Development",
+          "label": "Programming",
+          "value": "Open MarsCat SDK and marsai source repository",
+          "sourceUrl": "https://www.elephantrobotics.com/en/mars-en/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Interaction",
+          "label": "Audio",
+          "value": "One microphone and one speaker",
+          "sourceUrl": "https://static.elephantrobotics.com/wp-content/uploads/2022/02/parameters-3.jpg",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Materials",
+          "value": "Plastic shell, glass eyes and rubber ears, neck and paws",
+          "sourceUrl": "https://static.elephantrobotics.com/wp-content/uploads/2022/02/parameters-3.jpg",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Standing dimensions",
+          "value": "503 × 200 × 329 mm including tail; 372 mm long without tail",
+          "sourceUrl": "https://static.elephantrobotics.com/wp-content/uploads/2022/02/parameters-3.jpg",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "7.4 V, 6800 mAh in the linked manufacturer specification image",
+          "sourceUrl": "https://static.elephantrobotics.com/wp-content/uploads/2022/02/parameters-3.jpg",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Charging",
+          "value": "USB-C, up to 5 V / 3 A; 3–4 hours",
+          "sourceUrl": "https://static.elephantrobotics.com/wp-content/uploads/2022/02/parameters-3.jpg",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "Manufacturer lists 2 hours active motion or 5 hours regular motion",
+          "sourceUrl": "https://static.elephantrobotics.com/wp-content/uploads/2022/02/parameters-3.jpg",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer explicitly marks MarsCat discontinued; selected White Standard Set is sold out. Americas buyers are directed to the regional store",
+          "sourceUrl": "https://shop.elephantrobotics.com/products/marscat-a-bionic-cat-a-home-robot",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "US$1,199 sale price (US$1,399 list) for Standard Set, White, standard warranty; shipping, taxes and tariffs extra.",
+          "sourceUrl": "https://shop.elephantrobotics.com/products/marscat-a-bionic-cat-a-home-robot",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Camera",
+          "value": "5 MP; 72° view",
+          "sourceUrl": "https://static.elephantrobotics.com/wp-content/uploads/2022/02/parameters-3.jpg",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Touch and ranging",
+          "value": "Six capacitive touch sensors, one ToF sensor and gyroscope",
+          "sourceUrl": "https://static.elephantrobotics.com/wp-content/uploads/2022/02/parameters-3.jpg",
+          "checkedAt": "2026-10-26"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "keyi-loona",
+      "name": "Loona",
+      "manufacturer": "KEYi Tech",
+      "category": "companion",
+      "purpose": "Companionship and play",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "Regional pricing and promotions vary; confirm the exact package and delivery cost in the official store.",
+      "sourceUrl": "https://keyirobot.com/products/petbot",
+      "catalogUrl": "https://omblet.com/robots/keyi-loona",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/keyi-loona.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/keyi-loona-gallery-1.webp",
+          "alt": "KEYi Tech Loona — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/keyi-loona-gallery-2.webp",
+          "alt": "KEYi Tech Loona — front housing detail"
+        },
+        {
+          "image": "/catalog/portraits/keyi-loona-gallery-3.webp",
+          "alt": "KEYi Tech Loona — lower body construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/keyi-tech-icon.svg",
+      "imageStyle": null,
+      "color": "#f5ecc7",
+      "specifications": [
+        {
+          "section": "Actuation",
+          "label": "Servos",
+          "value": "2 brushless wheel servos; 4 brushed body and ear servos",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Audio",
+          "label": "Microphones / speaker",
+          "value": "4-microphone array / 2 W speaker",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Compute",
+          "label": "Memory / storage",
+          "value": "2 GB LPDDR4 / 8 GB eMMC",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Wi-Fi",
+          "value": "2.4 / 5.8 GHz; 802.11 a/b/g/n",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Development",
+          "label": "Programming",
+          "value": "Google Blockly graphical programming",
+          "sourceUrl": "https://keyirobot.com/products/petbot",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Display",
+          "label": "Screen",
+          "value": "2.4 in LCD",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Interaction",
+          "label": "Online AI",
+          "value": "ChatGPT-enabled conversation; some processing is local, but connected AI features use cloud services",
+          "sourceUrl": "https://keyirobot.com/products/petbot",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Dimensions",
+          "value": "8.3 × 6.8 × 6.8 in",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "2.42 lb",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Automatic docking",
+          "value": "Returns to the charging dock when battery is low; confirm dock inclusion in selected bundle",
+          "sourceUrl": "https://keyirobot.com/products/petbot",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "1,350 mAh; 11.1 V lithium-ion",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Charging",
+          "value": "USB-C and charging-dock contacts",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "Approximately 2 hours of continuous use; manufacturer claim",
+          "sourceUrl": "https://keyirobot.com/products/petbot",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Official international store; shipping eligibility and bundle contents vary by destination.",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "Regional pricing and promotions vary; confirm the exact package and delivery cost in the official store.",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Motion",
+          "value": "3-axis gyroscope and accelerometer",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Touch",
+          "value": "Touch sensor for physical interactions",
+          "sourceUrl": "https://keyirobot.com/products/petbot",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "Vision",
+          "value": "720p RGB camera and 3D ToF",
+          "sourceUrl": "https://keyirobot.com/products/loona",
+          "checkedAt": "2026-10-26"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "livingai-emo",
+      "name": "EMO",
+      "manufacturer": "LivingAI",
+      "category": "companion",
+      "purpose": "Desktop companionship",
+      "availability": "available",
+      "priceUsd": 279,
+      "priceNote": "US$279 for standard EMO bundle with skateboard charger and smart light. Shipping/taxes require checkout.",
+      "sourceUrl": "https://living.ai/emo/",
+      "catalogUrl": "https://omblet.com/robots/livingai-emo",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/livingai-emo.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/livingai-emo-gallery-1.webp",
+          "alt": "LivingAI EMO — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/livingai-emo-gallery-2.webp",
+          "alt": "LivingAI EMO — screen and headphones"
+        },
+        {
+          "image": "/catalog/portraits/livingai-emo-gallery-3.webp",
+          "alt": "LivingAI EMO — construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/livingai-icon.png",
+      "imageStyle": null,
+      "color": "#e8e1f3",
+      "specifications": [
+        {
+          "section": "Compute",
+          "label": "Processing",
+          "value": "Neural-network processor with separate image, audio and sensor processing models",
+          "sourceUrl": "https://living.ai/emo/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Configuration",
+          "label": "Charging",
+          "value": "Skateboard wireless charger in standard bundle",
+          "sourceUrl": "https://living.ai/emo/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Interaction",
+          "label": "Audio output",
+          "value": "Built-in speaker for music and robot sounds",
+          "sourceUrl": "https://living.ai/emo/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Interaction",
+          "label": "Manufacturer-described interaction",
+          "value": "Voice, animated expressions, music and movement",
+          "sourceUrl": "https://living.ai/emo/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Movement",
+          "value": "Self-directed desktop movement; manufacturer describes sound tracking and edge avoidance",
+          "sourceUrl": "https://living.ai/emo/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Official store accepts orders and estimates dispatch in about 2 weeks.",
+          "sourceUrl": "https://living.ai/product/emo/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "US$279 for standard EMO bundle with skateboard charger and smart light. Shipping/taxes require checkout.",
+          "sourceUrl": "https://living.ai/product/emo/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Camera",
+          "value": "HD camera with face recognition",
+          "sourceUrl": "https://living.ai/emo/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Microphones",
+          "value": "Four-microphone array",
+          "sourceUrl": "https://living.ai/emo/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Recognition capacity",
+          "value": "Manufacturer advertises recognition of up to 10 people",
+          "sourceUrl": "https://living.ai/emo/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Touch",
+          "value": "Head touch sensor",
+          "sourceUrl": "https://living.ai/emo/",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "sony-aibo-ers1000",
+      "name": "aibo ERS-1000",
+      "manufacturer": "Sony",
+      "category": "companion",
+      "purpose": "Robotic pet companionship",
+      "availability": "available",
+      "priceUsd": 3199.99,
+      "priceNote": "US$3,199.99 US white bundle including 3-year AI Cloud Plan; ongoing services may require subscription.",
+      "sourceUrl": "https://electronics.sony.com/more/aibo/p/ers1000",
+      "catalogUrl": "https://omblet.com/robots/sony-aibo-ers1000",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/sony-aibo-ers1000.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/sony-aibo-ers1000-gallery-1.webp",
+          "alt": "Sony aibo ERS-1000 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/sony-aibo-ers1000-gallery-2.webp",
+          "alt": "Sony aibo ERS-1000 — hardware detail"
+        },
+        {
+          "image": "/catalog/portraits/sony-aibo-ers1000-gallery-3.webp",
+          "alt": "Sony aibo ERS-1000 — construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/sony-icon.png",
+      "imageStyle": null,
+      "color": "#e9ebed",
+      "specifications": [
+        {
+          "section": "Capabilities",
+          "label": "Photography",
+          "value": "Photos through My aibo; service conditions apply",
+          "sourceUrl": "https://electronics.sony.com/more/aibo/p/ers1000",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Configuration",
+          "label": "Joint degrees of freedom",
+          "value": "22 total",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Configuration",
+          "label": "Model / color",
+          "value": "ERS-1000 / white",
+          "sourceUrl": "https://electronics.sony.com/more/aibo/p/ers1000",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Companion application",
+          "value": "My aibo for iOS, Android and web",
+          "sourceUrl": "https://electronics.sony.com/more/aibo/p/ers1000",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Network",
+          "value": "LTE data and IEEE 802.11 b/g/n Wi-Fi; service availability is region-dependent",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Interaction",
+          "label": "Audio / display",
+          "value": "Four microphones, speaker and two OLED eye displays",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Interaction",
+          "label": "Inputs",
+          "value": "Voice, touch and recognition of people",
+          "sourceUrl": "https://electronics.sony.com/more/aibo/p/ers1000",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Ownership",
+          "label": "Cloud plan",
+          "value": "Three years included in this US bundle; an AI Cloud Plan is required for all features, including photo services",
+          "sourceUrl": "https://electronics.sony.com/more/aibo/p/ers1000",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Dimensions",
+          "value": "Approximately 180 × 293 × 305 mm (width × height × depth), excluding protrusions",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "Approximately 2.2 kg",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Charging input",
+          "value": "19.5 V DC / 2.3 A",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Charging time",
+          "value": "Approximately 3 hours; varies with activity and ambient temperature",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "Approximately 120 minutes in standard operating mode",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Standard consumption",
+          "value": "Approximately 14 W",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Protection",
+          "label": "Operating temperature",
+          "value": "5–35 °C",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "US store offers ordering, excluding Illinois and Baltimore. Availability is region-specific.",
+          "sourceUrl": "https://electronics.sony.com/more/aibo/p/ers1000",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Japan sales notice",
+          "value": "Sony announced domestic white-model sales ending when stock runs out on 25 June 2026.",
+          "sourceUrl": "https://info.aibo.sony.jp/info/2026/06/20260625-01.html",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "US$3,199.99 US white bundle including 3-year AI Cloud Plan; ongoing services may require subscription.",
+          "sourceUrl": "https://electronics.sony.com/more/aibo/p/ers1000",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Returns",
+          "value": "Sony US lists this aibo purchase as final sale, with no returns",
+          "sourceUrl": "https://electronics.sony.com/more/aibo/p/ers1000",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "Additional sensing",
+          "value": "Head and torso six-axis inertial sensors; motion sensor, two ranging sensors, time-of-flight and ambient-light sensors",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "Cameras",
+          "value": "Front camera and SLAM camera",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Touch",
+          "value": "Head, jaw and back sensors, plus four paw pads",
+          "sourceUrl": "https://helpguide.sony.net/aibo/ers1000/v1/en-us/contents/TP0001970140.html",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "autel-evo-max-4t",
+      "name": "EVO Max 4T",
+      "manufacturer": "Autel Robotics",
+      "category": "drone",
+      "purpose": "Aerial imaging and inspection",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "No applicable configured USD price verified; confirm the aircraft, controller, batteries, service plan and regional supply with the manufacturer or dealer.",
+      "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+      "catalogUrl": "https://omblet.com/robots/autel-evo-max-4t",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/autel-evo-max-4t.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/autel-evo-max-4t-gallery-1.webp",
+          "alt": "Autel Robotics EVO Max 4T — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/autel-evo-max-4t-gallery-2.webp",
+          "alt": "Autel Robotics EVO Max 4T — front imaging module and surrounding body"
+        },
+        {
+          "image": "/catalog/portraits/autel-evo-max-4t-gallery-3.webp",
+          "alt": "Autel Robotics EVO Max 4T — one visible motor arm, hinge and propeller assembly"
+        }
+      ],
+      "logo": "/catalog/brands/autel-icon.png",
+      "imageStyle": null,
+      "color": "#f6e4d8",
+      "specifications": [
+        {
+          "section": "Connectivity",
+          "label": "Transmission range",
+          "value": "Up to 15 km FCC or 8 km CE, unobstructed and interference-free",
+          "sourceUrl": "https://www.autelrobotics.com/wp-content/uploads/2024/09/EN_EVO-Max-Series-Multirotor-Aircraft-User-Manual_V1.2.2.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Environment",
+          "label": "Temperature",
+          "value": "−20–50°C without load; −20–40°C at full load",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Environment",
+          "label": "Wind resistance",
+          "value": "10.7 m/s takeoff/landing; 12 m/s cruise",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum ascent",
+          "value": "8 m/s in Ludicrous mode",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum descent",
+          "value": "6 m/s in Standard/Ludicrous modes",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum horizontal speed",
+          "value": "23 m/s forward in Ludicrous mode; windless near sea level",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Navigation",
+          "label": "GNSS",
+          "value": "GPS, Galileo, BeiDou and GLONASS",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Dimensions with 1136 propellers",
+          "value": "562 × 649 × 150 mm, unfolded",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Maximum takeoff mass",
+          "value": "Up to 1,890 g for EU C2 class; up to 1,999 g in other regions",
+          "sourceUrl": "https://developer.autelrobotics.com/doc/payload_sdk/v1.1/psdk_docs/en/50/3",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Takeoff mass",
+          "value": "1,645 g with ABX40 battery, Fusion 4T gimbal and propellers",
+          "sourceUrl": "https://www.autelrobotics.com/wp-content/uploads/2024/09/EN_EVO-Max-Series-Multirotor-Aircraft-User-Manual_V1.2.2.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Wheelbase",
+          "value": "465 mm",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "ABX40: 8,070 mAh, 14.88 V, 120 Wh, 520 g; ABX41: 9,248 mAh, 14.76 V, 136.5 Wh, 533 g; LiPo 4S",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-battery",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Battery service",
+          "value": "Hot-swappable; charge at 5–45 °C",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-battery",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Charging time",
+          "value": "Approximately 90 minutes under the manual’s charging procedure",
+          "sourceUrl": "https://www.autelrobotics.com/wp-content/uploads/2024/09/EN_EVO-Max-Series-Multirotor-Aircraft-User-Manual_V1.2.2.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Maximum flight time",
+          "value": "42 minutes; windless laboratory flight at 8 m/s",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Maximum hover time",
+          "value": "38 minutes; windless laboratory conditions",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Protection",
+          "label": "Ingress rating",
+          "value": "IP43 listed by manufacturer; manual marks protection as a custom service, so confirm the ordered configuration",
+          "sourceUrl": "https://www.autelrobotics.com/wp-content/uploads/2024/09/EN_EVO-Max-Series-Multirotor-Aircraft-User-Manual_V1.2.2.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer product/sales route; confirm regional stock and exact aircraft package.",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No applicable configured USD price verified; confirm the aircraft, controller, batteries, service plan and regional supply with the manufacturer or dealer.",
+          "sourceUrl": "https://shop.autelrobotics.com/pages/evo-max-4t-aircraft",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Laser rangefinder",
+          "value": "5–1,200 m",
+          "sourceUrl": "https://www.autelrobotics.com/wp-content/uploads/2024/09/EN_EVO-Max-Series-Multirotor-Aircraft-User-Manual_V1.2.2.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "Obstacle sensing",
+          "value": "Vision and millimetre-wave radar; 24 GHz regional version has downward-only radar and no radar-assisted night avoidance",
+          "sourceUrl": "https://www.autelrobotics.com/wp-content/uploads/2024/09/EN_EVO-Max-Series-Multirotor-Aircraft-User-Manual_V1.2.2.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "Thermal imager",
+          "value": "640 × 512 at 25 fps; 13 mm f/1.2 lens, 42° field of view",
+          "sourceUrl": "https://www.autelrobotics.com/wp-content/uploads/2024/09/EN_EVO-Max-Series-Multirotor-Aircraft-User-Manual_V1.2.2.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "Wide camera",
+          "value": "Original Fusion 4T: 1/1.28-inch 50 MP CMOS, 23 mm equivalent f/1.9",
+          "sourceUrl": "https://www.autelrobotics.com/wp-content/uploads/2024/09/EN_EVO-Max-Series-Multirotor-Aircraft-User-Manual_V1.2.2.pdf",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "Zoom camera",
+          "value": "1/2-inch 48 MP CMOS; 64–234 mm equivalent f/2.8–f/4.8; 2.7–10× optical zoom",
+          "sourceUrl": "https://www.autelrobotics.com/wp-content/uploads/2024/09/EN_EVO-Max-Series-Multirotor-Aircraft-User-Manual_V1.2.2.pdf",
+          "checkedAt": "2026-10-27"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "dji-agras-t50",
+      "name": "Agras T50",
+      "manufacturer": "DJI",
+      "category": "drone",
+      "purpose": "Agricultural spraying",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "DJI pricing and bundles vary by regional store; no configured USD price verified.",
+      "sourceUrl": "https://ag.dji.com/t50/specs",
+      "catalogUrl": "https://omblet.com/robots/dji-agras-t50",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/dji-agras-t50.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/dji-agras-t50-gallery-1.webp",
+          "alt": "DJI Agras T50 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/dji-agras-t50-gallery-2.webp",
+          "alt": "DJI Agras T50 — front imaging module and surrounding body"
+        },
+        {
+          "image": "/catalog/portraits/dji-agras-t50-gallery-3.webp",
+          "alt": "DJI Agras T50 — one visible motor arm, hinge and propeller assembly"
+        }
+      ],
+      "logo": "/catalog/brands/dji-icon.png",
+      "imageStyle": null,
+      "color": "#e9ebed",
+      "specifications": [
+        {
+          "section": "Configuration",
+          "label": "Rotor count",
+          "value": "8",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Transmission range",
+          "value": "Up to 7 km FCC, 5 km SRRC or 4 km CE/MIC, unobstructed and interference-free at 2.5 m altitude",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Environment",
+          "label": "Wind resistance",
+          "value": "6 m/s",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Navigation",
+          "label": "Terrain following",
+          "value": "Mapping-free slopes up to 50°; radar altitude detection 1–50 m and stabilization 1.5–30 m",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass with battery",
+          "value": "52 kg",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Maximum takeoff mass",
+          "value": "92 kg spraying or 103 kg spreading at sea level; app payload limits depend on altitude and environment",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Unfolded dimensions",
+          "value": "2800 × 3085 × 820 mm, arms and propellers unfolded",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "DB1560: 30,000 mAh, 52.22 V; approximately 12.1 kg",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Charging time",
+          "value": "Manufacturer claims 9–12 minutes with D12000iE generator or C10000 supply; depends on station altitude, fast-charge cable and battery cell temperature of 15–70 °C",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Listed by DJI with regional purchase or dealer links. Bundle stock and delivery vary by market.",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "DJI pricing and bundles vary by regional store; no configured USD price verified.",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Obstacle sensing",
+          "value": "Forward and rear phased-array radars with 1–50 m sensing plus binocular vision; radar operating limits include horizontal speed ≤10 m/s and vertical speed ≤3 m/s",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Task",
+          "label": "Spray flow",
+          "value": "16 L/min with 2 sprinklers; 24 L/min with optional 4 sprinklers",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Task",
+          "label": "Spray tank",
+          "value": "40 L; 40 kg operating payload",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Task",
+          "label": "Spray width",
+          "value": "4–11 m at 3 m above crops",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Task",
+          "label": "Spreader configuration",
+          "value": "75 L tank; 50 kg internal load",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Task",
+          "label": "Spreading material",
+          "value": "0.5–5 mm dry granules; advertised 8 m spread width, dependent on application",
+          "sourceUrl": "https://ag.dji.com/t50/specs",
+          "checkedAt": "2026-10-27"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "dji-mavic-3e",
+      "name": "Mavic 3E",
+      "manufacturer": "DJI",
+      "category": "drone",
+      "purpose": "Enterprise aerial surveying",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "DJI pricing and bundles vary by regional store; no configured USD price verified.",
+      "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+      "catalogUrl": "https://omblet.com/robots/dji-mavic-3e",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/dji-mavic-3e.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/dji-mavic-3e-gallery-1.webp",
+          "alt": "DJI Mavic 3E — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/dji-mavic-3e-gallery-2.webp",
+          "alt": "DJI Mavic 3E — front imaging module and surrounding body"
+        },
+        {
+          "image": "/catalog/portraits/dji-mavic-3e-gallery-3.webp",
+          "alt": "DJI Mavic 3E — one visible motor arm, hinge and propeller assembly"
+        }
+      ],
+      "logo": "/catalog/brands/dji-icon.png",
+      "imageStyle": null,
+      "color": "#e9ebed",
+      "specifications": [
+        {
+          "section": "Connectivity",
+          "label": "Transmission range",
+          "value": "Up to 15 km FCC or 8 km CE/SRRC/MIC, unobstructed and interference-free; communication range rather than round-trip flight radius",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Video transmission",
+          "value": "DJI O3 Enterprise; 1080p/30 fps live view",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Environment",
+          "label": "Operating temperature",
+          "value": "−10 to 40°C",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Environment",
+          "label": "Wind resistance",
+          "value": "12 m/s",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum forward speed",
+          "value": "21 m/s in Sport mode, sea level and no wind",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Navigation",
+          "label": "GNSS",
+          "value": "GPS, Galileo and BeiDou; GLONASS requires enabled RTK module",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Navigation",
+          "label": "RTK option",
+          "value": "RTK module specifies 1 cm + 1 ppm horizontal and 1.5 cm + 1 ppm vertical accuracy with RTK fix",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass with propellers",
+          "value": "915 g, without accessories",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Maximum takeoff mass",
+          "value": "1050 g standard configuration; EU C1 battery/propeller configuration differs",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Unfolded dimensions",
+          "value": "347.5 × 283 × 107.7 mm, without propellers",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "Standard: 5,000 mAh, 15.4 V, 77 Wh LiPo 4S; separate EU C1 battery is 4,230 mAh / 65.15 Wh",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Charging system",
+          "value": "100 W USB-C adapter and hub; up to three batteries charged sequentially, charging temperature 5–40 °C",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Maximum flight time",
+          "value": "45 min with standard battery/propellers; 36 min with EU C1 battery/low-noise propellers, no wind",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Listed by DJI with regional purchase or dealer links. Bundle stock and delivery vary by market.",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "DJI pricing and bundles vary by regional store; no configured USD price verified.",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Camera configuration",
+          "value": "4/3 CMOS, 20 MP; mechanical shutter",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Obstacle sensing",
+          "value": "Omnidirectional binocular vision plus downward infrared; requires textured surfaces and lighting over 15 lux",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "Tele camera",
+          "value": "1/2-inch 12 MP CMOS; 162 mm equivalent f/4.4 lens",
+          "sourceUrl": "https://enterprise.dji.com/mavic-3-enterprise/specs",
+          "checkedAt": "2026-10-27"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "parrot-anafi-usa",
+      "name": "ANAFI USA",
+      "manufacturer": "Parrot",
+      "category": "drone",
+      "purpose": "Aerial imaging and inspection",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "No applicable configured USD price verified; confirm the aircraft, controller, batteries, service plan and regional supply with the manufacturer or dealer.",
+      "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+      "catalogUrl": "https://omblet.com/robots/parrot-anafi-usa",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/parrot-anafi-usa.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/parrot-anafi-usa-gallery-1.webp",
+          "alt": "Parrot ANAFI USA — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/parrot-anafi-usa-gallery-2.webp",
+          "alt": "Parrot ANAFI USA — front camera module in folded configuration"
+        },
+        {
+          "image": "/catalog/portraits/parrot-anafi-usa-gallery-3.webp",
+          "alt": "Parrot ANAFI USA — battery indicator and folded-arm rails"
+        }
+      ],
+      "logo": "/catalog/brands/parrot-icon.png",
+      "imageStyle": null,
+      "color": "#dceee5",
+      "specifications": [
+        {
+          "section": "Connectivity",
+          "label": "Control link",
+          "value": "Standard Skycontroller 4: Wi-Fi 802.11a/b/g/n on 2.4 GHz and UNII-1/UNII-3; 720p live feed",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Development",
+          "label": "Software development",
+          "value": "Open-source Ground SDK, Olympe and Sphinx tools",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Environment",
+          "label": "Temperature",
+          "value": "−36–50°C",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Environment",
+          "label": "Wind resistance",
+          "value": "14.7 m/s",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum horizontal speed",
+          "value": "14.7 m/s",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Navigation",
+          "label": "GNSS",
+          "value": "GPS, GLONASS and Galileo",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Folded dimensions",
+          "value": "252 × 104 × 84 mm, standard ANAFI USA",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "500 g",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Maximum takeoff mass",
+          "value": "644 g",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Unfolded dimensions",
+          "value": "282 × 373 × 82 mm; standard version",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "3,400 mAh, 11.55 V high-density LiPo; USB-C charging up to 30 W",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Charging time",
+          "value": "2 hours with USB-PD charger",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Maximum flight time",
+          "value": "32 minutes; standard version, conditions vary",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Protection",
+          "label": "Ingress rating",
+          "value": "IP53",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer product/sales route; confirm regional stock and exact aircraft package.",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No applicable configured USD price verified; confirm the aircraft, controller, batteries, service plan and regional supply with the manufacturer or dealer.",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Gimbal tilt",
+          "value": "−90° to +90°",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Positioning sensors",
+          "value": "Downward camera and ultrasonic sensor, barometer, magnetometer and two six-axis IMUs",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "Thermal imager",
+          "value": "FLIR Boson; 320 × 256 thermal photos",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Visible cameras",
+          "value": "Two 1/2.4-inch sensors; up to 21 MP wide photos",
+          "sourceUrl": "https://www.parrot.com/en/drones/anafi-usa/technical-specifications",
+          "checkedAt": "2026-10-26"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "skydio-x10",
+      "name": "X10 (Connect SL)",
+      "manufacturer": "Skydio",
+      "category": "drone",
+      "purpose": "Aerial imaging and inspection",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "No applicable configured USD price verified; confirm the aircraft, controller, batteries, service plan and regional supply with the manufacturer or dealer.",
+      "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+      "catalogUrl": "https://omblet.com/robots/skydio-x10",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/skydio-x10.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/skydio-x10-gallery-1.webp",
+          "alt": "Skydio X10 (Connect SL) — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/skydio-x10-gallery-2.webp",
+          "alt": "Skydio X10 (Connect SL) — front imaging module and surrounding body"
+        },
+        {
+          "image": "/catalog/portraits/skydio-x10-gallery-3.webp",
+          "alt": "Skydio X10 (Connect SL) — one visible motor arm, hinge and propeller assembly"
+        }
+      ],
+      "logo": "/catalog/brands/skydio-icon.png",
+      "imageStyle": null,
+      "color": "#ddebf5",
+      "specifications": [
+        {
+          "section": "Compute",
+          "label": "Processors",
+          "value": "NVIDIA Jetson Orin and Qualcomm Snapdragon 865",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Configuration",
+          "label": "Sensor packages",
+          "value": "VT300-Z, VT300-L and other configurations; confirm optics in quote",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Connect SL range",
+          "value": "Up to 12 km unobstructed; approximately 1–2 km in strong, 2–6 km in medium and 6–12 km in weak interference",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Environment",
+          "label": "Temperature",
+          "value": "−20–45°C",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Environment",
+          "label": "Wind resistance",
+          "value": "Up to 12.8 m/s gusts",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum ascent / descent",
+          "value": "6 / 4 m/s",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum horizontal speed",
+          "value": "20 m/s at sea level",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Folded dimensions",
+          "value": "350.5 × 165.1 × 119.4 mm without battery",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass with battery",
+          "value": "2.11 kg, Connect SL",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Maximum takeoff mass",
+          "value": "2.49 kg",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Unfolded dimensions",
+          "value": "790 × 650 × 145 mm, including propellers",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Battery revisions",
+          "value": "Rev 1: 8,419 mAh, 18.55 V, 156.17 Wh, 707.5 g; Rev 2: 8,800 mAh, 17.5 V, 154 Wh, 685 g",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Charging time",
+          "value": "Dual charger: 1 hour full / 35 minutes 20–90% at 230 W; 1 hour 47 minutes full / 1 hour 12 minutes 20–90% at 100 W",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Maximum flight / hover time",
+          "value": "40 / 35 minutes; ideal laboratory conditions",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Protection",
+          "label": "Ingress rating",
+          "value": "IP55",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer product/sales route; confirm regional stock and exact aircraft package.",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No applicable configured USD price verified; confirm the aircraft, controller, batteries, service plan and regional supply with the manufacturer or dealer.",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Navigation cameras",
+          "value": "Six 32 MP cameras; top/bottom trinocular arrangement",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "Obstacle sensing",
+          "value": "360° coverage, up to 20 m detection; standard avoidance up to 16 m/s, close/minimal avoidance up to 8 m/s",
+          "sourceUrl": "https://www.skydio.com/x10/technical-specs",
+          "checkedAt": "2026-10-27"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "agilex-scout-2-0",
+      "name": "SCOUT 2.0",
+      "manufacturer": "AgileX Robotics",
+      "category": "field",
+      "purpose": "Mobile robotics development",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "No public price on the reviewed product page; request a configuration-specific quote.",
+      "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+      "catalogUrl": "https://omblet.com/robots/agilex-scout-2-0",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/agilex-scout-2-0.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/agilex-scout-2-0-gallery-1.webp",
+          "alt": "AgileX Robotics SCOUT 2.0 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/agilex-scout-2-0-gallery-2.webp",
+          "alt": "AgileX Robotics SCOUT 2.0 — hardware detail"
+        },
+        {
+          "image": "/catalog/portraits/agilex-scout-2-0-gallery-3.webp",
+          "alt": "AgileX Robotics SCOUT 2.0 — construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/agilex-icon.png",
+      "imageStyle": null,
+      "color": "#f3e0e1",
+      "specifications": [
+        {
+          "section": "Configuration",
+          "label": "Autonomy requirements",
+          "value": "Navigation sensors, onboard computing and software require integration",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Development",
+          "label": "Control interfaces",
+          "value": "CAN bus, SDK and ROS 1 / ROS 2 integration resources; autonomous navigation requires configured sensors and software",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Mobility",
+          "label": "Climb angle",
+          "value": "30°; load condition not specified in the table",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Drive system",
+          "value": "Four-wheel differential drive with independent suspension",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Gap crossing",
+          "value": "200 mm; manufacturer does not specify the load condition",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Mobility",
+          "label": "Ground clearance",
+          "value": "115 mm",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum speed",
+          "value": "1.67 m/s",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Obstacle clearance",
+          "value": "110 mm",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Payload",
+          "value": "50 kg",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Dimensions",
+          "value": "930 × 699 × 337 mm",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "67 kg",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Payload power",
+          "value": "24 V / 10 A external output",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "2.5 hours at full load",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Protection",
+          "label": "Ingress rating",
+          "value": "IP22; customization offered",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Protection",
+          "label": "Operating temperature",
+          "value": "−10 to 40 °C",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer offers a sales enquiry route; regional supply and delivery date require confirmation.",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No public price on the reviewed product page; request a configuration-specific quote.",
+          "sourceUrl": "https://global.agilex.ai/products/scout-2-0",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "clearpath-husky-a300",
+      "name": "Husky A300",
+      "manufacturer": "Clearpath Robotics",
+      "category": "field",
+      "purpose": "Field robotics development",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "No public price on the reviewed product page; request a configuration-specific quote.",
+      "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+      "catalogUrl": "https://omblet.com/robots/clearpath-husky-a300",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/clearpath-husky-a300.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/clearpath-husky-a300-gallery-1.webp",
+          "alt": "Clearpath Robotics Husky A300 — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/clearpath-husky-a300-gallery-2.webp",
+          "alt": "Clearpath Robotics Husky A300 — hardware detail"
+        },
+        {
+          "image": "/catalog/portraits/clearpath-husky-a300-gallery-3.webp",
+          "alt": "Clearpath Robotics Husky A300 — construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/clearpath.png",
+      "imageStyle": null,
+      "color": "#f5ecc7",
+      "specifications": [
+        {
+          "section": "Configuration",
+          "label": "Autonomy package",
+          "value": "Husky AMP adds navigation sensors, sensor mast and OutdoorNav software; separate from the base A300",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Development",
+          "label": "Middleware",
+          "value": "ROS 2 Jazzy",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Interaction",
+          "label": "Status display",
+          "value": "3.70-inch rear e-ink display for battery and connection status",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Interaction",
+          "label": "Status lights",
+          "value": "Four programmable LEDs, two front and two rear",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Drive system",
+          "value": "Four in-wheel brushless motors on the rugged-wheel configuration; caster and Mecanum configurations also offered",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum climb angle",
+          "value": "30°",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum payload",
+          "value": "100 kg",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum speed",
+          "value": "2.0 m/s",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Chassis",
+          "value": "All-metal chassis with aluminum construction and universal payload mounting plate",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Physical",
+          "label": "Dimensions",
+          "value": "990 × 698 × 381 mm",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "80 kg",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Payload power",
+          "value": "12 V at 10 A; 24 V at 5 A; battery voltage at 5 A, with optional 40 A output",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "8 hours standard typical use; 16/24 hours with battery upgrades",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Protection",
+          "label": "Ingress rating",
+          "value": "IP54",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer offers a sales enquiry route; regional supply and delivery date require confirmation.",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No public price on the reviewed product page; request a configuration-specific quote.",
+          "sourceUrl": "https://clearpathrobotics.com/husky-a300-unmanned-ground-vehicle-robot/",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "clearpath-jackal",
+      "name": "Jackal",
+      "manufacturer": "Clearpath Robotics",
+      "category": "field",
+      "purpose": "Field robotics development",
+      "availability": "available",
+      "priceUsd": null,
+      "priceNote": "No public price on the reviewed product page; request a configuration-specific quote.",
+      "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+      "catalogUrl": "https://omblet.com/robots/clearpath-jackal",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/clearpath-jackal.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/clearpath-jackal-gallery-1.webp",
+          "alt": "Clearpath Robotics Jackal — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/clearpath-jackal-gallery-2.webp",
+          "alt": "Clearpath Robotics Jackal — hardware detail"
+        },
+        {
+          "image": "/catalog/portraits/clearpath-jackal-gallery-3.webp",
+          "alt": "Clearpath Robotics Jackal — construction detail"
+        }
+      ],
+      "logo": "/catalog/brands/clearpath.png",
+      "imageStyle": null,
+      "color": "#f5ecc7",
+      "specifications": [
+        {
+          "section": "Compute",
+          "label": "Onboard computer",
+          "value": "Integrated onboard PC; processor and optional upgrade configuration must be selected when ordering",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Wireless connectivity",
+          "value": "Wi-Fi and Bluetooth",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Development",
+          "label": "Middleware",
+          "value": "ROS 2 Jazzy",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Development",
+          "label": "Simulation",
+          "value": "ROS-compatible Gazebo model, RViz interface and demonstration code",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Mobility",
+          "label": "Drive system",
+          "value": "Four-wheel drive",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum payload",
+          "value": "20 kg",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum speed",
+          "value": "2.0 m/s",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Dimensions",
+          "value": "508 × 430 × 250 mm",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Internal expansion space",
+          "value": "250 × 100 × 85 mm",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "17 kg",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Payload power",
+          "value": "5 V at 5 A; 12 V at 10 A; 24 V at 20 A",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Runtime",
+          "value": "4 hours, basic usage",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Protection",
+          "label": "Ingress rating",
+          "value": "IP62",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Protection",
+          "label": "Operating temperature",
+          "value": "−20 to 45 °C",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer offers a sales enquiry route; regional supply and delivery date require confirmation.",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No public price on the reviewed product page; request a configuration-specific quote.",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Included navigation sensors",
+          "value": "GPS and IMU; additional perception sensors depend on package",
+          "sourceUrl": "https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": "jackal",
+      "simulationModelId": "jackal"
+    },
+    {
+      "id": "husarion-panther",
+      "name": "Panther",
+      "manufacturer": "Husarion",
+      "category": "field",
+      "purpose": "ROS mobile robotics research",
+      "availability": "research",
+      "priceUsd": null,
+      "priceNote": "Configuration and regional quote required; no verified configured USD price recorded.",
+      "sourceUrl": "https://husarion.com/manuals/panther/",
+      "catalogUrl": "https://omblet.com/robots/husarion-panther",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/husarion-panther.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/husarion-panther-gallery-1.webp",
+          "alt": "Husarion Panther — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/husarion-panther-gallery-2.webp",
+          "alt": "Husarion Panther — front body and top deck"
+        },
+        {
+          "image": "/catalog/portraits/husarion-panther-gallery-3.webp",
+          "alt": "Husarion Panther — lower chassis detail"
+        }
+      ],
+      "logo": "/catalog/brands/husarion-icon.png",
+      "imageStyle": null,
+      "color": "#f3e0e1",
+      "specifications": [
+        {
+          "section": "Compute",
+          "label": "Computer options",
+          "value": "ASUS NUC, Lenovo ThinkStation P360 Tiny or NVIDIA Jetson Orin NX user computer; configuration dependent",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Interfaces",
+          "value": "Ethernet, USB and dual-band Wi-Fi standard; LTE/5G, GNSS/RTK, CAN and serial interfaces depend on options",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Development",
+          "label": "Control",
+          "value": "ROS interfaces, WebUI and gamepad control; perception/navigation sensors depend on selected equipment",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Environment",
+          "label": "Operating temperature",
+          "value": "−20 to 50°C",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Environment",
+          "label": "Protection options",
+          "value": "IP54 standard; IP66 upgrade",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Climb limits",
+          "value": "With WH01 wheels: 44° at 0–52 kg cargo, 38° at 65 kg and 28° at 100 kg",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum payload",
+          "value": "120 kg; slope limits vary with load",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum speed",
+          "value": "2 m/s",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Dimensions",
+          "value": "809 × 848 × 370 mm with WH01 wheels",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass",
+          "value": "55 kg with WH01 wheels and single battery",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Physical",
+          "label": "Minimum ground clearance",
+          "value": "141 mm",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Base battery",
+          "value": "BAT01: 720 Wh, nominal 36 V lithium-ion",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Power",
+          "label": "Base runtime",
+          "value": "3.5 hours on demanding terrain, up to 8 hours on easier terrain with BAT01; up to 40 hours standby",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Battery options",
+          "value": "BAT01: 36 V / 20 Ah / 720 Wh; optional BAT02: 36 V / 40 Ah / 1,440 Wh",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Charging temperature",
+          "value": "0 to 45 °C",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Charging time",
+          "value": "Approximately 4 hours to 80%, 7 hours to 100% with the supplied wired charger",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Manufacturer lists this model; contact the regional sales channel for configuration, delivery and local availability.",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "Configuration and regional quote required; no verified configured USD price recorded.",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-26"
+        },
+        {
+          "section": "Sensors",
+          "label": "IMU",
+          "value": "PhidgetSpatial 3/3/3 Precision with three-axis compass, gyroscope and accelerometer",
+          "sourceUrl": "https://husarion.com/manuals/panther/",
+          "checkedAt": "2026-10-27"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    },
+    {
+      "id": "robotis-turtlebot3-waffle-pi",
+      "name": "TurtleBot3 Waffle Pi",
+      "manufacturer": "ROBOTIS",
+      "category": "field",
+      "purpose": "ROS education",
+      "availability": "research",
+      "priceUsd": null,
+      "priceNote": "No configured USD price confirmed in the reviewed source; request current package pricing.",
+      "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+      "catalogUrl": "https://omblet.com/robots/robotis-turtlebot3-waffle-pi",
+      "checkedAt": "2026-10-27",
+      "capturedAt": "2026-11-14",
+      "image": "/catalog/portraits/robotis-turtlebot3-waffle-pi.webp",
+      "gallery": [
+        {
+          "image": "/catalog/portraits/robotis-turtlebot3-waffle-pi-gallery-1.webp",
+          "alt": "ROBOTIS TurtleBot3 Waffle Pi — additional studio view"
+        },
+        {
+          "image": "/catalog/portraits/robotis-turtlebot3-waffle-pi-gallery-2.webp",
+          "alt": "ROBOTIS TurtleBot3 Waffle Pi — upper lidar and perforated deck"
+        },
+        {
+          "image": "/catalog/portraits/robotis-turtlebot3-waffle-pi-gallery-3.webp",
+          "alt": "ROBOTIS TurtleBot3 Waffle Pi — front wheel and lower chassis"
+        }
+      ],
+      "logo": "/catalog/brands/robotis.png",
+      "imageStyle": null,
+      "color": "#dceee5",
+      "specifications": [
+        {
+          "section": "Compute",
+          "label": "Computer",
+          "value": "Raspberry Pi 4",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Compute",
+          "label": "Controller",
+          "value": "OpenCR 1.0 with 216 MHz ARM Cortex-M7",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Configuration",
+          "label": "Wheel actuators",
+          "value": "XM430-W210",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Connectivity",
+          "label": "Expansion interfaces",
+          "value": "Three UART, one CAN, one SPI, one I²C, five ADC and four 5-pin OLLO ports",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Development",
+          "label": "Software and hardware access",
+          "value": "Open-source ROS platform with downloadable hardware CAD, firmware and software",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum payload",
+          "value": "30 kg in the manufacturer hardware table; loaded endurance is not specified",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Mobility",
+          "label": "Maximum speed",
+          "value": "0.26 m/s",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Mobility",
+          "label": "Threshold",
+          "value": "≤10 mm",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Dimensions",
+          "value": "281 × 306 × 141 mm",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Physical",
+          "label": "Mass with electronics",
+          "value": "1.8 kg",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Battery",
+          "value": "11.1 V, 1,800 mAh / 19.98 Wh lithium-polymer, 5C",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Power",
+          "label": "Expected charging time",
+          "value": "2.5 hours",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Expected runtime",
+          "value": "2 hours",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Power",
+          "label": "Payload power",
+          "value": "3.3 V at 800 mA; 5 V at 4 A; 12 V at 1 A",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Purchase",
+          "label": "Availability and region",
+          "value": "Development platform; confirm configuration, lead time and regional supply with the manufacturer.",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Purchase",
+          "label": "Pricing basis",
+          "value": "No configured USD price confirmed in the reviewed source; request current package pricing.",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "Camera",
+          "value": "Raspberry Pi Camera v2.1",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-25"
+        },
+        {
+          "section": "Sensors",
+          "label": "IMU",
+          "value": "Three-axis gyroscope and three-axis accelerometer",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-27"
+        },
+        {
+          "section": "Sensors",
+          "label": "LiDAR",
+          "value": "LDS-02; supplied revision varies",
+          "sourceUrl": "https://emanual.robotis.com/docs/en/platform/turtlebot3/features/",
+          "checkedAt": "2026-10-25"
+        }
+      ],
+      "assetId": null,
+      "simulationModelId": null
+    }
+  ]
+}

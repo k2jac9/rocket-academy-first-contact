@@ -5,10 +5,17 @@ import { createApiHandler } from './app.ts';
 import { AtlasStore } from './atlas.ts';
 import { readConfig } from './config.ts';
 import { createGeminiPlanner } from './gemini.ts';
+import { EpisodeService } from './episodes.ts';
 
 const config = readConfig();
 const store = new AtlasStore(config);
-const handle = createApiHandler({ config, store, planner: createGeminiPlanner(config) });
+const handle = createApiHandler({
+  config,
+  store,
+  planner: createGeminiPlanner(config),
+  episodes: new EpisodeService(store.episodes),
+  explorations: store.explorations,
+});
 const apiOrigin = `http://${config.host}:${config.port}`;
 
 const server = createServer({ maxHeaderSize: 16 * 1024 }, async (incoming, outgoing) => {
@@ -49,7 +56,17 @@ const server = createServer({ maxHeaderSize: 16 * 1024 }, async (incoming, outgo
       await pipeline(
         Readable.fromWeb(response.body as import('node:stream/web').ReadableStream<Uint8Array>),
         outgoing,
-        { signal: AbortSignal.any([cancellation.signal, AbortSignal.timeout(30_000)]) },
+        {
+          signal: AbortSignal.any([
+            cancellation.signal,
+            AbortSignal.timeout(
+              url.pathname.startsWith('/api/episodes/') ||
+                url.pathname.startsWith('/api/explorations/artifacts/')
+                ? 180_000
+                : 30_000,
+            ),
+          ]),
+        },
       );
     else outgoing.end();
   } catch {

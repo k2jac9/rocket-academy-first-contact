@@ -1,0 +1,5 @@
+# Provenance manifests hash the original bytes, including text-form meshes,
+# model XML and terrain JSON. Do not rewrite these assets on checkout.
+public/catalog/** -text whitespace=cr-at-eol
+public/robots/** -text whitespace=cr-at-eol
+public/terrain/** -text whitespace=cr-at-eol

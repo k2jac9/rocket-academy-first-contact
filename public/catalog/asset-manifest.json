@@ -1,0 +1,1374 @@
+[
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/1x-neo.webp",
+    "path": "public/catalog/portraits/1x-neo.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "792ae256dbaa676d1e92cd22fb19f31a34c623a07f18cb723278cdb0a4440f8f",
+    "bytes": 61204
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/1x-icon.png",
+    "path": "public/catalog/brands/1x-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "45dcf464114c2745e9556b8e718effd28199e563dbc3c4dd40d30cf86aadfb98",
+    "bytes": 7226
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/1x-neo-gallery-1.webp",
+    "path": "public/catalog/portraits/1x-neo-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "5a729eafe95e5f12afb9b777ec6b204cf1295ede781652ed06e7938c863ae33e",
+    "bytes": 45992
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/1x-neo-gallery-2.webp",
+    "path": "public/catalog/portraits/1x-neo-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "d9ea8fe10f30a120a7f591495899b7a0aa16906f9484b9e760f3382fd2987504",
+    "bytes": 146228
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/1x-neo-gallery-3.webp",
+    "path": "public/catalog/portraits/1x-neo-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "0587343da15dd507efd93bbc71239bc48873c2adf7f174aa1e03f38cbef962e6",
+    "bytes": 190880
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agility-digit-5.webp",
+    "path": "public/catalog/portraits/agility-digit-5.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "8159257b6c4896d4c9249c094854806de182b58e3adbb74acf37e39e0a54148c",
+    "bytes": 88654
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/agility.png",
+    "path": "public/catalog/brands/agility.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "2c96289d0037c11c341e502fec0e5d8ad744cbaa371f533f510f38760fa31fb6",
+    "bytes": 4349
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agility-digit-5-gallery-1.webp",
+    "path": "public/catalog/portraits/agility-digit-5-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "af0c2616b49ca2f5485838f632b713db8a57d0f1d760c5df25233537a237d313",
+    "bytes": 87932
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agility-digit-5-gallery-2.webp",
+    "path": "public/catalog/portraits/agility-digit-5-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "9d2f2dd70df4bc67965c1760be8cc457c03fdd6f57ff593308235c958d84619b",
+    "bytes": 95444
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agility-digit-5-gallery-3.webp",
+    "path": "public/catalog/portraits/agility-digit-5-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "94586ab25130e6df9b98fc8e9bda066904430f3dec40311e0287f533fb8c29bb",
+    "bytes": 102158
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/boston-dynamics-atlas.webp",
+    "path": "public/catalog/portraits/boston-dynamics-atlas.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "0415b16c264218c49ef8c98f72f0b10dd02acc3b2bb2392ec64aa0462fd281ae",
+    "bytes": 84364
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/boston-dynamics.jpg",
+    "path": "public/catalog/brands/boston-dynamics.jpg",
+    "capturedAt": "2026-11-14",
+    "sha256": "5d55a71536db0294293d26e522302692e6f862016ae92e7f8ff9a840bbe40890",
+    "bytes": 5924
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/boston-dynamics-atlas-gallery-1.webp",
+    "path": "public/catalog/portraits/boston-dynamics-atlas-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "95b05ed01dfe74c7936e0fb7e9c21cfe8875a05b59c107cbb02a0817f2233cd6",
+    "bytes": 79176
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/boston-dynamics-atlas-gallery-2.webp",
+    "path": "public/catalog/portraits/boston-dynamics-atlas-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "f37bc64a8a73c78ad7d597a3d872006b764764ec2519245126f5040f2c92d491",
+    "bytes": 96308
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/boston-dynamics-atlas-gallery-3.webp",
+    "path": "public/catalog/portraits/boston-dynamics-atlas-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "d8114aee27d984999bb99b3ff288e03ed7b9235d6795ad608e7f6c242b5db8af",
+    "bytes": 99574
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/figure-03.webp",
+    "path": "public/catalog/portraits/figure-03.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "d7d0240012f62029c0446eb56bed845b0183ae1edbdaf6ea0c11d10b827b52c2",
+    "bytes": 56140
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/figure-icon.png",
+    "path": "public/catalog/brands/figure-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "81e1994a7b51b1a80e4f6a368914d08404e99d81d80c92cd1f2d51fffe716829",
+    "bytes": 1675
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/figure-03-gallery-1.webp",
+    "path": "public/catalog/portraits/figure-03-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "b86b7b403443184b4cdbb879774f99f1e4e3bc5552eb29ae9c185e040d1b0225",
+    "bytes": 50666
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/figure-03-gallery-2.webp",
+    "path": "public/catalog/portraits/figure-03-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "8d57ca2ac7607e18076c04aa76d19d469571f0330214bb77c77377adde117961",
+    "bytes": 142870
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/figure-03-gallery-3.webp",
+    "path": "public/catalog/portraits/figure-03-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "852ed41706dea0777411b253e9d189eb47c21f97940a55f63c8e7e33e7a1d2dc",
+    "bytes": 121402
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/unitree-g1.webp",
+    "path": "public/catalog/portraits/unitree-g1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "8fd64d126dae02823dfcd5611b2e9c4d76e0d46aa225b8c5a139561a608b8808",
+    "bytes": 80454
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/unitree.svg",
+    "path": "public/catalog/brands/unitree.svg",
+    "capturedAt": "2026-11-14",
+    "sha256": "159179ee9b4df9a6cf6363193c9e2aa2eed66967728c402ba3c0bd09130bcc59",
+    "bytes": 578
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/unitree-g1-gallery-1.webp",
+    "path": "public/catalog/portraits/unitree-g1-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "3434760ed89921cb55d733208dcc15c1c0b4fbb04a1789329a86ef651c372f38",
+    "bytes": 81194
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/unitree-g1-gallery-2.webp",
+    "path": "public/catalog/portraits/unitree-g1-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "d3858a97cba990ecb5419707eec09bfe10f955a4d44484f7da850bff5a4796af",
+    "bytes": 97930
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/unitree-g1-gallery-3.webp",
+    "path": "public/catalog/portraits/unitree-g1-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "5980186b375d479ced6f5ab5310a3b65b863d0f00248749106c2b1859721f96c",
+    "bytes": 88596
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/anybotics-anymal-d.webp",
+    "path": "public/catalog/portraits/anybotics-anymal-d.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "b1c99bc1e9d2f59fa9383e700b555bbb7702eb637f0bfda38469c160ca0c8489",
+    "bytes": 115298
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/anybotics-icon.png",
+    "path": "public/catalog/brands/anybotics-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "de8f7aaec409d771b30e1cb2886738049e65b0933a77dedaa9bce2c23356b415",
+    "bytes": 7106
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/anybotics-anymal-d-gallery-1.webp",
+    "path": "public/catalog/portraits/anybotics-anymal-d-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "2edb9e95e3fceb8ccf0af7854be2f78c7f7c9a22cf8c55054493a3304c556687",
+    "bytes": 122444
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/anybotics-anymal-d-gallery-2.webp",
+    "path": "public/catalog/portraits/anybotics-anymal-d-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "549cff57a9f7898eb2364e6d97a5e4c07f58d6ca4309f9764e61c0de0f11706e",
+    "bytes": 107670
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/anybotics-anymal-d-gallery-3.webp",
+    "path": "public/catalog/portraits/anybotics-anymal-d-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "286ea60cdbe200defd73f7b135a100703478775175bd028dbfbf3c373f84bb6f",
+    "bytes": 105562
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/boston-dynamics-spot.webp",
+    "path": "public/catalog/portraits/boston-dynamics-spot.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "58d3d17f677f9e717daaf20c1e4c1e30d27f093a3d178ef570619c09bb3902d2",
+    "bytes": 89380
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/boston-dynamics-spot-gallery-1.webp",
+    "path": "public/catalog/portraits/boston-dynamics-spot-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "4be4c24beb5ce6211d07256a201eb1800d3706dfc1c1b1529d84789bfcd2870c",
+    "bytes": 125148
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/boston-dynamics-spot-gallery-2.webp",
+    "path": "public/catalog/portraits/boston-dynamics-spot-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "430a67d0f745388f2a33eb2767498a939e8ccf4f7c14900217e7c4af083a0dc6",
+    "bytes": 123638
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/boston-dynamics-spot-gallery-3.webp",
+    "path": "public/catalog/portraits/boston-dynamics-spot-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "caddf1f6756756b5d833bbcc0b4fc480ef345d7fcedb68b14cbb33c67bbfbdb7",
+    "bytes": 110234
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/deep-robotics-x30.webp",
+    "path": "public/catalog/portraits/deep-robotics-x30.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "ad144606aa195e3e453bd8099a917352bf88cf04e5c7f376beafba3310f6e906",
+    "bytes": 96694
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/deep-robotics-icon.png",
+    "path": "public/catalog/brands/deep-robotics-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "58f15cd0d57885a701bab5f1707d9ec6c1cf771c76fc13dd8a4c84ced2b223bb",
+    "bytes": 24988
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/deep-robotics-x30-gallery-1.webp",
+    "path": "public/catalog/portraits/deep-robotics-x30-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "b31be8ffb3e01377fc8c53c96fbeb9c9045e7ded7fd9e11b2ffd219ca51779f8",
+    "bytes": 118282
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/deep-robotics-x30-gallery-2.webp",
+    "path": "public/catalog/portraits/deep-robotics-x30-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "f69251bce77d58b7b5b7742ead3a2c94804d9a0d86e957764acae26fa0646123",
+    "bytes": 108446
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/deep-robotics-x30-gallery-3.webp",
+    "path": "public/catalog/portraits/deep-robotics-x30-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "f230c7b9b611ed8ef351218217a007b717d4ed5ee83574a77cff66b73f1262f6",
+    "bytes": 82068
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/ghost-robotics-vision-60.webp",
+    "path": "public/catalog/portraits/ghost-robotics-vision-60.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "142df023652760beb6d563e68157d5717fba7707fe9d19093b7c0c982cade6eb",
+    "bytes": 95564
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/ghost-robotics-icon.png",
+    "path": "public/catalog/brands/ghost-robotics-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "348ca24d28cf3db747e0ef1705d8b7085bdb7b38a3adf6835d45b73925bdb5fe",
+    "bytes": 7182
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/ghost-robotics-vision-60-gallery-1.webp",
+    "path": "public/catalog/portraits/ghost-robotics-vision-60-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "e2e4eb41060c2c33af775ccd8a6d35e8ad31168ebddbdcd4eb756ecf5dffe4f6",
+    "bytes": 106342
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/ghost-robotics-vision-60-gallery-2.webp",
+    "path": "public/catalog/portraits/ghost-robotics-vision-60-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "bfaeb8050a06b522f2528cd9302805e074ca8e0cbaffefcf06d48bf0b453c27a",
+    "bytes": 125988
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/ghost-robotics-vision-60-gallery-3.webp",
+    "path": "public/catalog/portraits/ghost-robotics-vision-60-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "a0258e0e42030cdd386dd0a9dbc5747a95f2f9825d965e10a050f50ff191e1f8",
+    "bytes": 109486
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/unitree-go2.webp",
+    "path": "public/catalog/portraits/unitree-go2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "c1f7d283f41a8c7a3e8e88b510f6615422cd65639cff1a56a727d43dd6860f5c",
+    "bytes": 104998
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/unitree-go2-gallery-1.webp",
+    "path": "public/catalog/portraits/unitree-go2-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "8ee3da6d9acdecb245c4016055dbafb91e5ac38d0a1a8cc746dd9bd2d16d5bab",
+    "bytes": 136300
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/unitree-go2-gallery-2.webp",
+    "path": "public/catalog/portraits/unitree-go2-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "49928558715523307f70553478ade61e0312dba2eacdf462d6672f114eefc5a9",
+    "bytes": 106138
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/unitree-go2-gallery-3.webp",
+    "path": "public/catalog/portraits/unitree-go2-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "51add66b3c2ee350b1dbfb942c6cd4ed3623e3ce348f93d423a2e5c0a90add2b",
+    "bytes": 83232
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agilex-limo-cobot.webp",
+    "path": "public/catalog/portraits/agilex-limo-cobot.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "c6a3c86a2c98b00a67a92c313c56475b7faab751ca4c9b5520d6f4b356df5fac",
+    "bytes": 115986
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/agilex-icon.png",
+    "path": "public/catalog/brands/agilex-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "3889b0bf9739f2074f351ebc230b34785093cae0c72045307f5cf042ad0bbe5c",
+    "bytes": 10605
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agilex-limo-cobot-gallery-1.webp",
+    "path": "public/catalog/portraits/agilex-limo-cobot-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "2d072e517714e995f8df5a03e3be0830d7520177781eb2578aa51803fb0af128",
+    "bytes": 100088
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agilex-limo-cobot-gallery-2.webp",
+    "path": "public/catalog/portraits/agilex-limo-cobot-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "089fa585d975478de8c86978dba6e2d7b26693df820043380aeb6e94eda59948",
+    "bytes": 92180
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agilex-limo-cobot-gallery-3.webp",
+    "path": "public/catalog/portraits/agilex-limo-cobot-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "bb3382f3ee85aa28f7d44f5f2e2d8a8ce884521db8dfda33d6ba662dde7ed597",
+    "bytes": 98488
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/boston-dynamics-stretch.webp",
+    "path": "public/catalog/portraits/boston-dynamics-stretch.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "fd79800d4568edb48744262e58959c08a1c08fef52c1ef57fe0d40da7bbf608f",
+    "bytes": 82316
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/boston-dynamics-stretch-gallery-1.webp",
+    "path": "public/catalog/portraits/boston-dynamics-stretch-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "3667a870bf2b620f37ef778263c1c2908ceae93608d2e6e820c8f5fe46248e42",
+    "bytes": 90878
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/boston-dynamics-stretch-gallery-2.webp",
+    "path": "public/catalog/portraits/boston-dynamics-stretch-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "cf0f21930cc0e3f121eeabc00a4c46353ef6fb6d7531f5e729afa9ec27caa426",
+    "bytes": 125340
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/boston-dynamics-stretch-gallery-3.webp",
+    "path": "public/catalog/portraits/boston-dynamics-stretch-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "4dbbf17982d13d66eaca089972c1a75a42efa3ed8af9d5706d38a99b0a283c80",
+    "bytes": 85700
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/hello-robot-stretch-4.webp",
+    "path": "public/catalog/portraits/hello-robot-stretch-4.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "e13fcb4320b1b5c1e33b56fa56afcf56e8448e6e86ff4a6f2fe52271e2aa5d1b",
+    "bytes": 45770
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/hello-robot.png",
+    "path": "public/catalog/brands/hello-robot.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "b20783c971b50f527e4c3f90efc8eeb0f04819ae060883b357884485a2fd117c",
+    "bytes": 1005
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/hello-robot-stretch-4-gallery-1.webp",
+    "path": "public/catalog/portraits/hello-robot-stretch-4-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "13e567b501082c8cd16ceba5e6cd604ece7e76280f96a6767b76907cf9b7ec92",
+    "bytes": 50722
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/hello-robot-stretch-4-gallery-2.webp",
+    "path": "public/catalog/portraits/hello-robot-stretch-4-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "140d9bf999c7bb00479b90a8857d682fd6f7452ccbb1577fc3864cb3274797a4",
+    "bytes": 56464
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/hello-robot-stretch-4-gallery-3.webp",
+    "path": "public/catalog/portraits/hello-robot-stretch-4-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "6d4c7886515469005a5b9c05c340b0d1f5c3d904cf8328cb194669ff5ccacc3f",
+    "bytes": 68998
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/pal-tiago.webp",
+    "path": "public/catalog/portraits/pal-tiago.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "16d25e2def1328c28c9a8622ef95426653c5ebfbb648cd7a6fe79d08064732f8",
+    "bytes": 46008
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/pal-robotics-icon.svg",
+    "path": "public/catalog/brands/pal-robotics-icon.svg",
+    "capturedAt": "2026-11-14",
+    "sha256": "0628b6b34f9b4af2f5e7d88d79b63c9443880749859e5890cc59ca8ba2a85d6e",
+    "bytes": 1736
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/pal-tiago-gallery-1.webp",
+    "path": "public/catalog/portraits/pal-tiago-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "6691bebd17acc14be858249226b528d79558f485668cbc5fdfb3ccb9e84423f4",
+    "bytes": 64244
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/pal-tiago-gallery-2.webp",
+    "path": "public/catalog/portraits/pal-tiago-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "4edde6e77f1a8039f7006caef8f68b2a22fb636bf142c64e9c4ab9c09438a57c",
+    "bytes": 89316
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/pal-tiago-gallery-3.webp",
+    "path": "public/catalog/portraits/pal-tiago-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "514fa76a53801fc285e00f12749972da2dd2588b6ab1dfef3c321b2805b1c6b5",
+    "bytes": 107368
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/pollen-reachy-2.webp",
+    "path": "public/catalog/portraits/pollen-reachy-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "9802075f90a36929d52633ed7b03b3d5c45a2bcdfc8a500b4a75da95097903f5",
+    "bytes": 95856
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/pollen-icon.svg",
+    "path": "public/catalog/brands/pollen-icon.svg",
+    "capturedAt": "2026-11-14",
+    "sha256": "27edb10a82e79c9564b23a29baade6bb0445cbb4ebc1a8a49b8479cf2ced4904",
+    "bytes": 14474
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/pollen-reachy-2-gallery-1.webp",
+    "path": "public/catalog/portraits/pollen-reachy-2-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "5c0f56f8310b6831c7a0a1fd8561a51f2052d9e51e537257841d4f30b4db0a02",
+    "bytes": 95934
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/pollen-reachy-2-gallery-2.webp",
+    "path": "public/catalog/portraits/pollen-reachy-2-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "7f6e030b3c0075bb075c866241a18dfd206f0bf1cb0bb56d1c19612c57384bd9",
+    "bytes": 104974
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/pollen-reachy-2-gallery-3.webp",
+    "path": "public/catalog/portraits/pollen-reachy-2-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "4a1355711081ed3716f9f4c5857aad156e1eadd6a8b3139fcbd55e5897e46ab1",
+    "bytes": 96600
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/casio-moflin-pe-m10.webp",
+    "path": "public/catalog/portraits/casio-moflin-pe-m10.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "d8e45a0d2a6997063a9c9fc9978623929b8dc36b5bbf14cd4e8ce82f89b035ce",
+    "bytes": 188584
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/casio-icon.png",
+    "path": "public/catalog/brands/casio-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "eda3e51758f59f09108d3b8c272f2b51d03db1852664b7325213a03210aff2b0",
+    "bytes": 5612
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/casio-moflin-pe-m10-gallery-1.webp",
+    "path": "public/catalog/portraits/casio-moflin-pe-m10-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "0f5b1b283acb91998eb35c0d54a88066ea67ccbc469694953585b1726655f287",
+    "bytes": 159192
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/casio-moflin-pe-m10-gallery-2.webp",
+    "path": "public/catalog/portraits/casio-moflin-pe-m10-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "7facb4a17de2077b8076b06e895066afa3bdfe296fc425a1194316bb8839e65e",
+    "bytes": 263460
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/casio-moflin-pe-m10-gallery-3.webp",
+    "path": "public/catalog/portraits/casio-moflin-pe-m10-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "2bbe318db46bcb4b2ee498ad296eaf9ba4480edcb5df98a108a7cb1c07758339",
+    "bytes": 280554
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/elephant-robotics-marscat-white.webp",
+    "path": "public/catalog/portraits/elephant-robotics-marscat-white.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "5da5f40bd2fcd2942a1cddef039d519fc655978aa24179bd0b59f35eb97b4ec3",
+    "bytes": 80148
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/elephant.png",
+    "path": "public/catalog/brands/elephant.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "4de5edc86bd4bc191a5db598e603000f7f6a51e56a066191075755767208cd33",
+    "bytes": 3879
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/elephant-robotics-marscat-white-gallery-1.webp",
+    "path": "public/catalog/portraits/elephant-robotics-marscat-white-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "cf14bb3376fce034821340fc02fb5f173fe130d05e5cbe619a6bca12d5c1451c",
+    "bytes": 77424
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/elephant-robotics-marscat-white-gallery-2.webp",
+    "path": "public/catalog/portraits/elephant-robotics-marscat-white-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "d417864aa14e2420f2457e2aa7d7a7c6d1ec79e6e22ae58f086986f6ef2d10d7",
+    "bytes": 70682
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/elephant-robotics-marscat-white-gallery-3.webp",
+    "path": "public/catalog/portraits/elephant-robotics-marscat-white-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "b35acfaa226e098a1d0c3c2c6849aeec20755bc6262939368f2514b22521ce86",
+    "bytes": 67962
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/keyi-loona.webp",
+    "path": "public/catalog/portraits/keyi-loona.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "42421d5848cafb19c63d30107d32c0d69f024e44b1aee288793c86697a812ef3",
+    "bytes": 70904
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/keyi-tech-icon.svg",
+    "path": "public/catalog/brands/keyi-tech-icon.svg",
+    "capturedAt": "2026-11-14",
+    "sha256": "f0fa6129271fcfddae1621bbd328272ef105285b6aca6fcf865a0ad85dbecdf8",
+    "bytes": 3065
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/keyi-loona-gallery-1.webp",
+    "path": "public/catalog/portraits/keyi-loona-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "a169b8162a4b20fe3ff983f0c0b288a4100579cccddd0e029a82cdbc960f96e3",
+    "bytes": 74580
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/keyi-loona-gallery-2.webp",
+    "path": "public/catalog/portraits/keyi-loona-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "8ae110e1f8cc348bd176a10c88d735f058858f3d5d11bc13045d0dc36c564c72",
+    "bytes": 73936
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/keyi-loona-gallery-3.webp",
+    "path": "public/catalog/portraits/keyi-loona-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "8735a722becacde98ea9419d5c7117bdb9b0497d362d8e9bb23963165c48bfa2",
+    "bytes": 71304
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/livingai-emo.webp",
+    "path": "public/catalog/portraits/livingai-emo.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "47ffbd7075821d33e7a884294ba3c196452de6e2e106fa537b842356071f5803",
+    "bytes": 87240
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/livingai-icon.png",
+    "path": "public/catalog/brands/livingai-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "844958b97b7f693917ac5a24a8374731e257f821ba328c68a7bdb4993532bb23",
+    "bytes": 3227
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/livingai-emo-gallery-1.webp",
+    "path": "public/catalog/portraits/livingai-emo-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "53df5ee526a807df1b0df10b6c7c11d3445d1c6aae1d1a7f5a34c920d2832f12",
+    "bytes": 80862
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/livingai-emo-gallery-2.webp",
+    "path": "public/catalog/portraits/livingai-emo-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "1c493e1bd85d27adb56e6b14e1732714c951b1d6d271d6f0f678fa95e61283f9",
+    "bytes": 119990
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/livingai-emo-gallery-3.webp",
+    "path": "public/catalog/portraits/livingai-emo-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "00cbd805c21a46c17e743589de31ca2db1533a7432c494bdab1f67d79f078344",
+    "bytes": 95050
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/sony-aibo-ers1000.webp",
+    "path": "public/catalog/portraits/sony-aibo-ers1000.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "1c05f82b981c873ec4c7e460ea1f7ba5426f40a91ec301f0870397b373356032",
+    "bytes": 77930
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/sony-icon.png",
+    "path": "public/catalog/brands/sony-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "e43775ff7cca43815a6fe6ff55457ca59d2faa28e84a02109d36ab0baf169243",
+    "bytes": 888
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/sony-aibo-ers1000-gallery-1.webp",
+    "path": "public/catalog/portraits/sony-aibo-ers1000-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "f4fa520e743289aaeeeaad3927eafbd6de620f0bd4e1a47f8e5b7c1b64b969a8",
+    "bytes": 107682
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/sony-aibo-ers1000-gallery-2.webp",
+    "path": "public/catalog/portraits/sony-aibo-ers1000-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "d0389687eeeb26bc77dc50b43f51fbd89ee6b14093298040401577db1298b9ae",
+    "bytes": 71034
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/sony-aibo-ers1000-gallery-3.webp",
+    "path": "public/catalog/portraits/sony-aibo-ers1000-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "26a57836307fc58d9e61775d04126745f8bd2d72900c4ef5a605baa0e1b55b5b",
+    "bytes": 82440
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/aiper-scuba-x1-pro-max.webp",
+    "path": "public/catalog/portraits/aiper-scuba-x1-pro-max.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "44f545543bcd0521e743cfeabed15a9c3deab97f619a5e7df3140ba6894b7bfc",
+    "bytes": 90250
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/aiper-icon.png",
+    "path": "public/catalog/brands/aiper-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "412e18e5ef070ab9109208153ab55a8f60bf83c862e046e9f0c5613ad66c2e62",
+    "bytes": 3079
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/aiper-scuba-x1-pro-max-gallery-1.webp",
+    "path": "public/catalog/portraits/aiper-scuba-x1-pro-max-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "2b108b972f9f1d628a9209d8fc9f5d8c0e51b0c3ebf8b31a42219c2954122c89",
+    "bytes": 102092
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/aiper-scuba-x1-pro-max-gallery-2.webp",
+    "path": "public/catalog/portraits/aiper-scuba-x1-pro-max-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "c8b2a0f6c7be605e59adfd51d550d1d5cb380a9924f931af6e18032269a5b83e",
+    "bytes": 111706
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/aiper-scuba-x1-pro-max-gallery-3.webp",
+    "path": "public/catalog/portraits/aiper-scuba-x1-pro-max-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "4ac636f69bb92a7e287fbd7b5ec718e9cbd6327cc05ef81fee42e188b8a69973",
+    "bytes": 101966
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/dreame-x40-ultra.webp",
+    "path": "public/catalog/portraits/dreame-x40-ultra.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "b79c590aa7579ad3f8ac32a14c1e1eff1b481f1ff46a989abe46eccfc8ca6fc2",
+    "bytes": 60920
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/dreame-icon.svg",
+    "path": "public/catalog/brands/dreame-icon.svg",
+    "capturedAt": "2026-11-14",
+    "sha256": "8643e25fa67def233218ec29898d28f265264a5921eff8b3d48b093370ddbd85",
+    "bytes": 1000
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/dreame-x40-ultra-gallery-1.webp",
+    "path": "public/catalog/portraits/dreame-x40-ultra-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "bd75ab5a02847aac4008f42df02b3c00d16e97ecc78d287e007f2a44a3b600ba",
+    "bytes": 59820
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/dreame-x40-ultra-gallery-2.webp",
+    "path": "public/catalog/portraits/dreame-x40-ultra-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "f1d97363781b02a7d572851dd94eb91ccfbb43ea41289a401a68163ff8f10f49",
+    "bytes": 61394
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/dreame-x40-ultra-gallery-3.webp",
+    "path": "public/catalog/portraits/dreame-x40-ultra-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "eccf8903d42ad926e6d054ffbcd96e24fa36c82d6739010ef80be408c62d9b3b",
+    "bytes": 58146
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/husqvarna-automower-450x-nera.webp",
+    "path": "public/catalog/portraits/husqvarna-automower-450x-nera.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "98239de2d386d3f7c8b783b410a1f934e3bbee2484da8a1e200d5e26e6317ee0",
+    "bytes": 86102
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/husqvarna-icon.png",
+    "path": "public/catalog/brands/husqvarna-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "b2bbb6cf7dc6fc1fd50808f2c119ff42f51c84d34b89e468fd9098836cfb27b3",
+    "bytes": 2930
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/husqvarna-automower-450x-nera-gallery-1.webp",
+    "path": "public/catalog/portraits/husqvarna-automower-450x-nera-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "3484555b1459427dd041fa646a90972631a12c4394c255bef0b9a37998d02236",
+    "bytes": 86464
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/husqvarna-automower-450x-nera-gallery-2.webp",
+    "path": "public/catalog/portraits/husqvarna-automower-450x-nera-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "01663bbff6c1e3e46be9f237620290a2ba76a818f91292dd3ed860b18c03d904",
+    "bytes": 102006
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/husqvarna-automower-450x-nera-gallery-3.webp",
+    "path": "public/catalog/portraits/husqvarna-automower-450x-nera-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "f10053eaabd5499b01c364798dbfa5fc375e391d43a5d1855a0a053c192bbf29",
+    "bytes": 93034
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/irobot-roomba-combo-10-max.webp",
+    "path": "public/catalog/portraits/irobot-roomba-combo-10-max.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "3c4c2f378d5f668b78c6aa76d80f4c32c40669010b4bab949514177bcb8c4d23",
+    "bytes": 53992
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/irobot-icon.png",
+    "path": "public/catalog/brands/irobot-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "b78b9b35594073c7a40b57a58044c792c1fe99ac57d052ba3434f2cf7cee326b",
+    "bytes": 2530
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/irobot-roomba-combo-10-max-gallery-1.webp",
+    "path": "public/catalog/portraits/irobot-roomba-combo-10-max-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "f8c9063ea896e69fdedc1b564d07c36f852079b03c96d248dc93cc77279b7be5",
+    "bytes": 47654
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/irobot-roomba-combo-10-max-gallery-2.webp",
+    "path": "public/catalog/portraits/irobot-roomba-combo-10-max-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "5f6800db4b71cb3cdfa2577d6c02458b0b98c04cee398b2828a696f650c103d0",
+    "bytes": 53378
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/irobot-roomba-combo-10-max-gallery-3.webp",
+    "path": "public/catalog/portraits/irobot-roomba-combo-10-max-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "e5f007ce4c1648f4a051a53afd015de545a40afba213bcd15af2d9f8af61bec4",
+    "bytes": 115650
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/roborock-saros-10r.webp",
+    "path": "public/catalog/portraits/roborock-saros-10r.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "2becc449b1d171e814a05e761195a91fce27e0f6e2072be8f3a5c05fba05a8b8",
+    "bytes": 67030
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/roborock.svg",
+    "path": "public/catalog/brands/roborock.svg",
+    "capturedAt": "2026-11-14",
+    "sha256": "56e42feb7e7dbab58d32e7e354ddfd8d50187e555a695ea1331fc13801fd417e",
+    "bytes": 982
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/roborock-saros-10r-gallery-1.webp",
+    "path": "public/catalog/portraits/roborock-saros-10r-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "78a8d1902e4bffb56f086d62160e912900157571c882cb25e3dbe9acf0b77ca1",
+    "bytes": 73064
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/roborock-saros-10r-gallery-2.webp",
+    "path": "public/catalog/portraits/roborock-saros-10r-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "4123a6d00168c10bc6520a9f92eecf773742357da27253a3d58ec1c09e1c666f",
+    "bytes": 96888
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/roborock-saros-10r-gallery-3.webp",
+    "path": "public/catalog/portraits/roborock-saros-10r-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "4174e3c490c2adfef67e69c2324288bb2b13b69c30dd5ca02ae2dde96bf01d0b",
+    "bytes": 72462
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agilex-piper.webp",
+    "path": "public/catalog/portraits/agilex-piper.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "a6493755ff0ae3705cd0b091cf1e46ec1d9c5cf3572f6c2ecd9d1faf1754d130",
+    "bytes": 52562
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agilex-piper-gallery-1.webp",
+    "path": "public/catalog/portraits/agilex-piper-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "a90be1af6cd3e0560d9efcd31e9140aae257577b5d0e9012def89e8526069682",
+    "bytes": 58202
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agilex-piper-gallery-2.webp",
+    "path": "public/catalog/portraits/agilex-piper-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "db0b08fd8575c56c745c76d18e0d8f1590823750c4e51751cf78547d568da632",
+    "bytes": 57714
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agilex-piper-gallery-3.webp",
+    "path": "public/catalog/portraits/agilex-piper-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "11394ea303dd7477e73b58cca209f8ae7410f66fecabeb7dae02c1b63221b9f4",
+    "bytes": 56552
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/fanuc-crx-10ia.webp",
+    "path": "public/catalog/portraits/fanuc-crx-10ia.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "a03a8c1c0a70986c9c2c19dd8dd33742bd542350882d85602356efe0294f6ee2",
+    "bytes": 54390
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/fanuc-icon.png",
+    "path": "public/catalog/brands/fanuc-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "9b4f52a069e3dffd7358090d990040a7ca51befa8b1828c750a753144909ccef",
+    "bytes": 970
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/fanuc-crx-10ia-gallery-1.webp",
+    "path": "public/catalog/portraits/fanuc-crx-10ia-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "dfab0ee568c9f3c41abbac3dfc93ab3308c4e47859fe3bc3e11ee5810cfb762a",
+    "bytes": 47380
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/fanuc-crx-10ia-gallery-2.webp",
+    "path": "public/catalog/portraits/fanuc-crx-10ia-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "613d307c2a08d1ff4f9acd0bb3337f21b496132cd47589f9dcbe8d672f62b20b",
+    "bytes": 59292
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/fanuc-crx-10ia-gallery-3.webp",
+    "path": "public/catalog/portraits/fanuc-crx-10ia-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "497a093105a357bc5bd184c1cb302e8be7bcffeb7a4b47e3eb99bdcf424d9853",
+    "bytes": 56046
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/franka-research-3.webp",
+    "path": "public/catalog/portraits/franka-research-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "b9d427c556959c1748e360309f009843e33b086a39cbd247946ffa0688989525",
+    "bytes": 53438
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/franka-icon.svg",
+    "path": "public/catalog/brands/franka-icon.svg",
+    "capturedAt": "2026-11-14",
+    "sha256": "15a7cf832281c00c54cd3a3e178150ebd23fcd4bb04d6d3bd01ef692646a9584",
+    "bytes": 1238
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/franka-research-3-gallery-1.webp",
+    "path": "public/catalog/portraits/franka-research-3-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "f0cee18799c636ee9c033d721a4c265fab290b741a790454882f74fb8ee5aea6",
+    "bytes": 54918
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/franka-research-3-gallery-2.webp",
+    "path": "public/catalog/portraits/franka-research-3-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "002616c7ee571c6ac614fa1cca2047f0fa7a3682061b91d233254029a9bef48d",
+    "bytes": 81754
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/franka-research-3-gallery-3.webp",
+    "path": "public/catalog/portraits/franka-research-3-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "69038aba44379f2f266ef7a6ae84fa6976f96ddd304444866ab58f441a5b7086",
+    "bytes": 54948
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/kinova-gen3-7dof.webp",
+    "path": "public/catalog/portraits/kinova-gen3-7dof.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "c4cb5b3795b85bb456fc292e408efe52de04ca4db41d6c6b03d786d6470dbc1a",
+    "bytes": 48002
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/kinova-icon.png",
+    "path": "public/catalog/brands/kinova-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "f734c1eb4b85ea6b84983c9a4c4b7cac7e0378cec060fbd4df63c2df53c34aad",
+    "bytes": 4327
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/kinova-gen3-7dof-gallery-1.webp",
+    "path": "public/catalog/portraits/kinova-gen3-7dof-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "5771e9611885c0b1c3ffb53b60dd0e18145ef84d5da995ce5148d63b3bff7d34",
+    "bytes": 49616
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/kinova-gen3-7dof-gallery-2.webp",
+    "path": "public/catalog/portraits/kinova-gen3-7dof-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "2f7cf0fbe51d048fed07b19812d651caa07d13763670b91038e62e63d5a1d287",
+    "bytes": 57022
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/kinova-gen3-7dof-gallery-3.webp",
+    "path": "public/catalog/portraits/kinova-gen3-7dof-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "602fa5901c71f6875b173b33925980768a5617937481154b4cb5de3a0c681688",
+    "bytes": 35060
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/universal-robots-ur7e-920.webp",
+    "path": "public/catalog/portraits/universal-robots-ur7e-920.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "3f72910d07f9dd6a77085d36a51332e75f5ba26b7093bb1aae4b00b8398e83dc",
+    "bytes": 62722
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/universal-robots.svg",
+    "path": "public/catalog/brands/universal-robots.svg",
+    "capturedAt": "2026-11-14",
+    "sha256": "4bd6e9bd83e5e1feab45def3a5527d07362406191c9fdc7043e04a9ceee09c48",
+    "bytes": 4517
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/universal-robots-ur7e-920-gallery-1.webp",
+    "path": "public/catalog/portraits/universal-robots-ur7e-920-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "4429d2d6fe9e315a0f90282b117c2e40247fd4ae6619d2b8216f7e05cbca2fa7",
+    "bytes": 56810
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/universal-robots-ur7e-920-gallery-2.webp",
+    "path": "public/catalog/portraits/universal-robots-ur7e-920-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "f4758ea8c23771c318d13be51f71f60a5b8074439878504f4a36e642946a7b56",
+    "bytes": 78974
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/universal-robots-ur7e-920-gallery-3.webp",
+    "path": "public/catalog/portraits/universal-robots-ur7e-920-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "c651907674452a3f2385d967c3c04452d252d0ec47209d038e71c7a5d2479ab8",
+    "bytes": 75916
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/autel-evo-max-4t.webp",
+    "path": "public/catalog/portraits/autel-evo-max-4t.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "a97f93bb9827fcd5f6f043f7c182da94fe3c2df0f1cde90fd26414ebbf67b8dd",
+    "bytes": 81134
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/autel-icon.png",
+    "path": "public/catalog/brands/autel-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "a8d115e18c00de433b80674981862985e8a66a1d8f027712ff76a50dde925e34",
+    "bytes": 13319
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/autel-evo-max-4t-gallery-1.webp",
+    "path": "public/catalog/portraits/autel-evo-max-4t-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "143023ddf8025f945b0ac417dee5b051d38410433be0310c7432d1e7f01990fb",
+    "bytes": 81564
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/autel-evo-max-4t-gallery-2.webp",
+    "path": "public/catalog/portraits/autel-evo-max-4t-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "da769ea83c1079ec5a10578288fe1ede15b42558c6a3cd046880d63f294724c2",
+    "bytes": 124430
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/autel-evo-max-4t-gallery-3.webp",
+    "path": "public/catalog/portraits/autel-evo-max-4t-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "95c9b7a0c874001dfa329bf155de67d3a29bfb8ed88e8f3c3d582a33052a1c2d",
+    "bytes": 77790
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/dji-agras-t50.webp",
+    "path": "public/catalog/portraits/dji-agras-t50.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "a0bf585737fc3bb5fbbd6575461a8e98edd64936e6d73f759ae9db9659e2f092",
+    "bytes": 129360
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/dji-icon.png",
+    "path": "public/catalog/brands/dji-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "92ee38234e37816c0e8988ac51bad887f340b497deba4dc4e799965d1b0e9a2f",
+    "bytes": 2923
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/dji-agras-t50-gallery-1.webp",
+    "path": "public/catalog/portraits/dji-agras-t50-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "8131c389e24304ed19693baf4dab4456399af3ffedf5f866b7f4007a00777882",
+    "bytes": 108762
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/dji-agras-t50-gallery-2.webp",
+    "path": "public/catalog/portraits/dji-agras-t50-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "9b029322652295ffd1a11ec48bfd29254816ee3ee35bad5381c20903003ed8d9",
+    "bytes": 80764
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/dji-agras-t50-gallery-3.webp",
+    "path": "public/catalog/portraits/dji-agras-t50-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "659307084a8698919c94ec1dd5d457a99f0f8812d195d18f52870ba13f8ff467",
+    "bytes": 93930
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/dji-mavic-3e.webp",
+    "path": "public/catalog/portraits/dji-mavic-3e.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "fb70949e8b2b6aee25e1308c8a7b479596f94ddd625761a333bcd56e74622252",
+    "bytes": 78812
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/dji-mavic-3e-gallery-1.webp",
+    "path": "public/catalog/portraits/dji-mavic-3e-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "4dcef4c34e6b0a3527b40825ef5b3132d2fba34735dcadbf6f2708d8bf9c8d86",
+    "bytes": 80656
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/dji-mavic-3e-gallery-2.webp",
+    "path": "public/catalog/portraits/dji-mavic-3e-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "e82f53084aa02ba57871b68796feca9d9d0aaca900cb4071d32ed9873707b7ff",
+    "bytes": 104920
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/dji-mavic-3e-gallery-3.webp",
+    "path": "public/catalog/portraits/dji-mavic-3e-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "0ff55fe70985a5bda781ef19f7a33b83296c94d1c5c7d2257d33ab80ad584808",
+    "bytes": 76280
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/parrot-anafi-usa.webp",
+    "path": "public/catalog/portraits/parrot-anafi-usa.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "a5d0fea7376c7d69432c0b969348e03b583d51e393c7ebdd8e6f9752157dbd56",
+    "bytes": 63650
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/parrot-icon.png",
+    "path": "public/catalog/brands/parrot-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "2deb9ee1c4dfe456a3b0c89819012b3c003194b60def2ab00936de4768710a53",
+    "bytes": 2813
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/parrot-anafi-usa-gallery-1.webp",
+    "path": "public/catalog/portraits/parrot-anafi-usa-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "da25416aa3338ffae7c77a3422373445a31e76d4f83f5705d55e63964faff33e",
+    "bytes": 47964
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/parrot-anafi-usa-gallery-2.webp",
+    "path": "public/catalog/portraits/parrot-anafi-usa-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "5238bde1214bad1463d9ab3131529892ba7812ca321a09487f8aaaabf2fa0d54",
+    "bytes": 99082
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/parrot-anafi-usa-gallery-3.webp",
+    "path": "public/catalog/portraits/parrot-anafi-usa-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "3dc0161935744b4db1b3afce02bf4aebc5515bfc91fbf2bfb700e66d0e8bd224",
+    "bytes": 44288
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/skydio-x10.webp",
+    "path": "public/catalog/portraits/skydio-x10.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "6953193eb66d1e224f5d02a061c41841a3ce2a482133fdffe52308b53e378d96",
+    "bytes": 132394
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/skydio-icon.png",
+    "path": "public/catalog/brands/skydio-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "43b61eaf659b72bc30b89a8b9e073785b9d2252548d49080f709f1ba7de50797",
+    "bytes": 2538
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/skydio-x10-gallery-1.webp",
+    "path": "public/catalog/portraits/skydio-x10-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "7bc43262eb918d8f5ea5c8ac2120a5808f0e5c219d2018295f68f2d076b84ea5",
+    "bytes": 122004
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/skydio-x10-gallery-2.webp",
+    "path": "public/catalog/portraits/skydio-x10-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "cfd9f52aa20105a8c933fa591c813277c2131e0ec2ea733ad3c331f1bbaaa93a",
+    "bytes": 112488
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/skydio-x10-gallery-3.webp",
+    "path": "public/catalog/portraits/skydio-x10-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "82797d68e425fb7c0c7a00f32eada2f57b7e0ac40692ca7b08404aa54d9f54de",
+    "bytes": 77970
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agilex-scout-2-0.webp",
+    "path": "public/catalog/portraits/agilex-scout-2-0.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "54a52695d961e81751f00164fe523fd91d373a3234f9e94927eb78648266032f",
+    "bytes": 107254
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agilex-scout-2-0-gallery-1.webp",
+    "path": "public/catalog/portraits/agilex-scout-2-0-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "3bfb0b3b7e42dac0937a34b173fb535118cfc6e8b2592c322bea8131d4b9e80a",
+    "bytes": 110622
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agilex-scout-2-0-gallery-2.webp",
+    "path": "public/catalog/portraits/agilex-scout-2-0-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "8dd984de88b938cfaa078f34feb4b6a45a49e1d8ea6242d4210c5d8260ad0018",
+    "bytes": 143552
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/agilex-scout-2-0-gallery-3.webp",
+    "path": "public/catalog/portraits/agilex-scout-2-0-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "6e54aa852e78c65d2c1ede841e0390247826295c29c80f58111c4508a008f132",
+    "bytes": 159978
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/clearpath-husky-a300.webp",
+    "path": "public/catalog/portraits/clearpath-husky-a300.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "6166d451ed502a77e01e7e55606e5bca44f57d7089e7ee950238df34c34c4ea1",
+    "bytes": 77568
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/clearpath.png",
+    "path": "public/catalog/brands/clearpath.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "81500f1f146b6b026935fb3f937de671d275bcb9f8df52b155d9a91d8e9e7cd5",
+    "bytes": 8152
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/clearpath-husky-a300-gallery-1.webp",
+    "path": "public/catalog/portraits/clearpath-husky-a300-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "0a5b1b0c99592680590b41500007dd2f7a7994baa5381f9fda739d22dfdac200",
+    "bytes": 70824
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/clearpath-husky-a300-gallery-2.webp",
+    "path": "public/catalog/portraits/clearpath-husky-a300-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "47a792aeebf42dc36d8ba37a8ed1b7b9161226bad14f1bfd534593ef2c184b0e",
+    "bytes": 90300
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/clearpath-husky-a300-gallery-3.webp",
+    "path": "public/catalog/portraits/clearpath-husky-a300-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "59a80b5b844a484d74a5734812ef2ae0b253c8d86ae608788f5a940a13e2b12c",
+    "bytes": 79000
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/clearpath-jackal.webp",
+    "path": "public/catalog/portraits/clearpath-jackal.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "6940d54b3d0286bc985ebdb7cdc47bfe52c498d2d0a1400d08d63eaa42a0ed1e",
+    "bytes": 87198
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/clearpath-jackal-gallery-1.webp",
+    "path": "public/catalog/portraits/clearpath-jackal-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "4dfa912ef46ef21703c81daecd0b6a349a2c5a00b7e60345df877477dc2c7317",
+    "bytes": 86014
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/clearpath-jackal-gallery-2.webp",
+    "path": "public/catalog/portraits/clearpath-jackal-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "61dc5604790d2ea6869342e9a88807b7f1295846d78f09f28862b84a3bbfb532",
+    "bytes": 112318
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/clearpath-jackal-gallery-3.webp",
+    "path": "public/catalog/portraits/clearpath-jackal-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "4fe53aa0003279141d98658a0005368446a8db0fda76a08585761298f22650e6",
+    "bytes": 123412
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/husarion-panther.webp",
+    "path": "public/catalog/portraits/husarion-panther.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "f7d4ede3ab5138301b5dc9b63269902605d96ffcfd35e0f87442b4bcb839e036",
+    "bytes": 113314
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/husarion-icon.png",
+    "path": "public/catalog/brands/husarion-icon.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "16e444e550c3b77869c415ce7cfe10f53cc6e0a160781b2ad5d07c346290294f",
+    "bytes": 2689
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/husarion-panther-gallery-1.webp",
+    "path": "public/catalog/portraits/husarion-panther-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "f107cfa60adee41df45bc237eaf477a0fb62b6f9cefa2e49bdfeaca89fc75cf9",
+    "bytes": 96684
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/husarion-panther-gallery-2.webp",
+    "path": "public/catalog/portraits/husarion-panther-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "f64b6522ed632f48482df2aeec76bac75b94c8afce893616153d4d9e0c0463e4",
+    "bytes": 126448
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/husarion-panther-gallery-3.webp",
+    "path": "public/catalog/portraits/husarion-panther-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "c9fb7e8c1e619021f4b4fb563d87c5660dad5d30b7e6bc59539adf1dd6c983fc",
+    "bytes": 125138
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/robotis-turtlebot3-waffle-pi.webp",
+    "path": "public/catalog/portraits/robotis-turtlebot3-waffle-pi.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "2df203f1954217e8909cd989631ad282222ac7d1ee8e9731e7da14ef068d2190",
+    "bytes": 143734
+  },
+  {
+    "sourceUrl": "https://omblet.com/brands/robotis.png",
+    "path": "public/catalog/brands/robotis.png",
+    "capturedAt": "2026-11-14",
+    "sha256": "fcd92cdf7597ecfd367f71c018fd09708d5501f188577c5caa73ca8d45791c7e",
+    "bytes": 1038
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/robotis-turtlebot3-waffle-pi-gallery-1.webp",
+    "path": "public/catalog/portraits/robotis-turtlebot3-waffle-pi-gallery-1.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "11d3873cba6f587cd0e7565873bcc23a507b967a921227acf5e56975a546a5b2",
+    "bytes": 152096
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/robotis-turtlebot3-waffle-pi-gallery-2.webp",
+    "path": "public/catalog/portraits/robotis-turtlebot3-waffle-pi-gallery-2.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "22cfea2b9ed64e2e31f4416a87ea0bda9e0d240c6e69616181b48b776cbcc36e",
+    "bytes": 139484
+  },
+  {
+    "sourceUrl": "https://omblet.com/portraits/robots/robotis-turtlebot3-waffle-pi-gallery-3.webp",
+    "path": "public/catalog/portraits/robotis-turtlebot3-waffle-pi-gallery-3.webp",
+    "capturedAt": "2026-11-14",
+    "sha256": "8e118be1727d0b770677a3af9c28241328a8c7bd6ffb079334d4a2ef5ad8c674",
+    "bytes": 152986
+  },
+  {
+    "sourceUrl": "https://omblet.com/build/assets/inter-100-900-normal-DiVDrmQJ.woff2",
+    "path": "public/catalog/fonts/inter-variable.woff2",
+    "capturedAt": "2026-11-14",
+    "sha256": "693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3",
+    "bytes": 352240
+  },
+  {
+    "sourceUrl": "https://omblet.com/build/assets/workbench-400-normal-DLc5lBST.ttf",
+    "path": "public/catalog/fonts/workbench.ttf",
+    "capturedAt": "2026-11-14",
+    "sha256": "027940fb7aea63f260fb367957e419c08f904f357b384c819f99eb06e7af17d6",
+    "bytes": 32472
+  },
+  {
+    "sourceUrl": "https://omblet.com/build/assets/ibm-plex-mono-400-normal-Du0PCiXT.woff2",
+    "path": "public/catalog/fonts/ibm-plex-mono.woff2",
+    "capturedAt": "2026-11-14",
+    "sha256": "ba204497f16b6d334cee9d1e963a831b73e3a56e1d6300a8489d18df7214b350",
+    "bytes": 49248
+  }
+]

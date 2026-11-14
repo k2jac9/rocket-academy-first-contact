@@ -67,46 +67,20 @@ describe('local orchestration boundary', () => {
     expect(JSON.stringify(body)).not.toMatch(/mongodb\+srv:|apiKey|accessToken/);
   });
 
-  it('recovers a configured Atlas connection when refreshing status', async () => {
+  it('actively checks Atlas on every status refresh, including when previously healthy', async () => {
     const config = readConfig({});
     const store = new AtlasStore(config);
-    let connected = false;
-    let connectionAttempts = 0;
-    store.status = () => ({ configured: true, connected });
-    store.connect = async () => {
-      connectionAttempts += 1;
-      connected = true;
+    let checks = 0;
+    store.checkHealth = async () => {
+      checks += 1;
+      return { configured: true, connected: checks === 1 };
     };
     const api = createApiHandler({ config, store, planner: createGeminiPlanner(config) });
-
-    const recovered = await api(request('/api/status'));
-    expect(recovered.status).toBe(200);
-    expect((await recovered.json()).atlas).toEqual({ configured: true, connected: true });
-    expect(connectionAttempts).toBe(1);
-
-    const healthy = await api(request('/api/status'));
-    expect((await healthy.json()).atlas).toEqual({ configured: true, connected: true });
-    expect(connectionAttempts).toBe(1);
-  });
-
-  it('keeps status usable and redacts connection failures when an Atlas retry fails', async () => {
-    const config = readConfig({});
-    const store = new AtlasStore(config);
-    let connectionAttempts = 0;
-    store.status = () => ({ configured: true, connected: false });
-    store.connect = async () => {
-      connectionAttempts += 1;
-      throw new Error('mongodb+srv://private-credential@private-host unavailable');
-    };
-    const api = createApiHandler({ config, store, planner: createGeminiPlanner(config) });
-
-    const response = await api(request('/api/status'));
-    expect(connectionAttempts).toBe(1);
-    expect(response.status).toBe(200);
-    const body = await response.json();
-    expect(body.atlas).toEqual({ configured: true, connected: false });
-    expect(body.planner).toMatchObject({ configured: false, provider: 'gemini' });
-    expect(JSON.stringify(body)).not.toMatch(/mongodb\+srv:|private-credential|private-host/);
+    expect((await (await api(request('/api/status'))).json()).atlas.connected).toBe(true);
+    const unavailable = await api(request('/api/status'));
+    expect(unavailable.status).toBe(200);
+    expect((await unavailable.json()).atlas.connected).toBe(false);
+    expect(checks).toBe(2);
   });
 
   it('returns a specific unavailable state instead of fabricating an AI plan', async () => {
@@ -176,6 +150,7 @@ describe('local orchestration boundary', () => {
     let artifactBytes: Uint8Array = new Uint8Array();
     const store: MissionStore = {
       status: () => ({ configured: true, connected: true }),
+      checkHealth: async () => ({ configured: true, connected: true }),
       connect: async () => {},
       close: async () => {},
       saveMission: async () => {
@@ -247,6 +222,9 @@ describe('Gemini structured planning adapter', () => {
     const payload = await outgoing!.json();
     expect(payload.store).toBe(false);
     expect(payload.response_format).toMatchObject({ type: 'text', mime_type: 'application/json' });
+    // Gemini rejects counted arrays of command unions before generating a response.
+    expect(payload.response_format.schema.properties.steps.maxItems).toBeUndefined();
+    expect(payload.response_format.schema.properties.steps.items.anyOf).toHaveLength(4);
     expect(payload.tools).toBeUndefined();
     expect(JSON.stringify(payload)).not.toContain('test-server-only-key');
     expect(JSON.stringify(result)).not.toContain('test-server-only-key');
@@ -314,6 +292,27 @@ describe('Gemini structured planning adapter', () => {
           ...plan,
           steps: [{ action: 'drive_to', target: { x: 5, y: 0, z: 0 }, speedMps: 20 }],
         }),
+    });
+    await expect(planner.generate(mission(), 'Inspect', new AbortController().signal)).rejects.toMatchObject({
+      code: 'PLANNER_INVALID_PLAN',
+    });
+  });
+
+  it.each([
+    {
+      name: 'too many commands',
+      candidate: { ...plan, steps: Array.from({ length: 33 }, () => ({ action: 'stop' })) },
+    },
+    { name: 'an empty plan', candidate: { ...plan, steps: [] } },
+    {
+      name: 'a long observation label',
+      candidate: { ...plan, steps: [{ action: 'observe', label: 'x'.repeat(161) }] },
+    },
+    { name: 'an excessive wait', candidate: { ...plan, steps: [{ action: 'wait', durationS: 1801 }] } },
+    { name: 'a long rationale', candidate: { ...plan, rationale: 'x'.repeat(2001) } },
+  ])('enforces local bounds for $name after provider schema simplification', async ({ candidate }) => {
+    const planner = createGeminiPlanner(readConfig({ GEMINI_API_KEY: 'test-key' }), {
+      fetch: async () => providerResponse(candidate),
     });
     await expect(planner.generate(mission(), 'Inspect', new AbortController().signal)).rejects.toMatchObject({
       code: 'PLANNER_INVALID_PLAN',

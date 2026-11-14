@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   AmbientLight,
-  BoxGeometry,
   BufferGeometry,
   Color,
   CylinderGeometry,
@@ -15,6 +14,8 @@ import {
   Mesh,
   MeshBasicMaterial,
   MeshPhongMaterial,
+  MOUSE,
+  TOUCH,
   PerspectiveCamera,
   Quaternion,
   Raycaster,
@@ -33,9 +34,20 @@ import {
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { Ellipsoid, GlobeControls, TilesRenderer } from '3d-tiles-renderer';
 import { getSource } from '../domain/mission';
+import { isSurfaceSite, globeSite, SITE_LOCATIONS } from '../domain/surfaceSites';
+import {
+  createSurfaceGeometry,
+  validateHeightfield,
+  surfaceHeight,
+  captureHeightfieldPatch,
+  type SurfaceHeightfield,
+} from './surfaceHeightfield';
 import { resolveIonAsset } from './ion';
 import { panLocalCamera } from './navigation';
 import { createStartupDeadline } from './startupDeadline';
+import { roverDisplayScale } from './roverModel';
+import { disposeRobot, loadRobot } from '../robots/loadRobot';
+import type { TerrainPatch } from '../simulation/episode';
 import {
   createReferencePatchGeometry,
   createReferenceSphereGeometry,
@@ -59,6 +71,9 @@ type SceneHandle = {
   resetView: () => void;
   focusMission: () => void;
   updateMission: () => void;
+  capturePatch: () => TerrainPatch;
+  updateNavigation: () => void;
+  navigate: (kind: 'in' | 'out' | 'north' | 'top') => void;
 };
 
 const UP = new Vector3(0, 1, 0);
@@ -76,32 +91,6 @@ function createMarker(color: string) {
   const head = new Mesh(new SphereGeometry(0.13, 14, 10), solid);
   head.position.y = 0.85;
   group.add(ring, stem, head);
-  group.visible = false;
-  return group;
-}
-
-/** Symbolic robot for the prototype's supplied poses, not a calibrated vehicle. */
-function createRobot() {
-  const group = new Group();
-  const bodyMaterial = new MeshBasicMaterial({ color: '#96f1df' });
-  const wheelMaterial = new MeshBasicMaterial({ color: '#233d48' });
-  const instrumentMaterial = new MeshBasicMaterial({ color: '#edf8ff' });
-  const body = new Mesh(new BoxGeometry(1.35, 0.32, 1.05), bodyMaterial);
-  body.position.y = 0.52;
-  const mast = new Mesh(new CylinderGeometry(0.035, 0.035, 0.62, 8), instrumentMaterial);
-  mast.position.set(0, 0.99, -0.22);
-  const sensor = new Mesh(new BoxGeometry(0.32, 0.16, 0.21), instrumentMaterial);
-  sensor.position.set(0, 1.3, -0.22);
-  group.add(body, mast, sensor);
-  const wheelGeometry = new CylinderGeometry(0.23, 0.23, 0.18, 12);
-  for (const x of [-0.77, 0.77]) {
-    for (const z of [-0.4, 0.4]) {
-      const wheel = new Mesh(wheelGeometry, wheelMaterial);
-      wheel.rotation.z = Math.PI / 2;
-      wheel.position.set(x, 0.25, z);
-      group.add(wheel);
-    }
-  }
   group.visible = false;
   return group;
 }
@@ -141,8 +130,10 @@ export default function TerrainScene(props: TerrainSceneProps) {
     focusMissionSignal,
   } = props;
   const hostRef = useRef<HTMLDivElement>(null);
+  const sitePinRef = useRef<HTMLButtonElement>(null);
   const latestProps = useRef(props);
   const handleRef = useRef<SceneHandle | null>(null);
+  const previousCaptureSignal = useRef(props.capturePatchSignal);
   const [credits, setCredits] = useState<string[]>([]);
 
   useEffect(() => {
@@ -153,7 +144,10 @@ export default function TerrainScene(props: TerrainSceneProps) {
     const host = hostRef.current;
     if (!host) return;
     const source = getSource(mode, layer);
-    const isLocal = mode === 'dingo-gap';
+    const isLocal = isSurfaceSite(mode);
+    const isRaster = source.geometryKind === 'heightfield';
+    const siteId = globeSite(mode);
+    const location = siteId ? SITE_LOCATIONS[siteId] : null;
     const isReference = source.geometryKind === 'reference-sphere';
     const radius = source.radiusM;
     let disposed = false;
@@ -167,6 +161,8 @@ export default function TerrainScene(props: TerrainSceneProps) {
     let imageryRendered = false;
     let failedTiles = 0;
     let tiles: TilesRenderer | null = null;
+    let surfaceGroup: Group | null = null;
+    let surfaceData: SurfaceHeightfield | null = null;
     let referenceGroup: Group | null = null;
     let referenceMesh: Mesh<BufferGeometry, MeshPhongMaterial> | null = null;
     let referencePatch: Mesh<BufferGeometry, MeshPhongMaterial> | null = null;
@@ -174,6 +170,8 @@ export default function TerrainScene(props: TerrainSceneProps) {
     let patchHalfSpan = 0;
     const patchCenter = new Vector3();
     let controls: OrbitControls | GlobeControls | null = null;
+    let flight: { start: number; from: Vector3; targetFrom: Vector3; to: Vector3; targetTo: Vector3 } | null =
+      null;
     const lifecycle = new AbortController();
     const loadedModels = new Set<Object3D>();
     setCredits([]);
@@ -203,7 +201,7 @@ export default function TerrainScene(props: TerrainSceneProps) {
       isReference
         ? 'Loading NASA global imagery…'
         : isLocal
-          ? 'Connecting to NASA’s Dingo Gap terrain…'
+          ? `Loading ${source.label} measured terrain…`
           : 'Connecting to planetary terrain…',
     );
 
@@ -228,23 +226,41 @@ export default function TerrainScene(props: TerrainSceneProps) {
     canvas.setAttribute('role', 'application');
     canvas.setAttribute(
       'aria-label',
-      `${source.label} ${isReference ? 'imagery globe on a reference sphere without measured elevation' : 'terrain'}. Drag to orbit, scroll to zoom. Arrow keys orbit, ${isLocal ? 'Shift and arrow keys pan across the site, ' : ''}plus and minus zoom. Enter or Space places the selected marker at the center reticle. Home resets the full view.`,
+      `${source.label} ${isReference ? 'imagery globe on a reference sphere without measured elevation' : 'terrain'}. Drag to navigate, scroll to zoom. Arrow keys navigate, plus and minus zoom. Enter or Space places the selected marker at the center reticle. Home resets the full view.`,
     );
     Object.assign(canvas.style, { width: '100%', height: '100%', display: 'block', touchAction: 'none' });
     host.appendChild(canvas);
 
     const scene = new Scene();
-    scene.background = new Color(isLocal ? '#141c21' : '#080e16');
+    scene.background = new Color(isLocal ? '#f7f8f5' : '#080e16');
     const camera = new PerspectiveCamera(52, 1, isLocal ? 0.1 : 1, isLocal ? 2000 : 160_000_000);
-    const ambient = new AmbientLight(0xffffff, isReference ? 0.8 : 1.2);
-    const sunlight = new DirectionalLight(0xfff5e8, isReference ? 0.9 : 2.3);
+    const ambient = new AmbientLight(0xffffff, isReference || isRaster ? 0.8 : 1.2);
+    const sunlight = new DirectionalLight(0xfff5e8, isReference || isRaster ? 0.9 : 2.3);
     sunlight.position.set(60, 100, 45);
     scene.add(ambient, sunlight);
 
     const overlayGroup = new Group();
     const roverMarker = createMarker('#72e0d5');
     const goalMarker = createMarker('#ffba77');
-    const robot = createRobot();
+    const robot = new Group();
+    robot.visible = false;
+    void loadRobot('husky')
+      .then(({ root }) => {
+        if (disposed) {
+          disposeRobot(root);
+          return;
+        }
+        // Native X-forward/Z-up to map Z-forward/Y-up; lift base_link to its wheel contact plane.
+        root.quaternion.setFromRotationMatrix(
+          new Matrix4().makeBasis(new Vector3(0, 0, 1), new Vector3(1, 0, 0), new Vector3(0, 1, 0)),
+        );
+        root.position.y = 0.13228;
+        robot.add(root);
+        updateMission();
+      })
+      .catch(() => {
+        /* The placement marker remains available if the visual model cannot load. */
+      });
     const connectionMaterial = new LineDashedMaterial({
       color: '#f0d9a9',
       transparent: true,
@@ -272,8 +288,10 @@ export default function TerrainScene(props: TerrainSceneProps) {
       orbit.enableDamping = true;
       orbit.dampingFactor = 0.085;
       orbit.minDistance = 1.5;
-      orbit.maxDistance = 650;
+      orbit.maxDistance = isRaster ? 1600 : 650;
       orbit.maxPolarAngle = Math.PI * 0.485;
+      orbit.zoomToCursor = true;
+      orbit.screenSpacePanning = false;
       orbit.target.copy(LOCAL_TARGET);
       controls = orbit;
     } else {
@@ -281,9 +299,10 @@ export default function TerrainScene(props: TerrainSceneProps) {
       globe.enableDamping = true;
       globe.minDistance = 5;
       controls = globe;
+      globe.enableDoubleTapZoom = true;
     }
 
-    const sourceFrame = () => referenceGroup ?? tiles?.group ?? null;
+    const sourceFrame = () => surfaceGroup ?? referenceGroup ?? tiles?.group ?? null;
     const controlsAreReady = () =>
       controls instanceof OrbitControls || referenceGroup !== null || Boolean(tiles?.rootTileset);
     const toWorld = (point: TerrainPoint) => {
@@ -294,15 +313,18 @@ export default function TerrainScene(props: TerrainSceneProps) {
 
     function resetView() {
       if (disposed) return;
+      flight = null;
       camera.up.copy(UP);
       if (controls instanceof OrbitControls) {
-        controls.target.copy(LOCAL_TARGET);
-        camera.position.set(27, 18, 32);
-        camera.lookAt(LOCAL_TARGET);
+        controls.target.copy(isRaster ? new Vector3() : LOCAL_TARGET);
+        camera.position.copy(isRaster ? new Vector3(310, 240, 360) : new Vector3(27, 18, 32));
+        camera.lookAt(controls.target);
       } else {
         controls?.resetState();
+        const lat = ((location?.latitude ?? 15) * Math.PI) / 180;
+        const lon = ((location?.longitude ?? -70) * Math.PI) / 180;
         camera.position
-          .set(1.05, 0.32, 2.8)
+          .set(Math.cos(lat) * Math.cos(lon), Math.sin(lat), -Math.cos(lat) * Math.sin(lon))
           .normalize()
           .multiplyScalar(referenceGlobeViewDistance(radius, camera.fov, camera.aspect));
         camera.lookAt(0, 0, 0);
@@ -313,6 +335,7 @@ export default function TerrainScene(props: TerrainSceneProps) {
 
     function focusMission() {
       if (disposed || !sourceFrame()) return;
+      flight = null;
       const current = latestProps.current;
       const points = [
         current.rover,
@@ -352,10 +375,10 @@ export default function TerrainScene(props: TerrainSceneProps) {
           const distance = Math.max(35, spread * 3.5);
           camera.position
             .copy(center)
-            .addScaledVector(normal, distance)
-            .addScaledVector(east, distance * 0.6)
-            .addScaledVector(north, distance * 0.3);
-          camera.up.copy(north);
+            .addScaledVector(normal, distance * 0.6)
+            .addScaledVector(east, distance * 0.9)
+            .addScaledVector(north, distance * 0.6);
+          camera.up.copy(normal);
           camera.lookAt(center);
         }
       }
@@ -376,7 +399,11 @@ export default function TerrainScene(props: TerrainSceneProps) {
       };
       placeSymbol(roverMarker, current.rover);
       placeSymbol(goalMarker, current.goal);
-      placeSymbol(robot, current.robotPosition);
+      placeSymbol(robot, current.robotPosition ?? current.rover);
+      robot.visible = robot.visible && robot.children.length > 0;
+      // Avoid hiding the parked rover under its start marker.
+      if (robot.visible && roverMarker.position.distanceToSquared(robot.position) < 0.01)
+        roverMarker.visible = false;
       connection.visible = Boolean(current.rover && current.goal);
       if (connection.visible) {
         // Relative vertices preserve precision for small missions on a large body.
@@ -401,8 +428,12 @@ export default function TerrainScene(props: TerrainSceneProps) {
           history.map((point) => toWorld(point).sub(origin)),
         );
       }
-      if (robot.visible && history.length >= 2) {
-        const forward = toWorld(history[history.length - 1]).sub(toWorld(history[history.length - 2]));
+      if (robot.visible) {
+        const forward = new Vector3();
+        for (let index = history.length - 2; index >= 0 && forward.lengthSq() < 1e-12; index -= 1)
+          forward.copy(robot.position).sub(toWorld(history[index]));
+        if (forward.lengthSq() < 1e-12 && current.goal)
+          forward.copy(toWorld(current.goal)).sub(robot.position);
         const normal = isLocal ? UP : robot.position.clone().normalize();
         forward.addScaledVector(normal, -forward.dot(normal));
         if (forward.lengthSq() > 1e-12) {
@@ -413,10 +444,108 @@ export default function TerrainScene(props: TerrainSceneProps) {
       }
     }
 
-    handleRef.current = { resetView, focusMission, updateMission };
+    function capturePatch(): TerrainPatch {
+      const origin = latestProps.current.rover;
+      if (surfaceData && hasVisibleSurface && origin)
+        return captureHeightfieldPatch(surfaceData, source, origin);
+      if (!isLocal || !tiles || !hasVisibleSurface || !origin)
+        throw new Error('Choose a surface site and place a rover at the centre of a visible terrain patch.');
+      tiles.group.updateWorldMatrix(true, true);
+      const meshes: Object3D[] = [];
+      tiles.group.traverseVisible((object) => {
+        if (object instanceof Mesh) meshes.push(object);
+      });
+      const center = toWorld(origin),
+        sampler = new Raycaster();
+      sampler.far = 100;
+      const heights: number[] = [];
+      for (let row = 0; row < 65; row++)
+        for (let col = 0; col < 65; col++) {
+          sampler.set(
+            new Vector3(center.x + (col - 32) * 0.25, center.y + 50, center.z - (row - 32) * 0.25),
+            new Vector3(0, -1, 0),
+          );
+          const hit = sampler.intersectObjects(meshes, false)[0];
+          if (!hit)
+            throw new Error(
+              'This 16 m patch contains missing terrain. Place the rover farther inside the reconstructed site and capture again.',
+            );
+          heights.push(hit.point.y - center.y);
+        }
+      return {
+        version: '1.0.0',
+        source,
+        capturedAt: new Date().toISOString(),
+        sampling: 'loaded-mesh-raycast',
+        resolutionM: 0.25,
+        rows: 65,
+        cols: 65,
+        heights,
+        originInSource: { ...origin },
+        basisInSource: { x: { x: 1, y: 0, z: 0 }, y: { x: 0, y: -1, z: 0 }, z: { x: 0, y: 0, z: -1 } },
+        loadedTiles: loadedModels.size,
+      };
+    }
+    function updateNavigation() {
+      if (!(controls instanceof OrbitControls)) return;
+      const map = latestProps.current.navigationMode !== 'orbit';
+      controls.mouseButtons.LEFT = map ? MOUSE.PAN : MOUSE.ROTATE;
+      controls.mouseButtons.RIGHT = map ? MOUSE.ROTATE : MOUSE.PAN;
+      controls.touches.ONE = map ? TOUCH.PAN : TOUCH.ROTATE;
+      controls.touches.TWO = map ? TOUCH.DOLLY_ROTATE : TOUCH.DOLLY_PAN;
+    }
+    function flyToLocal(position: Vector3, target: Vector3) {
+      if (!(controls instanceof OrbitControls)) return;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        camera.position.copy(position);
+        controls.target.copy(target);
+        controls.update();
+        return;
+      }
+      flight = {
+        start: performance.now(),
+        from: camera.position.clone(),
+        targetFrom: controls.target.clone(),
+        to: position.clone(),
+        targetTo: target.clone(),
+      };
+    }
+    function navigate(kind: 'in' | 'out' | 'north' | 'top') {
+      if (controls instanceof OrbitControls) {
+        const offset = camera.position.clone().sub(controls.target),
+          distance = offset.length();
+        const next = camera.position.clone();
+        if (kind === 'in' || kind === 'out')
+          next
+            .copy(controls.target)
+            .add(
+              offset.setLength(
+                Math.max(1.5, Math.min(controls.maxDistance, distance * (kind === 'in' ? 0.78 : 1.28))),
+              ),
+            );
+        else if (kind === 'top') next.copy(controls.target).add(new Vector3(0, distance, 0.001));
+        else next.copy(controls.target).add(new Vector3(0, 0.7, 1).normalize().multiplyScalar(distance));
+        flyToLocal(next, controls.target);
+      } else if (kind === 'in' || kind === 'out') {
+        const pivot = new Vector3();
+        controls?.getPivotPoint(pivot);
+        const next = camera.position
+          .clone()
+          .sub(pivot)
+          .multiplyScalar(kind === 'in' ? 0.78 : 1.28)
+          .add(pivot);
+        if (next.length() >= radius + 5 && next.length() <= radius * 20) camera.position.copy(next);
+        camera.updateMatrixWorld();
+        if (controlsAreReady()) controls?.update();
+      } else resetView();
+    }
+    handleRef.current = { resetView, focusMission, updateMission, capturePatch, updateNavigation, navigate };
+    updateNavigation();
     resetView();
 
     function readyMessage() {
+      if (isRaster)
+        return `Live terrain ready. ${source.label} · ${source.resolutionLabel}. Drag to pan, scroll to zoom.`;
       if (isReference)
         return imageryUnavailable
           ? 'Imagery unavailable. Reference sphere only. Retry terrain to reload NASA imagery.'
@@ -428,6 +557,46 @@ export default function TerrainScene(props: TerrainSceneProps) {
 
     async function loadSurface() {
       try {
+        if (isRaster) {
+          const response = await fetch(source.heightfieldUrl!, { signal: lifecycle.signal });
+          if (!response.ok) throw new Error('Measured terrain unavailable');
+          const bytes = await response.arrayBuffer();
+          const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)), (b) =>
+            b.toString(16).padStart(2, '0'),
+          ).join('');
+          if (`sha256:${digest}` !== source.sourceRevision) throw new Error('Terrain checksum mismatch');
+          surfaceData = validateHeightfield(JSON.parse(new TextDecoder().decode(bytes)), source);
+          referenceTexture = await fetchReferenceTexture(
+            source.imageryUrl!,
+            lifecycle.signal,
+            renderer.capabilities.maxTextureSize,
+          );
+          if (disposed) {
+            disposeImageTexture(referenceTexture);
+            referenceTexture = null;
+            return;
+          }
+          referenceTexture.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+          surfaceGroup = new Group();
+          surfaceGroup.rotation.x = Math.PI / 2;
+          const mesh = new Mesh(
+            createSurfaceGeometry(surfaceData),
+            new MeshPhongMaterial({ map: referenceTexture, shininess: 0 }),
+          );
+          surfaceGroup.add(mesh);
+          surfaceGroup.updateMatrixWorld(true);
+          loadedModels.add(mesh);
+          scene.add(surfaceGroup);
+          // Measured Amboy crater floor: the geometric crop centre is too steep
+          // for the reference starter. Users can still choose any loaded point.
+          const start = mode === 'amboy-crater' ? { x: 60, y: 40 } : { x: 0, y: 0 };
+          latestProps.current.onSiteReady?.({
+            rover: { ...start, z: -surfaceHeight(surfaceData, start.x, start.y) },
+            goal: { x: start.x + 8, y: start.y, z: -surfaceHeight(surfaceData, start.x + 8, start.y) },
+          });
+          updateMission();
+          return;
+        }
         if (isReference) {
           if (!source.imageryUrl) throw new Error('Missing global imagery source');
           referenceGroup = new Group();
@@ -448,7 +617,11 @@ export default function TerrainScene(props: TerrainSceneProps) {
           resetView();
           updateMission();
           referenceTexture = await fetchReferenceTexture(
-            source.imageryUrl,
+            mode === 'mars'
+              ? '/textures/mars-nasa-viking.jpg'
+              : mode === 'earth'
+                ? '/textures/earth-blue-marble-july2004.jpg'
+                : source.imageryUrl,
             lifecycle.signal,
             renderer.capabilities.maxTextureSize,
           );
@@ -541,7 +714,7 @@ export default function TerrainScene(props: TerrainSceneProps) {
             publish(
               'error',
               isLocal
-                ? 'NASA terrain could not be initialized. Check your connection, then retry.'
+                ? `${source.label} terrain could not be initialized. Check the source package and connection, then retry.`
                 : 'Could not connect to Cesium ion. Check the read-only token’s asset and domain access, then retry or select public imagery.',
             );
           }
@@ -620,6 +793,7 @@ export default function TerrainScene(props: TerrainSceneProps) {
 
     let pointerStart: { x: number; y: number; id: number } | null = null;
     const pointerDown = (event: PointerEvent) => {
+      flight = null;
       if (event.button !== 0 || !event.isPrimary) return;
       pointerStart = { x: event.clientX, y: event.clientY, id: event.pointerId };
       canvas.focus({ preventScroll: true });
@@ -639,6 +813,7 @@ export default function TerrainScene(props: TerrainSceneProps) {
       pointerStart = null;
     };
     const keyDown = (event: KeyboardEvent) => {
+      flight = null;
       if (event.altKey || event.ctrlKey || event.metaKey) return;
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
@@ -655,7 +830,10 @@ export default function TerrainScene(props: TerrainSceneProps) {
         return;
       event.preventDefault();
       if (controls instanceof OrbitControls) {
-        if (event.shiftKey && event.key.startsWith('Arrow')) {
+        if (
+          (event.shiftKey || latestProps.current.navigationMode !== 'orbit') &&
+          event.key.startsWith('Arrow')
+        ) {
           panLocalCamera(
             camera,
             controls.target,
@@ -703,11 +881,30 @@ export default function TerrainScene(props: TerrainSceneProps) {
       startupDeadline?.cancel();
       publish('error', 'The graphics context was interrupted. Retry terrain to recreate the view.');
     };
+    const doubleClick = (event: MouseEvent) => {
+      const frame = sourceFrame();
+      if (!(controls instanceof OrbitControls) || latestProps.current.placementMode || !frame) return;
+      const bounds = canvas.getBoundingClientRect();
+      pointer.set(
+        ((event.clientX - bounds.left) / bounds.width) * 2 - 1,
+        (-(event.clientY - bounds.top) / bounds.height) * 2 + 1,
+      );
+      raycaster.setFromCamera(pointer, camera);
+      const hit = raycaster.intersectObject(frame, true)[0];
+      if (!hit) return;
+      const offset = camera.position.clone().sub(controls.target).multiplyScalar(0.65);
+      flyToLocal(hit.point.clone().add(offset), hit.point);
+    };
     canvas.addEventListener('pointerdown', pointerDown);
     canvas.addEventListener('pointerup', pointerUp);
     canvas.addEventListener('pointercancel', pointerCancel);
     canvas.addEventListener('keydown', keyDown);
     canvas.addEventListener('webglcontextlost', contextLost);
+    canvas.addEventListener('dblclick', doubleClick);
+    const cancelFlight = () => {
+      flight = null;
+    };
+    canvas.addEventListener('wheel', cancelFlight, { passive: true });
 
     const resize = () => {
       const width = Math.max(1, host.clientWidth);
@@ -724,7 +921,18 @@ export default function TerrainScene(props: TerrainSceneProps) {
 
     function animate() {
       if (disposed || halted) return;
+      if (!host || (hasVisibleSurface && (document.hidden || host.clientHeight === 0))) {
+        animationFrame = requestAnimationFrame(animate);
+        return;
+      }
       try {
+        if (flight && controls instanceof OrbitControls) {
+          const t = Math.min(1, (performance.now() - flight.start) / 320),
+            eased = 1 - (1 - t) ** 3;
+          camera.position.lerpVectors(flight.from, flight.to, eased);
+          controls.target.lerpVectors(flight.targetFrom, flight.targetTo, eased);
+          if (t === 1) flight = null;
+        }
         if (controlsAreReady()) controls?.update();
         camera.updateMatrixWorld();
         updateReferencePatch();
@@ -734,12 +942,38 @@ export default function TerrainScene(props: TerrainSceneProps) {
           const unitsPerPixel =
             (camera.position.distanceTo(symbol.position) * 2 * Math.tan((camera.fov * Math.PI) / 360)) /
             Math.max(canvas.clientHeight, 1);
-          symbol.scale.setScalar(Math.max(0.3, unitsPerPixel * (symbol === robot ? 14 : 22)));
+          symbol.scale.setScalar(
+            symbol === robot
+              ? Math.min(
+                  isRaster ? 3 : Infinity,
+                  roverDisplayScale(camera, symbol.position, canvas.clientHeight, 0.3963722),
+                )
+              : Math.max(0.3, unitsPerPixel * 22),
+          );
         });
         renderer.render(scene, camera);
+        if (sitePinRef.current && location && referenceGroup) {
+          const lat = (location.latitude * Math.PI) / 180,
+            lon = (location.longitude * Math.PI) / 180;
+          const point = new Vector3(
+            Math.cos(lat) * Math.cos(lon),
+            Math.cos(lat) * Math.sin(lon),
+            Math.sin(lat),
+          ).multiplyScalar(radius);
+          referenceGroup.localToWorld(point);
+          const facing = point.dot(camera.position.clone().sub(point)) > 0;
+          const projected = point.clone().project(camera);
+          const visible =
+            facing && Math.abs(projected.x) < 0.88 && Math.abs(projected.y) < 0.88 && projected.z < 1;
+          sitePinRef.current.hidden = !visible;
+          sitePinRef.current.style.left = `${(projected.x * 0.5 + 0.5) * 100}%`;
+          sitePinRef.current.style.top = `${(-projected.y * 0.5 + 0.5) * 100}%`;
+        }
         if (halted) return;
         const referenceVisible = (imageryLoaded || imageryUnavailable) && Boolean(referenceMesh?.visible);
-        const terrainVisible = Boolean(tiles && tiles.visibleTiles.size > 0 && loadedModels.size > 0);
+        const terrainVisible = Boolean(
+          surfaceGroup || (tiles && tiles.visibleTiles.size > 0 && loadedModels.size > 0),
+        );
         if (referenceVisible && imageryLoaded && !imageryRendered) {
           imageryRendered = true;
           publish('ready', readyMessage());
@@ -780,9 +1014,12 @@ export default function TerrainScene(props: TerrainSceneProps) {
       canvas.removeEventListener('pointercancel', pointerCancel);
       canvas.removeEventListener('keydown', keyDown);
       canvas.removeEventListener('webglcontextlost', contextLost);
+      canvas.removeEventListener('dblclick', doubleClick);
+      canvas.removeEventListener('wheel', cancelFlight);
       controls?.dispose();
       tiles?.dispose();
       if (referenceGroup) disposeGeometryAndMaterials(referenceGroup);
+      if (surfaceGroup) disposeGeometryAndMaterials(surfaceGroup);
       disposeImageTexture(referenceTexture);
       referenceTexture = null;
       disposeGeometryAndMaterials(overlayGroup);
@@ -803,6 +1040,22 @@ export default function TerrainScene(props: TerrainSceneProps) {
     if (focusMissionSignal) handleRef.current?.focusMission();
   }, [focusMissionSignal]);
   useEffect(() => {
+    if (!props.capturePatchSignal || previousCaptureSignal.current === props.capturePatchSignal) return;
+    previousCaptureSignal.current = props.capturePatchSignal;
+    try {
+      if (!handleRef.current) throw new Error('Wait for terrain to load.');
+      props.onPatch?.(handleRef.current.capturePatch());
+    } catch (error) {
+      props.onPatch?.(null, error instanceof Error ? error.message : 'Could not capture terrain.');
+    }
+  }, [props.capturePatchSignal]);
+  useEffect(() => {
+    handleRef.current?.updateNavigation();
+  }, [props.navigationMode]);
+  useEffect(() => {
+    if (props.cameraAction) handleRef.current?.navigate(props.cameraAction.kind);
+  }, [props.cameraAction]);
+  useEffect(() => {
     const canvas = hostRef.current?.querySelector('canvas');
     if (canvas) canvas.style.cursor = props.placementMode ? 'crosshair' : 'grab';
   }, [props.placementMode, mode, layer, ionToken]);
@@ -810,6 +1063,25 @@ export default function TerrainScene(props: TerrainSceneProps) {
   return (
     <div className="terrain-renderer" style={{ position: 'absolute', inset: 0 }}>
       <div ref={hostRef} className="terrain-canvas-host" style={{ width: '100%', height: '100%' }} />
+      {globeSite(mode) &&
+        layer === 'imagery' &&
+        (() => {
+          const site = globeSite(mode)!;
+          return (
+            <button
+              ref={sitePinRef}
+              className="globe-site-pin"
+              hidden
+              title={SITE_LOCATIONS[site].evidence}
+              onClick={() => props.onOpenSite?.(site)}
+              aria-label={`Explore ${SITE_LOCATIONS[site].label} surface site`}
+            >
+              <span className="globe-site-dot" aria-hidden="true" />
+              <strong>{SITE_LOCATIONS[site].label}</strong>
+              <span>{SITE_LOCATIONS[site].region} · Open site ↗</span>
+            </button>
+          );
+        })()}
       {props.placementMode && (
         <div
           className="terrain-center-reticle"

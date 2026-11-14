@@ -1,0 +1,38 @@
+{
+  "sourceUrl": "https://mars.nasa.gov/mmgis-maps/MSL/Layers/json/MSL_waypoints.json",
+  "retrievedAt": "2026-11-14",
+  "responseSha256": "5a32324f4b8ba22ebdfac50a503e195f47ccdc876ad4c15b19e29dc7cef15a09",
+  "usage": "Approximate globe context only; no local XYZ-to-geodetic transform is established.",
+  "feature": {
+    "type": "Feature",
+    "properties": {
+      "RMC": "26_184",
+      "site": 26,
+      "drive": 184,
+      "sol": 528,
+      "easting": 8144773.927,
+      "northing": -274237.387,
+      "elev_geoid": -4486.771,
+      "lon": 137.4072626,
+      "lat": -4.62655059,
+      "roll": -2.87,
+      "pitch": 0.1,
+      "yaw": -130.96,
+      "yaw_rad": -2.28572,
+      "tilt": 2.87,
+      "dist_m": 15.67,
+      "dist_total_m": 4909.81,
+      "dist_km": 4.91,
+      "dist_mi": 3.05,
+      "drive_type": "final"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        137.4072626,
+        -4.62655059,
+        -4486.771
+      ]
+    }
+  }
+}

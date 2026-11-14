@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0.0",
+  "siteId": "amboy-crater",
+  "body": "earth",
+  "label": "Amboy Crater",
+  "sourceProduct": "USGS_1M_11_x61y383_CA_FEMALevee_D23",
+  "sourceUrl": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_FEMALevee_D23/TIFF/USGS_1M_11_x61y383_CA_FEMALevee_D23.tif",
+  "sourcePage": "https://www.sciencebase.gov/catalog/item/67590577d34edfeb87103a69",
+  "credit": "USGS 3DEP \u00b7 USDA NAIP / The National Map",
+  "sourceSpacingM": 1.0,
+  "preparedAt": "2026-11-14",
+  "heightfieldSha256": "8b751da3a5c4808f82ca62d4df0da720ee8e7bb45a3f7cc6119b4e407f906088",
+  "imagerySha256": "5e91279cc309c9e3f4c45ffdf551de0c00197311462baaba45f13f7f9fd5e256",
+  "imagery": {
+    "url": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?f=image&bbox=610676.9996938779%2C3822994.0000400566%2C611189.9996938779%2C3823507.0000400566&bboxSR=26911&imageSR=26911&size=1026%2C1026&format=jpg&interpolation=RSP_BilinearInterpolation&renderingRule=%7B%22rasterFunction%22%3A+%22NaturalColor%22%7D",
+    "service": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "exportPixelSizeM": 0.5,
+    "processing": "Natural-color NAIP service export; export sampling is not source resolution"
+  },
+  "sourceWindow": {
+    "crsWkt": "PROJCS[\"NAD83 / UTM zone 11N\",GEOGCS[\"NAD83\",DATUM[\"North_American_Datum_1983\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"6269\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4269\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",-117],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"26911\"]]",
+    "pixelSize": [
+      1.0,
+      1.0
+    ],
+    "window": [
+      683,
+      6499,
+      513,
+      513
+    ],
+    "transform": [
+      1.0,
+      0.0,
+      610676.9996938779,
+      0.0,
+      -1.0,
+      3823507.0000400566
+    ],
+    "centerProjectedM": [
+      610933.4996938779,
+      3823250.5000400566
+    ],
+    "sourceWindowFloat32Sha256": "778929312edb28840183d6d11397d0b758c8bdf37588d5645c3674caa586f738"
+  },
+  "verticalReference": "NAVD88 elevation in metres",
+  "boundsM": [
+    -256.0,
+    -256.0,
+    256.0,
+    256.0
+  ],
+  "knownLimits": [
+    "DEM interpolation does not recover wheel-scale obstacles.",
+    "Contact materials, lighting and robot sensors are experimental assumptions.",
+    "Local axes are projected grid directions, not a full inertial/body frame graph."
+  ]
+}

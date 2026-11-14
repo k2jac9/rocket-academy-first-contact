@@ -1,0 +1,1314 @@
+/* Application components share the catalog's tokens; scene imagery keeps its own colors. */
+body {
+  background: var(--surface);
+  color: var(--ink);
+}
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
+button,
+a,
+input,
+textarea,
+select {
+  transition:
+    color var(--motion-fast),
+    background-color var(--motion-fast),
+    border-color var(--motion-fast),
+    opacity var(--motion-fast);
+}
+button:hover:not(:disabled) {
+  filter: none;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+::selection {
+  background: #b7d8ec;
+  color: var(--ink);
+}
+.app-shell {
+  max-width: none;
+}
+.app-shell .topbar {
+  max-width: var(--content-width);
+  height: 52px;
+  min-height: 52px;
+  margin: 0 auto;
+  padding: 0 var(--page-gutter);
+  background: var(--surface);
+  border: 0;
+  gap: 20px;
+}
+.brand {
+  color: var(--accent);
+  min-width: 230px;
+}
+.brand-symbol {
+  color: var(--accent);
+}
+.brand-subtitle {
+  font-family: var(--font-mono);
+  color: var(--muted);
+}
+.app-shell .topnav {
+  gap: 32px;
+}
+.topnav button {
+  color: var(--muted);
+  padding: 0 6px;
+  border-bottom: 2px solid transparent;
+  font-size: 12px;
+}
+.topnav button:hover,
+.topnav button.nav-active {
+  color: var(--accent);
+}
+.topnav button.nav-active {
+  border-color: var(--accent);
+}
+.nav-label-short {
+  display: none;
+}
+.edition {
+  display: none;
+}
+.header-meta {
+  gap: 10px;
+}
+.icon-button {
+  width: 36px;
+  height: 36px;
+  color: var(--muted);
+  border-radius: 0;
+}
+.icon-button:hover {
+  background: var(--surface-selected);
+  color: var(--accent);
+}
+.skip-link {
+  color: white;
+}
+.view-map .episode-lab,
+.view-lab .workspace,
+.view-lab .workspace-heading,
+.view-catalog .workspace,
+.view-catalog .workspace-heading,
+.view-catalog .episode-lab,
+.view-catalog > .footer {
+  display: none;
+}
+.workspace:focus,
+.episode-lab:focus,
+.catalog-page:focus {
+  outline: none;
+}
+.eyebrow,
+.section-heading,
+.viewport-header,
+.terrain-tag,
+.scale-label,
+.message-caption,
+.card-tag,
+.destination-kicker,
+.plan-pill,
+.footer-center,
+.robot-view-label,
+.episode-pill,
+.robot-source-badge,
+.physics-view-controls > span,
+.recording-title,
+.replay-heading {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  letter-spacing: 0.035em;
+}
+.app-shell .workspace-heading {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 36px var(--page-gutter) 28px;
+}
+.app-shell .workspace-heading .eyebrow {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+.workspace-heading .tiny-cross {
+  display: none;
+}
+.app-shell .workspace-heading h1,
+.episode-lab-heading h2 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  line-height: 1.12;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 18px 0;
+}
+.app-shell .workspace-heading p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--muted);
+}
+.app-shell .workspace {
+  max-width: calc(var(--content-width) - var(--page-gutter) * 2);
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  grid-template-columns: 260px minmax(0, 1fr);
+  height: calc(100dvh - 300px);
+  min-height: 580px;
+  background: var(--surface);
+}
+.app-shell.mission-open .workspace {
+  grid-template-columns: 240px minmax(0, 1fr) 320px;
+}
+.app-shell .destination-panel,
+.app-shell .mission-panel {
+  padding: 24px 20px;
+  background: var(--surface);
+  scrollbar-color: #bcc3b8 transparent;
+}
+.destination-panel h2 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  margin: 20px 0 8px;
+}
+.destination-panel > p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.destination-list {
+  gap: 10px;
+  margin-top: 22px;
+}
+.destination-card {
+  min-height: 106px;
+  padding: 16px 12px 30px;
+  border: 1px solid transparent;
+  background: var(--surface-soft);
+  gap: 12px;
+}
+.destination-card:nth-child(1) {
+  background: var(--pastel-peach);
+}
+.destination-card:nth-child(2) {
+  background: var(--pastel-stone);
+}
+.destination-card:nth-child(3) {
+  background: var(--pastel-sky);
+}
+.destination-card:nth-child(4) {
+  background: var(--pastel-sand);
+}
+.destination-card:nth-child(5) {
+  background: var(--pastel-stone);
+}
+.destination-card:nth-child(6) {
+  background: var(--pastel-sage, #e4eadf);
+}
+.destination-card .surface-thumb {
+  border-radius: 0;
+}
+.surface-site-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 18px;
+  min-height: 54px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.surface-site-strip > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  align-items: baseline;
+}
+.surface-site-strip strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.surface-site-strip span {
+  font: 10px var(--font-mono);
+  color: var(--muted);
+}
+.surface-site-strip button {
+  flex-shrink: 0;
+  min-height: 32px;
+}
+.globe-site-pin {
+  position: absolute;
+  z-index: 3;
+  transform: translate(-50%, calc(-100% - 12px));
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px 16px;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 4px 24px #0002;
+  white-space: nowrap;
+}
+.globe-site-pin[hidden] {
+  display: none;
+}
+.globe-site-pin strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.globe-site-pin > span:last-child {
+  font-size: 10px;
+  color: var(--accent);
+}
+.globe-site-dot {
+  position: absolute;
+  bottom: -18px;
+  left: calc(50% - 6px);
+  width: 12px;
+  height: 12px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px #006ab244;
+}
+.globe-site-pin:hover {
+  background: var(--accent-soft);
+}
+@media (min-width: 981px) {
+  .app-shell .destination-card {
+    min-height: 88px;
+    padding-top: 12px;
+    padding-bottom: 26px;
+  }
+  .destination-list {
+    gap: 8px;
+    margin-top: 16px;
+  }
+}
+.destination-card.selected {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.destination-card:hover {
+  border-color: var(--accent);
+}
+.planet-disc {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border: 0;
+  box-shadow: none;
+  border-radius: 50%;
+}
+.destination-kicker {
+  font-size: 9px;
+  letter-spacing: 0.015em;
+}
+.destination-text strong {
+  font-size: 14px;
+}
+.destination-text > span:last-child {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #465347;
+  padding-right: 4px;
+}
+.card-tag,
+.card-tag.open {
+  font-size: 9px;
+  color: #4d5b50;
+  bottom: 10px;
+}
+.selection-check {
+  color: var(--accent);
+  right: 8px;
+  top: 10px;
+}
+.destination-chevron {
+  display: none;
+}
+.site-facts .section-heading {
+  font-size: 10px;
+}
+.site-facts dl > div {
+  font-size: 11px;
+  line-height: 1.6;
+}
+.site-facts dd {
+  font-size: 11px;
+}
+.plan-pill {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--line);
+  font-size: 9px;
+}
+.source-note {
+  padding-top: 22px;
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.source-note strong {
+  font-size: 12px;
+  color: var(--ink);
+}
+.source-note p {
+  font-size: 11px;
+}
+.text-button {
+  color: var(--accent);
+  font-size: 12px;
+}
+.viewport-column,
+.viewport-header,
+.terrain-toolbar {
+  background: var(--surface);
+}
+.viewport-header {
+  height: 48px;
+  min-height: 48px;
+  font-size: 11px;
+  padding: 0 18px;
+  letter-spacing: 0.035em;
+}
+.viewport-header .text-button {
+  font-family: var(--font-body);
+  color: var(--accent);
+  font-size: 11px;
+}
+.viewport-header-muted {
+  font-size: 10px;
+}
+.terrain-viewport {
+  background: var(--surface-soft);
+}
+.terrain-tag {
+  color: var(--ink);
+  background: #fffffff0;
+  border-color: var(--line);
+  font-size: 9px;
+  backdrop-filter: none;
+}
+.scale-label {
+  color: var(--muted);
+  background: #fffffff0;
+  padding: 6px 8px;
+  text-shadow: none;
+  font-size: 9px;
+}
+.viewport-bottomline > span {
+  color: #465347;
+  background: #ffffffed;
+  text-shadow: none;
+  font-size: 9px;
+  border-radius: 0;
+}
+.viewport-reset {
+  background: var(--surface);
+  color: var(--accent);
+  border-color: var(--line);
+  width: 36px;
+  height: 36px;
+}
+.map-navigation {
+  background: #fffffff5;
+  border-color: var(--line);
+  border-radius: 0;
+  box-shadow: 0 4px 20px #10201212;
+  backdrop-filter: none;
+  padding: 4px;
+}
+.map-navigation button {
+  color: var(--ink);
+  border-radius: 0;
+}
+.map-navigation button:hover,
+.map-navigation button[aria-pressed='true'] {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.map-navigation span {
+  background: var(--line);
+}
+.compass {
+  display: none;
+}
+.scene-message {
+  background: #f7f8f5f5;
+  color: var(--ink);
+}
+.scene-message h3 {
+  font-family: var(--font-body);
+}
+.scene-message p,
+.message-caption {
+  color: var(--muted);
+}
+.terrain-viewport:has(.scene-message) .map-navigation {
+  display: none;
+}
+.placement-instruction {
+  color: var(--accent);
+  background: var(--surface);
+  border-color: var(--accent);
+}
+.placement-instruction button {
+  color: var(--accent);
+}
+.terrain-warning,
+.episode-limits {
+  background: var(--warning-soft);
+  color: var(--warning);
+  border-color: #dccda5;
+}
+.terrain-warning .text-button {
+  color: var(--warning);
+}
+.app-shell .terrain-toolbar {
+  height: auto;
+  min-height: 56px;
+  gap: 8px;
+  padding: 10px 12px;
+}
+.placement-tools button {
+  min-height: 36px;
+  color: var(--muted);
+  border: 1px solid transparent;
+}
+.placement-tools button.tool-active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.app-shell .orbit-help {
+  font-size: 11px;
+  color: var(--muted);
+}
+.map-mission-toggle,
+.map-lab-action {
+  border-color: var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  min-height: 36px;
+  border-radius: 0;
+}
+.map-lab-action {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.map-mission-toggle[aria-pressed='true'] {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.secondary-button,
+.example-button,
+.physics-view-controls button {
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 12px;
+}
+.secondary-button:hover:not(:disabled),
+.example-button:hover:not(:disabled),
+.physics-view-controls button:hover {
+  background: var(--surface-selected);
+  border-color: #b9c4b8;
+}
+.primary-button,
+.mission-actions .primary-button,
+.episode-actions .primary-button,
+.recording-card .primary-button {
+  background: var(--accent);
+  color: white;
+  border: 1px solid var(--accent);
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+.primary-button:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+.primary-button:disabled,
+.mission-actions .primary-button:disabled {
+  color: var(--muted);
+  border-color: var(--line);
+  background: var(--surface-selected);
+  opacity: 0.65;
+}
+.mission-name,
+.objective-input,
+.token-input,
+.episode-lab select,
+.episode-lab input[type='number'],
+.replay-controls select {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--line);
+  border-radius: 0;
+}
+.mission-name {
+  font-size: 22px;
+}
+.robot-card,
+.plan-preview,
+.recording-card,
+.replay-panel {
+  background: var(--surface-soft);
+  border-color: var(--line);
+}
+.rover-preview {
+  background: var(--surface-soft);
+}
+.service-badges button {
+  background: var(--surface-soft);
+  border-color: var(--line);
+  color: var(--muted);
+}
+.service-badges button.connected {
+  color: var(--success);
+  background: var(--success-soft);
+  border-color: #b6d0bf;
+}
+.ai-button {
+  color: #65517d;
+  background: var(--pastel-lilac);
+  border-color: #d7cce3;
+}
+.operation-error {
+  color: var(--danger);
+  background: var(--danger-soft);
+  border-color: var(--danger);
+}
+.plan-preview-title,
+.recording-title,
+.recording-card dd {
+  color: var(--success);
+}
+.replay-controls input,
+.episode-playback input {
+  accent-color: var(--accent);
+}
+.replay-controls .icon-button {
+  color: var(--accent);
+  background: var(--surface);
+  border-color: var(--line);
+}
+.artifact-checksum,
+.coordinates {
+  font-family: var(--font-mono);
+}
+.app-shell .footer {
+  max-width: calc(var(--content-width) - var(--page-gutter) * 2);
+  margin: 0 auto;
+  font-size: 11px;
+  color: var(--muted);
+}
+.footer a {
+  color: var(--accent);
+}
+.footer-center {
+  font-size: 10px;
+}
+.notice-toast {
+  background: var(--success-soft);
+  color: var(--success);
+  border-color: #b6d0bf;
+  border-radius: 0;
+  box-shadow: 0 4px 20px #10201215;
+  font-size: 12px;
+}
+.dialog,
+.catalog-add-dialog {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--line);
+  border-radius: 0;
+  box-shadow: 0 18px 100px #10201830;
+}
+.dialog::backdrop {
+  background: #14201666;
+  backdrop-filter: blur(3px);
+}
+.dialog-content {
+  padding: 28px;
+}
+.dialog h2 {
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.dialog-intro,
+.help-steps,
+.source-details p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.source-details {
+  background: var(--surface-soft);
+  border-color: var(--line);
+}
+.source-details h3 {
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+.source-details dl {
+  font-size: 12px;
+}
+.source-details dd {
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.dialog-callout {
+  background: var(--accent-soft);
+  border-color: #cbdce9;
+}
+.dialog-callout p,
+.help-steps p,
+.field-hint,
+.server-setup p {
+  color: var(--muted);
+  font-size: 12px;
+}
+.help-steps li::marker {
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+.field-label {
+  font-size: 12px;
+  color: var(--ink);
+}
+.server-setup pre {
+  background: var(--surface-soft);
+  color: var(--muted);
+  font: 11px/1.8 var(--font-mono);
+  border-color: var(--line);
+}
+.app-shell .episode-lab {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--page-gutter) 60px;
+  background: var(--surface);
+  border: 0;
+  border-radius: 0;
+}
+.episode-lab-heading {
+  position: relative;
+  padding: 48px 0 36px;
+  margin-bottom: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.episode-lab-heading .eyebrow {
+  color: var(--muted);
+  font-size: 11px;
+}
+.episode-lab-heading p {
+  font-size: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+  color: var(--muted);
+}
+.episode-pill {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  color: var(--success);
+  background: var(--success-soft);
+  border-color: #c9dbce;
+  border-radius: 0;
+  font-size: 10px;
+}
+.episode-lab p,
+.episode-field small {
+  color: var(--muted);
+}
+.robot-library {
+  margin: 28px 0 48px;
+}
+.episode-lab .robot-library-heading h3,
+.episode-lab .episode-builder-heading h3 {
+  color: var(--ink);
+  font-size: 24px;
+  letter-spacing: -0.035em;
+}
+.robot-library-heading > a {
+  color: var(--accent);
+  font-size: 12px;
+}
+.robot-filters button {
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 7px 12px;
+}
+.robot-filters button[aria-pressed='true'] {
+  background: var(--surface-selected);
+  color: var(--ink);
+  border-color: var(--surface-selected);
+}
+.robot-search {
+  border-color: var(--line);
+  color: var(--muted);
+  border-radius: 0;
+}
+.robot-search input {
+  color: var(--ink);
+}
+.robot-search:focus-within {
+  outline-color: var(--accent);
+}
+.robot-product {
+  color: var(--ink);
+  background: var(--surface-soft);
+  border-color: var(--line);
+  border-radius: 0;
+}
+.robot-product:hover {
+  transform: none;
+  border-color: var(--accent);
+}
+.robot-product.selected {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.robot-product-image i {
+  border-radius: 0;
+  background: var(--accent);
+  color: white;
+}
+.robot-product-name small,
+.robot-product-status {
+  color: var(--muted);
+  font-size: 11px;
+}
+.robot-product-name strong {
+  font-size: 22px;
+}
+.robot-product-status i.ready {
+  background: var(--success);
+}
+.robot-inspector {
+  border-color: var(--line);
+  background: var(--surface);
+  border-radius: 0;
+}
+.robot-inspector-title > div > span {
+  color: var(--muted);
+}
+.robot-inspector-title h4 {
+  color: var(--ink);
+  font-size: 30px;
+}
+.robot-source-badge {
+  background: var(--surface-selected);
+  color: var(--muted);
+  border-color: var(--line);
+  border-radius: 0;
+  font-size: 10px;
+}
+.episode-lab .robot-inspector-info p {
+  color: var(--muted);
+  font-size: 13px;
+}
+.episode-lab .robot-inspector-info p.robot-tagline {
+  color: var(--ink);
+  font-size: 16px;
+}
+.robot-specs {
+  color: var(--muted);
+  font: 11px/1.7 var(--font-mono);
+}
+.robot-specs a {
+  color: var(--accent);
+}
+.robot-inspection-note {
+  border-color: var(--line);
+}
+.robot-reset {
+  border-radius: 0;
+  background: #ffffffb3;
+  color: var(--ink);
+  border-color: #cbd1c6;
+}
+.episode-builder-heading {
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+}
+.episode-setup {
+  padding: 0 24px 24px 0;
+  border-right: 1px solid var(--line);
+}
+.episode-setup h3 {
+  font: 11px var(--font-mono);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.episode-parameters {
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.episode-parameters label:last-child {
+  grid-column: 1/-1;
+}
+.episode-empty {
+  background: var(--surface-soft);
+  color: var(--ink);
+  border-color: var(--line);
+  border-radius: 0;
+}
+.physics-scene,
+.physics-view-controls {
+  border-color: var(--line);
+  border-radius: 0;
+  background: var(--surface-soft);
+}
+.physics-view-controls button {
+  min-height: 32px;
+}
+.episode-fleet-preview figure {
+  background: var(--pastel-stone);
+  border-radius: 0;
+  color: var(--ink);
+}
+.episode-fleet-preview figcaption {
+  font: 10px/1.5 var(--font-mono);
+}
+.episode-metrics {
+  color: var(--muted);
+  padding: 16px 0;
+}
+.episode-metrics strong {
+  color: var(--ink);
+}
+.episode-history button {
+  color: var(--ink);
+  border-color: var(--line);
+}
+.episode-history button:hover {
+  background: var(--surface-soft);
+}
+.episode-ready {
+  color: var(--success) !important;
+}
+.episode-camera-previews figure {
+  border-color: var(--line);
+  background: var(--surface-soft);
+}
+.episode-camera-previews figcaption {
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+.catalog-loading {
+  max-width: var(--content-width);
+  margin: 60px auto;
+  padding: 0 var(--page-gutter);
+  color: var(--muted);
+}
+@keyframes page-enter {
+  from {
+    opacity: 0.65;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-enter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.view-map .workspace,
+.view-lab .episode-lab,
+.catalog-page {
+  animation: page-enter var(--motion-page) ease-out;
+}
+.dialog[open],
+.catalog-add-dialog[open] {
+  animation: dialog-enter var(--motion-page) ease-out;
+}
+@media (max-width: 1536px) {
+  .app-shell .workspace,
+  .app-shell .footer {
+    margin-left: var(--page-gutter);
+    margin-right: var(--page-gutter);
+  }
+}
+@media (max-width: 1100px) and (min-width: 761px) {
+  .app-shell .workspace {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+  .app-shell.mission-open .workspace {
+    grid-template-columns: 200px minmax(0, 1fr);
+    height: auto;
+  }
+  .app-shell.mission-open .mission-panel {
+    grid-column: 1/-1;
+    max-height: 600px;
+    display: block;
+  }
+  .app-shell.mission-open .terrain-viewport {
+    min-height: 520px;
+  }
+  .app-shell .destination-panel {
+    padding: 20px 12px;
+  }
+  .destination-kicker {
+    font-size: 8px;
+  }
+  .episode-pill {
+    position: static;
+    margin-top: 16px;
+  }
+  .episode-lab-heading {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+@media (max-width: 900px) {
+  .app-shell .topbar {
+    flex-wrap: wrap;
+    height: 104px;
+    padding-top: 10px;
+    gap: 0;
+  }
+  .app-shell .brand {
+    flex: 1;
+    min-width: 0;
+    height: 44px;
+  }
+  .app-shell .header-meta {
+    display: flex;
+    order: 2;
+  }
+  .app-shell .topnav {
+    order: 3;
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+  }
+  .topnav button {
+    justify-content: center;
+    gap: 7px;
+    padding: 0 6px;
+    white-space: nowrap;
+  }
+  .app-shell .workspace {
+    height: calc(100dvh - 350px);
+  }
+  .episode-setup {
+    border: 0;
+    padding-right: 0;
+  }
+  .episode-parameters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .episode-parameters label:last-child {
+    grid-column: auto;
+  }
+}
+@media (max-width: 760px) {
+  :root {
+    --page-gutter: 20px;
+  }
+  .app-shell .topbar {
+    min-height: 104px;
+    padding: 10px var(--page-gutter) 0;
+  }
+  .brand {
+    gap: 7px;
+  }
+  .brand strong {
+    font-size: 10px;
+    letter-spacing: 1.6px;
+  }
+  .brand-subtitle {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    margin-top: 4px;
+  }
+  .header-meta {
+    gap: 2px;
+  }
+  .nav-label-full {
+    display: none;
+  }
+  .nav-label-short {
+    display: inline;
+  }
+  .app-shell .topnav button {
+    font-size: 11px;
+  }
+  .app-shell .workspace-heading {
+    padding: 30px var(--page-gutter) 26px;
+  }
+  .app-shell .workspace-heading h1,
+  .episode-lab-heading h2 {
+    font-size: clamp(25px, 8.2vw, 32px);
+    line-height: 1.18;
+  }
+  .app-shell .workspace-heading p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .app-shell .workspace,
+  .app-shell.mission-open .workspace {
+    display: flex;
+    height: auto;
+    min-height: 0;
+    margin: 0 var(--page-gutter);
+  }
+  .app-shell .destination-panel {
+    width: 100%;
+    padding: 10px;
+  }
+  .app-shell .destination-panel .site-facts,
+  .app-shell .destination-panel .source-note {
+    display: none;
+  }
+  .app-shell .destination-list {
+    margin: 0;
+    gap: 6px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .app-shell .destination-card {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 86px;
+    padding: 8px 2px;
+    text-align: center;
+  }
+  .app-shell .destination-text strong {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .app-shell .planet-disc {
+    width: 28px;
+    height: 28px;
+  }
+  .destination-card .selection-check {
+    top: 3px;
+    right: 3px;
+  }
+  .destination-card .selection-check svg {
+    width: 10px;
+  }
+  .app-shell .viewport-header {
+    padding: 0 10px;
+  }
+  .surface-site-strip {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+  .surface-site-strip > div {
+    display: grid;
+    gap: 5px;
+  }
+  .surface-site-strip .text-button {
+    font-size: 10px;
+  }
+  .surface-site-strip span {
+    font-size: 9px;
+  }
+  .globe-site-pin {
+    padding: 10px 12px;
+  }
+  .viewport-header .text-button {
+    font-size: 10px;
+  }
+  .app-shell .terrain-viewport {
+    height: 55dvh;
+    min-height: 360px;
+  }
+  .app-shell .terrain-toolbar {
+    padding: 10px;
+    gap: 8px;
+  }
+  .map-lab-action,
+  .map-mission-toggle {
+    font-size: 11px;
+  }
+  .map-lab-action {
+    flex: 1;
+    justify-content: center;
+  }
+  .app-shell .placement-tools {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .app-shell .placement-tools button {
+    flex: 1;
+    justify-content: center;
+  }
+  .app-shell .mission-panel {
+    padding: 24px 18px;
+  }
+  .app-shell .footer {
+    margin: 0 var(--page-gutter);
+    padding: 20px 0;
+    flex-wrap: wrap;
+    font-size: 10px;
+  }
+  .footer-center {
+    display: none;
+  }
+  .app-shell .episode-lab {
+    margin: 0 auto;
+    padding: 0 var(--page-gutter) 40px;
+  }
+  .episode-lab-heading {
+    flex-direction: column;
+    gap: 0;
+    padding: 32px 0 20px;
+  }
+  .episode-lab-heading p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .episode-pill {
+    position: static;
+    margin-top: 16px;
+  }
+  .robot-library {
+    margin-top: 24px;
+  }
+  .robot-library-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .episode-lab .robot-library-heading h3,
+  .episode-lab .episode-builder-heading h3 {
+    font-size: 22px;
+  }
+  .robot-library-toolbar {
+    margin-top: 18px;
+  }
+  .robot-product-list {
+    gap: 8px;
+  }
+  .robot-product-name {
+    padding: 10px 8px 8px;
+  }
+  .robot-product-name strong {
+    font-size: 18px;
+  }
+  .robot-product-name small {
+    font-size: 9px;
+    min-height: 28px;
+  }
+  .robot-product-status {
+    font-size: 9px;
+    gap: 4px;
+    padding: 0 8px;
+    line-height: 1.5;
+  }
+  .robot-product-image > span {
+    font-size: 9px;
+  }
+  .robot-inspector-title {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .robot-inspector-info {
+    padding: 20px;
+  }
+  .robot-deploy-actions > button {
+    flex: 1;
+  }
+  .episode-empty {
+    height: auto;
+    min-height: 340px;
+    padding: 24px 16px;
+  }
+  .episode-fleet-preview figure {
+    width: 48%;
+  }
+  .episode-fleet-preview figcaption {
+    font-size: 9px;
+    padding: 0 8px 12px;
+  }
+  .dialog-content {
+    padding: 22px;
+  }
+  .dialog h2 {
+    font-size: 22px;
+  }
+  .source-details dl > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .source-details dt {
+    font-size: 11px;
+  }
+  .dialog-actions {
+    flex-wrap: wrap;
+  }
+  .episode-history button {
+    flex-wrap: wrap;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (max-width: 360px) {
+  .app-shell .topnav button svg {
+    display: none;
+  }
+  .app-shell .catalog-hero h1 {
+    font-size: 28px;
+  }
+}
+
+/* Route visibility must also win over the mobile flex layouts. Keep views mounted
+   so camera position, fleet selection and recorded episodes survive navigation. */
+.app-shell.view-map .episode-lab,
+.app-shell:not(.view-studio) .scenario-studio,
+.app-shell.view-studio .workspace,
+.app-shell.view-studio .workspace-heading,
+.app-shell.view-studio .episode-lab,
+.app-shell.view-studio > .footer,
+.app-shell.view-lab .workspace,
+.app-shell.view-lab .workspace-heading,
+.app-shell.view-catalog .workspace,
+.app-shell.view-catalog .workspace-heading,
+.app-shell.view-catalog .episode-lab,
+.app-shell.view-catalog > .footer {
+  display: none;
+}

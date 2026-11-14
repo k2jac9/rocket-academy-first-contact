@@ -1,21 +1,21 @@
 import { Readable } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
-import { GridFSBucket, MongoClient, ObjectId } from 'mongodb';
+import { GridFSBucket, ObjectId } from 'mongodb';
 import type { Db, Document } from 'mongodb';
 import type { CelestialBody, MissionManifest } from '../src/domain/mission.ts';
 import { getSource } from '../src/domain/mission.ts';
 import type { MissionRun } from '../src/simulation/missionRun.ts';
 import { ROBOT_CATALOG, SOURCE_CATALOG } from './catalog.ts';
-import type { ServerConfig } from './config.ts';
 import { ApiError } from './errors.ts';
 import { bytesHash, jsonHash } from './hash.ts';
+import { EpisodeStore } from './episodeStore.ts';
+import { ExplorationStore } from './explorationStore.ts';
+import { AtlasConnection } from './atlasConnection.ts';
+import type { AtlasStatus } from './atlasConnection.ts';
+export type { AtlasStatus } from './atlasConnection.ts';
 
 export const MAX_MCAP_BYTES = 16 * 1024 * 1024;
 export const MAX_RUN_JSON_BYTES = 8 * 1024 * 1024;
-export interface AtlasStatus {
-  configured: boolean;
-  connected: boolean;
-}
 export interface MissionRecord {
   id: string;
   mission: MissionManifest;
@@ -50,6 +50,7 @@ export interface RunSummary {
 }
 export interface MissionStore {
   status(): AtlasStatus;
+  checkHealth(): Promise<AtlasStatus>;
   connect(): Promise<void>;
   close(): Promise<void>;
   saveMission(id: string, mission: MissionManifest, requestHash: string): Promise<MissionRecord>;
@@ -75,14 +76,6 @@ interface StoredRun extends StringDocument {
   artifact?: ArtifactRecord;
 }
 
-function storageError(): ApiError {
-  return new ApiError(
-    503,
-    'ATLAS_UNAVAILABLE',
-    'Atlas is configured but unavailable. Check the server connection, database permissions, and Atlas network access.',
-    true,
-  );
-}
 function duplicate(error: unknown): boolean {
   return typeof error === 'object' && error !== null && 'code' in error && error.code === 11000;
 }
@@ -110,93 +103,15 @@ function fromStored(document: StoredRun): RunRecord | null {
 }
 
 /** Owns one bounded driver pool. Secrets never enter returned records or errors. */
-export class AtlasStore implements MissionStore {
-  private readonly config: ServerConfig;
-  private client: MongoClient | null = null;
-  private database: Db | null = null;
-  private connecting: Promise<void> | null = null;
-  private connected = false;
-  private indexesReady = false;
-  private lastFailure = 0;
-
-  constructor(config: ServerConfig) {
-    this.config = config;
-  }
-  status(): AtlasStatus {
-    return { configured: Boolean(this.config.mongodbUri), connected: this.connected };
-  }
-
-  async connect(): Promise<void> {
-    if (!this.config.mongodbUri)
-      throw new ApiError(
-        503,
-        'ATLAS_NOT_CONFIGURED',
-        'Set MONGODB_URI on the local server to save missions and runs in Atlas.',
-      );
-    if (this.connected && this.database) return;
-    if (this.connecting) return this.connecting;
-    if (Date.now() - this.lastFailure < 5_000) throw storageError();
-    this.connecting = (async () => {
-      try {
-        if (!this.client) {
-          this.client = new MongoClient(this.config.mongodbUri, {
-            appName: 'rocket-academy-first-contact',
-            maxPoolSize: 5,
-            minPoolSize: 0,
-            maxConnecting: 2,
-            serverSelectionTimeoutMS: 4_000,
-            connectTimeoutMS: 4_000,
-            socketTimeoutMS: 10_000,
-            waitQueueTimeoutMS: 4_000,
-          });
-          this.client.on('topologyClosed', () => {
-            this.connected = false;
-          });
-          this.client.on('serverHeartbeatFailed', () => {
-            this.connected = false;
-          });
-          this.client.on('serverHeartbeatSucceeded', () => {
-            if (this.database && this.indexesReady) this.connected = true;
-          });
-        }
-        await this.client.connect();
-        const db = this.client.db(this.config.mongodbDb);
-        await db.command({ ping: 1, maxTimeMS: 4_000 }, { signal: AbortSignal.timeout(4_000) });
-        if (!this.indexesReady) {
-          await db
-            .collection('runs')
-            .createIndex({ 'run.mission.body': 1, 'run.startedAt': -1 }, { maxTimeMS: 5_000 });
-          await db.collection('decision_events').createIndex({ runId: 1 }, { maxTimeMS: 5_000 });
-          this.indexesReady = true;
-        }
-        this.database = db;
-        this.connected = true;
-      } catch {
-        this.connected = false;
-        this.lastFailure = Date.now();
-        throw storageError();
-      }
-    })().finally(() => {
-      this.connecting = null;
-    });
-    return this.connecting;
-  }
-
-  async close(): Promise<void> {
-    this.connected = false;
-    await this.client?.close();
-  }
-
-  private async db(): Promise<Db> {
-    await this.connect();
-    return this.database!;
-  }
-  private fail(error: unknown): never {
-    if (error instanceof ApiError) throw error;
-    this.connected = false;
-    this.lastFailure = Date.now();
-    throw storageError();
-  }
+export class AtlasStore extends AtlasConnection implements MissionStore {
+  readonly episodes = new EpisodeStore(
+    () => this.db(),
+    (error) => this.fail(error),
+  );
+  readonly explorations = new ExplorationStore(
+    () => this.db(),
+    (error) => this.fail(error),
+  );
 
   /** Only explicit Save/Run paths call this; catalog reads do not seed the database. */
   private async seedCatalog(db: Db): Promise<void> {

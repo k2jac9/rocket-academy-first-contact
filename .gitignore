@@ -8,3 +8,7 @@ test-results/
 .superpowers/
 *.log
 .DS_Store
+.venv-sim/
+.episodes/
+__pycache__/
+.robot-sources/

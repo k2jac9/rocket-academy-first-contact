@@ -1,0 +1,32 @@
+{
+  "humanoid": ["1x-neo", "agility-digit-5", "boston-dynamics-atlas", "figure-03", "unitree-g1"],
+  "quadruped": [
+    "anybotics-anymal-d",
+    "boston-dynamics-spot",
+    "deep-robotics-x30",
+    "ghost-robotics-vision-60",
+    "unitree-go2"
+  ],
+  "mobile-manipulator": [
+    "agilex-limo-cobot",
+    "boston-dynamics-stretch",
+    "hello-robot-stretch-4",
+    "pal-tiago",
+    "pollen-reachy-2"
+  ],
+  "companion": [
+    "casio-moflin-pe-m10",
+    "elephant-robotics-marscat-white",
+    "keyi-loona",
+    "livingai-emo",
+    "sony-aibo-ers1000"
+  ],
+  "drone": ["autel-evo-max-4t", "dji-agras-t50", "dji-mavic-3e", "parrot-anafi-usa", "skydio-x10"],
+  "field": [
+    "agilex-scout-2-0",
+    "clearpath-husky-a300",
+    "clearpath-jackal",
+    "husarion-panther",
+    "robotis-turtlebot3-waffle-pi"
+  ]
+}

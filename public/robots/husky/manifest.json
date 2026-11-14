@@ -1,0 +1,39 @@
+{
+  "id": "husky",
+  "label": "Clearpath Husky",
+  "manufacturer": "Clearpath Robotics",
+  "wheels": 4,
+  "massKg": 56.582,
+  "wheelRadiusM": 0.1651,
+  "widthM": 0.555,
+  "lengthM": 0.9874,
+  "wheelCenterZ": 0.03282,
+  "wheelbaseM": 0.512,
+  "rootToGroundM": 0.13228,
+  "wheelJointNames": [
+    "rear_right_wheel",
+    "front_right_wheel",
+    "rear_left_wheel",
+    "front_left_wheel"
+  ],
+  "rootBody": "base_link",
+  "sourceRevision": "41e15d283a8d955938204e79554a875264417bb9",
+  "license": "BSD-3-Clause",
+  "sourceUrl": "https://github.com/husky/husky/tree/41e15d283a8d955938204e79554a875264417bb9",
+  "glbSha256": "7b489c14041f6a0d8aeb8a6dabc371a122b47d79891dd7457a0a985a2d1266f1",
+  "mjcfSha256": "843fca32d3e9b7d7abd6b3146eb3ca08aa31f147b16888e94155bccea782fc2a",
+  "triangles": 135812,
+  "meshSha256": {
+    "collision_10.obj": "e5a79bbcfaf3fc6e33c8c523d8c8ea4e7498619ba8bd507e7faad502dd1efe23",
+    "visual_0.obj": "07fe8a147814c939ca7ebc51146b67454ebde784beb12959a37b41f9fa59a83e",
+    "visual_1.obj": "db33c92d37ba3f5c7476977f621823fad65e38516b14bfef5afa9769ade75ef7",
+    "visual_2.obj": "db33c92d37ba3f5c7476977f621823fad65e38516b14bfef5afa9769ade75ef7",
+    "visual_3.obj": "db33c92d37ba3f5c7476977f621823fad65e38516b14bfef5afa9769ade75ef7",
+    "visual_4.obj": "db33c92d37ba3f5c7476977f621823fad65e38516b14bfef5afa9769ade75ef7",
+    "visual_5.obj": "2ea0f3c23c290c6d79624fbea5245d64569ac2bd9a755c7f3b73af9557f726c3",
+    "visual_6.obj": "31d703fdc7e13374f25cdb7b93fdf2dfc9f7b239602f0a346e8cf448c91d8c46",
+    "visual_7.obj": "31d703fdc7e13374f25cdb7b93fdf2dfc9f7b239602f0a346e8cf448c91d8c46",
+    "visual_8.obj": "6a9e965270176fd421e3c4a460193a1346adeca9eed5a1d7457a80d826f8e118",
+    "visual_9.obj": "a9627806cbcaeefa98e8effc8d4ab57cd665bbb3e8f1697b60e12443df0ac1ff"
+  }
+}

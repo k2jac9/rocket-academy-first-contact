@@ -14,15 +14,28 @@ export function Dialog({
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     const dialog = ref.current;
+    const opener = document.activeElement as HTMLElement | null;
     dialog?.showModal();
-    return () => dialog?.close();
+    return () => {
+      dialog?.close();
+      opener?.focus({ preventScroll: true });
+    };
   }, []);
   return (
     <dialog
       ref={ref}
       className="dialog"
       aria-label={title}
-      onCancel={onClose}
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
+      onKeyDown={(event) => {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          onClose();
+        }
+      }}
       onClick={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}

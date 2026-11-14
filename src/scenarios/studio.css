@@ -1,0 +1,350 @@
+.scenario-studio {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 52px var(--page-gutter) 80px;
+  color: var(--ink);
+}
+.studio-heading {
+  text-align: center;
+  margin: 0 auto 42px;
+  max-width: 760px;
+}
+.studio-heading h1 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 400;
+  margin: 24px 0;
+}
+.studio-heading p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 620px;
+  margin: 0 auto;
+}
+.studio-services {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+.studio-services span {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 22px;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  border-right: 1px solid var(--line);
+}
+.studio-services span:last-child {
+  border: 0;
+}
+.studio-services b {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+}
+.studio-bridge {
+  background: var(--pastel-sky, #ddebf5);
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 24px;
+}
+.studio-bridge p {
+  max-width: 760px;
+}
+.studio-bridge > a {
+  flex-shrink: 0;
+}
+.scenario-studio h2 {
+  font-size: 23px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -0.7px;
+  margin: 12px 0 18px;
+}
+.scenario-studio p {
+  line-height: 1.65;
+  font-size: 14px;
+}
+.studio-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 24px;
+}
+.studio-panel {
+  border: 1px solid var(--line);
+  padding: 28px;
+  min-width: 0;
+  background: var(--surface);
+}
+.studio-side {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.scenario-studio fieldset {
+  padding: 0;
+  border: 0;
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.scenario-studio label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-size: 13px;
+  min-width: 0;
+}
+.scenario-studio input,
+.scenario-studio select,
+.scenario-studio textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--line);
+  padding: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  line-height: 1.5;
+  border-radius: 0;
+}
+.scenario-studio textarea {
+  resize: vertical;
+}
+.scenario-studio input[type='file'] {
+  padding: 8px;
+  font-size: 12px;
+}
+.scenario-studio small {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.studio-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.studio-upload {
+  border: 1px solid var(--line);
+  padding: 18px;
+  background: var(--surface-soft);
+}
+.studio-upload p {
+  color: var(--muted);
+  margin: 10px 0 0;
+  font-size: 12px;
+}
+.scenario-studio .catalog-button {
+  width: fit-content;
+  white-space: normal;
+  text-align: left;
+  gap: 8px;
+  line-height: 1.5;
+}
+.scenario-studio details {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.scenario-studio summary {
+  cursor: pointer;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+.scenario-studio details label {
+  margin: 14px 0;
+}
+.studio-evidence {
+  background: var(--surface-soft);
+}
+.studio-evidence ul {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+.studio-evidence li {
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.studio-evidence li small {
+  color: var(--warning);
+}
+.studio-evidence a {
+  font-size: 12px;
+}
+.studio-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.studio-records {
+  display: flex;
+  flex-direction: column;
+  max-height: 520px;
+  overflow: auto;
+}
+.studio-records button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 16px;
+  color: var(--ink);
+  text-align: left;
+  margin-bottom: 10px;
+}
+.studio-records button.selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.studio-records strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.studio-records span {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.studio-notifications {
+  margin: 24px 0;
+}
+.studio-notifications p {
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+}
+.studio-selected {
+  margin: 24px 0;
+}
+.studio-artifacts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.studio-artifacts figure {
+  margin: 0 0 20px;
+}
+.studio-artifacts img,
+.studio-artifacts video {
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  background: var(--surface-soft);
+}
+.studio-artifacts figcaption {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.studio-artifacts figcaption a {
+  margin-left: 12px;
+}
+.scenario-studio code {
+  display: block;
+  overflow-wrap: anywhere;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.studio-scenario {
+  margin: 30px 0 0;
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
+}
+.studio-scenario fieldset {
+  max-width: 800px;
+}
+.studio-adaptation {
+  padding: 14px;
+  background: var(--pastel-sand, #f5ecc7);
+}
+.studio-version-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.studio-version-grid article {
+  border: 1px solid var(--line);
+  padding: 24px;
+}
+.studio-version-grid h3 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.studio-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+.episode-scenario-banner {
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  padding: 22px;
+  margin-bottom: 28px;
+}
+.episode-scenario-banner p {
+  line-height: 1.6;
+}
+@media (max-width: 900px) {
+  .studio-columns {
+    grid-template-columns: 1fr;
+  }
+  .studio-services {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .studio-services span {
+    border-bottom: 1px solid var(--line);
+  }
+  .studio-bridge {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .scenario-studio {
+    padding: 32px 20px 60px;
+  }
+  .studio-heading h1 {
+    font-size: clamp(23px, 7vw, 32px);
+  }
+  .studio-panel,
+  .studio-bridge {
+    padding: 20px;
+  }
+  .studio-services span {
+    padding: 14px;
+  }
+  .studio-fields,
+  .studio-version-grid,
+  .studio-artifacts {
+    grid-template-columns: 1fr;
+  }
+  .studio-section-head {
+    flex-wrap: wrap;
+  }
+  .studio-evidence li {
+    gap: 10px;
+  }
+}

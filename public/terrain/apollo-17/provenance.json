@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "siteId": "apollo-17",
+  "body": "moon",
+  "label": "Apollo 17",
+  "sourceProduct": "NAC_DTM_APOLLO17_1",
+  "sourceUrl": "https://pds.lroc.im-ldi.com/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/DATA/SDP/NAC_DTM/APOLLO17_1/NAC_DTM_APOLLO17_1.TIF",
+  "sourcePage": "https://data.lroc.im-ldi.com/lroc/view_rdr/NAC_DTM_APOLLO17",
+  "credit": "NASA / GSFC / Arizona State University \u00b7 LROC NAC",
+  "sourceSpacingM": 2.0,
+  "preparedAt": "2026-11-14",
+  "heightfieldSha256": "37b317aa5981b7c21d5f4b5e63e4b1e05b02ee3789a793869d183e8006bc01ad",
+  "imagerySha256": "a28bb87ba4bc24afdce9fc9c6cea3742ddf03868070daa6123b7fae973136360",
+  "imagery": {
+    "url": "https://pds.lroc.im-ldi.com/data/LRO-L-LROC-5-RDR-V1.0/LROLRC_2001/EXTRAS/BROWSE/NAC_DTM/APOLLO17_1/NAC_DTM_APOLLO17_1_M134991788_2M.TIF",
+    "pixelSizeM": 2,
+    "processing": "Linear display stretch of NAC orthophoto; original DN crop retained; no generated detail",
+    "displayStretch": {
+      "blackPoint": 10.0,
+      "whitePoint": 88.0,
+      "outputWhite": 230
+    },
+    "nativeCropSha256": "86b2983fe68c97e5848fcf22bf22681ebbd3ae623eae6eb9ea6c3fe62a2d4326"
+  },
+  "sourceWindow": {
+    "crsWkt": "PROJCS[\"Equirectangular Moon\",GEOGCS[\"GCS_Moon\",DATUM[\"D_Moon\",SPHEROID[\"Moon_localRadius\",1737400,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",20],PARAMETER[\"central_meridian\",180],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+    "pixelSize": [
+      2.0000000000006,
+      2.0000000000006
+    ],
+    "window": [
+      945,
+      3355,
+      257,
+      257
+    ],
+    "transform": [
+      2.0000000000006,
+      0.0,
+      -4252444.000001299,
+      0.0,
+      -2.0000000000006,
+      612518.000000188
+    ],
+    "centerProjectedM": [
+      -4252187.000001299,
+      612261.0000001879
+    ],
+    "sourceWindowFloat32Sha256": "6070f8a2ed1d8a0a00b807f5b00916077b9b1143e576de767d11b9a82daff021"
+  },
+  "verticalReference": "Elevation relative to the 1,737,400 m lunar reference sphere",
+  "boundsM": [
+    -256.0000000000768,
+    -256.0000000000768,
+    256.0000000000768,
+    256.0000000000768
+  ],
+  "knownLimits": [
+    "DEM interpolation does not recover wheel-scale obstacles.",
+    "Contact materials, lighting and robot sensors are experimental assumptions.",
+    "Local axes are projected grid directions, not a full inertial/body frame graph."
+  ]
+}

@@ -1,0 +1,3 @@
+# Optional source preparation only; the runtime worker does not import these.
+rasterio==1.5.2
+pyproj==3.8.0

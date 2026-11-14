@@ -1,0 +1,35 @@
+{
+  "id": "jackal",
+  "label": "Clearpath Jackal",
+  "manufacturer": "Clearpath Robotics",
+  "wheels": 4,
+  "massKg": 18.432000000000002,
+  "wheelRadiusM": 0.098,
+  "widthM": 0.37559,
+  "lengthM": 0.42,
+  "wheelCenterZ": 0.0345,
+  "wheelbaseM": 0.262,
+  "rootToGroundM": 0.0635,
+  "wheelJointNames": [
+    "rear_right_wheel",
+    "front_right_wheel",
+    "rear_left_wheel",
+    "front_left_wheel"
+  ],
+  "rootBody": "base_link",
+  "sourceRevision": "4ddf9b578bb7abce1115c8dc59d8b7f86aa9268c",
+  "license": "BSD-3-Clause",
+  "sourceUrl": "https://github.com/jackal/jackal/tree/4ddf9b578bb7abce1115c8dc59d8b7f86aa9268c",
+  "glbSha256": "313ad410a98657a7b9ee894227fb02db5d5d17f18871057579f0dfde5f5978d0",
+  "mjcfSha256": "59a219384a64142c724a6350ff16834c1a37c748a3a1077710fa83f41e3513ab",
+  "triangles": 11944,
+  "meshSha256": {
+    "visual_0.obj": "5b8c37fc4124e2e7f5a0db264b2acdef7a713fa0f0a5d7ab63efd6474f56b449",
+    "visual_1.obj": "5b8c37fc4124e2e7f5a0db264b2acdef7a713fa0f0a5d7ab63efd6474f56b449",
+    "visual_2.obj": "5b8c37fc4124e2e7f5a0db264b2acdef7a713fa0f0a5d7ab63efd6474f56b449",
+    "visual_3.obj": "5b8c37fc4124e2e7f5a0db264b2acdef7a713fa0f0a5d7ab63efd6474f56b449",
+    "visual_4.obj": "5c880b297a547ef8f547e6c90c98e5a01ba5c2864ce9a062b8e626824c53c3be",
+    "visual_5.obj": "9a2e4b94c0d908bfca1541fd4864b73839d9eacf3209f703c083bb790de3f443",
+    "visual_6.obj": "9a2e4b94c0d908bfca1541fd4864b73839d9eacf3209f703c083bb790de3f443"
+  }
+}

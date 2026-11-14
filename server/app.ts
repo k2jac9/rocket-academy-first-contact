@@ -5,13 +5,18 @@ import { ROBOT_PROFILE, RUN_LIMITS, runMission, validatePlan } from '../src/simu
 import type { MissionRun, PlannerProvenance } from '../src/simulation/missionRun.ts';
 import type { MissionStore, RunRecord } from './atlas.ts';
 import { MAX_MCAP_BYTES, MAX_RUN_JSON_BYTES } from './atlas.ts';
-import { MAX_REQUEST_BYTES, readJsonRequest } from './body.ts';
+import { MAX_REQUEST_BYTES, readJsonRequest, readBoundedBody } from './body.ts';
 import { ROBOT_CATALOG, SOURCE_CATALOG } from './catalog.ts';
 import type { ServerConfig } from './config.ts';
 import { ApiError, exactKeys, publicError } from './errors.ts';
 import { MAX_OBJECTIVE_LENGTH } from './gemini.ts';
 import type { GeminiPlanner } from './gemini.ts';
 import { jsonHash } from './hash.ts';
+import type { EpisodeService } from './episodes.ts';
+import type { ExplorationStore } from './explorationStore.ts';
+import { MAX_EXPLORATION_ARTIFACT_BYTES } from './explorationStore.ts';
+import { SHA256, verifyScenarioExecution } from './scenarios.ts';
+import { GENIE_ADAPTER } from '../src/scenarios/contracts.ts';
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 function requestId(request: Request): string {
@@ -66,6 +71,8 @@ export function createApiHandler(dependencies: {
   config: ServerConfig;
   store: MissionStore;
   planner: GeminiPlanner;
+  episodes?: EpisodeService;
+  explorations?: ExplorationStore;
 }) {
   const { config, store, planner } = dependencies;
   const pendingRuns = new Map<
@@ -115,19 +122,112 @@ export function createApiHandler(dependencies: {
         return new Response(null, { status: 204, headers });
       }
       const url = new URL(request.url);
-      if (request.method === 'GET' && url.pathname === '/api/status') {
-        const atlas = store.status();
-        if (atlas.configured && !atlas.connected) {
-          try {
-            await store.connect();
-          } catch {
-            // Status remains available during an outage; the store bounds connection retries.
-          }
+      if (url.pathname === '/api/integrations/genie' && request.method === 'GET') return json(GENIE_ADAPTER);
+      if (url.pathname === '/api/integrations/genie/execute' && request.method === 'POST')
+        throw new ApiError(
+          501,
+          'GENIE_ACCESS_UNVERIFIED',
+          'Automated Genie experiments require verified account access, an action/observation API, timing, reset and recording capabilities. Use the exploration/import workflow.',
+        );
+      if (url.pathname.startsWith('/api/explorations') || url.pathname.startsWith('/api/scenarios')) {
+        const explorations = dependencies.explorations;
+        if (!explorations)
+          throw new ApiError(503, 'EXPLORATIONS_UNAVAILABLE', 'The exploration store is unavailable.');
+        if (url.pathname === '/api/explorations/artifacts' && request.method === 'POST') {
+          const encoding = request.headers.get('content-encoding');
+          if (encoding && encoding !== 'identity')
+            throw new ApiError(415, 'ENCODING_UNSUPPORTED', 'Compressed uploads are not supported.');
+          const tooLarge = new ApiError(413, 'ARTIFACT_SIZE', 'Exploration files must be at most 32 MiB.');
+          if (Number(request.headers.get('content-length') ?? 0) > MAX_EXPLORATION_ARTIFACT_BYTES)
+            throw tooLarge;
+          const bytes = await readBoundedBody(
+            request.body,
+            MAX_EXPLORATION_ARTIFACT_BYTES,
+            AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]),
+            tooLarge,
+          );
+          return json(
+            await explorations.upload(bytes, request.headers.get('content-type')?.split(';')[0] ?? ''),
+            201,
+          );
         }
+        const asset = /^\/api\/explorations\/artifacts\/([^/]+)$/.exec(url.pathname);
+        if (asset && request.method === 'GET') {
+          if (!SHA256.test(asset[1]))
+            throw new ApiError(422, 'INVALID_ARTIFACT_ID', 'Artifact ID must be a SHA-256 hash.');
+          const result = await explorations.download(asset[1], request.headers.get('range'));
+          headers.set('content-type', result.artifact.mediaType);
+          headers.set('content-length', String(result.end - result.start + 1));
+          headers.set('accept-ranges', 'bytes');
+          headers.set('x-artifact-sha256', result.artifact.sha256);
+          if (result.partial)
+            headers.set('content-range', `bytes ${result.start}-${result.end}/${result.artifact.bytes}`);
+          return new Response(result.stream, { status: result.partial ? 206 : 200, headers });
+        }
+        if (url.pathname === '/api/explorations' && request.method === 'POST')
+          return json(await explorations.create(requestId(request), await readJsonRequest(request)), 201);
+        if (url.pathname === '/api/explorations' && request.method === 'GET')
+          return json({ explorations: await explorations.list() });
+        if (url.pathname === '/api/scenarios' && request.method === 'POST')
+          return json(
+            await explorations.createScenario(requestId(request), await readJsonRequest(request)),
+            201,
+          );
+        if (url.pathname === '/api/scenarios' && request.method === 'GET')
+          return json({ scenarios: await explorations.listScenarios() });
+        const detail = /^\/api\/(explorations|scenarios)\/([^/]+)$/.exec(url.pathname);
+        if (detail && request.method === 'GET') {
+          if (!UUID.test(detail[2])) throw new ApiError(422, 'INVALID_ID', 'Record ID must be a UUID.');
+          return json(
+            await (detail[1] === 'explorations'
+              ? explorations.get(detail[2].toLowerCase())
+              : explorations.getScenario(detail[2].toLowerCase())),
+          );
+        }
+        throw new ApiError(404, 'NOT_FOUND', 'Exploration route not found.');
+      }
+      if (url.pathname === '/api/episodes' || url.pathname.startsWith('/api/episodes/')) {
+        const episodes = dependencies.episodes;
+        if (!episodes)
+          throw new ApiError(503, 'PHYSICS_UNAVAILABLE', 'The physics episode service is unavailable.');
+        if (url.pathname === '/api/episodes' && request.method === 'POST') {
+          const value = await readJsonRequest(request);
+          if (value && typeof value === 'object' && 'scenarioVersionId' in value) {
+            const { scenarioVersionId, ...input } = value;
+            if (typeof scenarioVersionId !== 'string' || !UUID.test(scenarioVersionId))
+              throw new ApiError(422, 'INVALID_SCENARIO_ID', 'Scenario version ID must be a UUID.');
+            if (!dependencies.explorations)
+              throw new ApiError(503, 'EXPLORATIONS_UNAVAILABLE', 'The scenario store is unavailable.');
+            const scenario = await dependencies.explorations.getScenario(scenarioVersionId.toLowerCase());
+            return json(
+              await episodes.create(requestId(request), input, verifyScenarioExecution(scenario, input)),
+              202,
+            );
+          }
+          return json(await episodes.create(requestId(request), value), 202);
+        }
+        if (url.pathname === '/api/episodes' && request.method === 'GET')
+          return json({ episodes: await episodes.list() });
+        const path = /^\/api\/episodes\/([^/]+)(\/mcap)?$/.exec(url.pathname);
+        if (path && request.method === 'GET') {
+          const id = path[1].toLowerCase();
+          if (!UUID.test(id)) throw new ApiError(422, 'INVALID_EPISODE_ID', 'Episode ID must be a UUID.');
+          if (!path[2]) return json(await episodes.get(id));
+          const { stream, artifact } = await episodes.download(id);
+          headers.set('content-type', 'application/octet-stream');
+          headers.set('content-disposition', `attachment; filename="first-contact-physics-${id}.mcap"`);
+          headers.set('content-length', String(artifact.bytes));
+          headers.set('x-artifact-sha256', artifact.sha256);
+          return new Response(stream, { headers });
+        }
+        throw new ApiError(404, 'NOT_FOUND', 'Episode route not found.');
+      }
+      if (request.method === 'GET' && url.pathname === '/api/status') {
+        const atlas = await store.checkHealth();
         return json({
           service: 'first-contact-local',
           version: '0.2.0',
-          atlas: store.status(),
+          atlas,
           planner: {
             configured: Boolean(config.geminiApiKey),
             provider: 'gemini',

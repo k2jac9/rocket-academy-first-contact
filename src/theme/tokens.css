@@ -1,0 +1,58 @@
+/* Shared visual language: catalog, explorer, lab and application dialogs. */
+@font-face {
+  font-family: CatalogInter;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/catalog/fonts/inter-variable.woff2') format('woff2');
+}
+@font-face {
+  font-family: CatalogWorkbench;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/catalog/fonts/workbench.ttf') format('truetype');
+}
+@font-face {
+  font-family: CatalogMono;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/catalog/fonts/ibm-plex-mono.woff2') format('woff2');
+}
+:root {
+  color-scheme: light;
+  --font-body: CatalogInter, system-ui, sans-serif;
+  --font-display: CatalogWorkbench, monospace;
+  --font-mono: CatalogMono, monospace;
+  --ink: #252824;
+  --muted: #657067;
+  --surface: #fff;
+  --surface-soft: #f7f8f5;
+  --surface-selected: #eeefe9;
+  --line: #d8dcd4;
+  --accent: #0965a7;
+  --accent-hover: #07538b;
+  --accent-soft: #edf4fa;
+  --success: #32634c;
+  --success-soft: #eaf3ed;
+  --warning: #795c21;
+  --warning-soft: #faf5e6;
+  --danger: #9a3b35;
+  --danger-soft: #fcf0ee;
+  --pastel-sand: #f5ecc7;
+  --pastel-mint: #dceee5;
+  --pastel-lilac: #e8e1f3;
+  --pastel-peach: #f6e4d8;
+  --pastel-sky: #ddebf5;
+  --pastel-stone: #e9ebed;
+  --content-width: 1536px;
+  --page-gutter: 32px;
+  --motion-fast: 140ms;
+  --motion-page: 180ms;
+  /* Existing layout aliases share the same application tokens. */
+  --display: var(--font-body);
+  --panel: var(--surface);
+  --mint: var(--accent);
+  --sand: var(--warning);
+}

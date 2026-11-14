@@ -1,0 +1,77 @@
+<mujoco model="husky">
+  <compiler angle="radian" meshdir="meshes" inertiafromgeom="false" />
+
+  <visual>
+    <headlight ambient="0.45 0.45 0.45" diffuse="0.85 0.85 0.85" />
+  </visual>
+
+  <asset>
+    <mesh name="visual_0" content_type="model/obj" file="visual_0.obj" />
+    <mesh name="visual_1" content_type="model/obj" file="visual_1.obj" />
+    <mesh name="visual_2" content_type="model/obj" file="visual_2.obj" />
+    <mesh name="visual_3" content_type="model/obj" file="visual_3.obj" />
+    <mesh name="visual_4" content_type="model/obj" file="visual_4.obj" />
+    <mesh name="visual_5" content_type="model/obj" file="visual_5.obj" />
+    <mesh name="visual_6" content_type="model/obj" file="visual_6.obj" />
+    <mesh name="visual_7" content_type="model/obj" file="visual_7.obj" />
+    <mesh name="visual_8" content_type="model/obj" file="visual_8.obj" />
+    <mesh name="collision_10" content_type="model/obj" file="collision_10.obj" />
+    <mesh name="visual_9" content_type="model/obj" file="visual_9.obj" />
+  </asset>
+
+  <worldbody>
+    <body name="base_link">
+      <joint name="root_joint" type="free" />
+      <geom size="0.4937 0.28545 0.061875" pos="0 0 0.061875" type="box" density="0" />
+      <geom size="0.39496 0.28545 0.051875" pos="0 0 0.175625" type="box" density="0" />
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.101961 0.101961 0.101961 1" mesh="visual_0" />
+      <body name="base_footprint" pos="0 0 -0.13228" />
+      <body name="inertial_link">
+        <inertial pos="-0.00065 -0.085 0.062" quat="-0.00647333 0.677091 0.00807459 0.735827" mass="46.034" diaginertia="2.03957 1.73909 0.591743" />
+      </body>
+      <body name="front_left_wheel_link" pos="0.256 0.2775 0.03282">
+        <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="2.637" diaginertia="0.04411 0.02467 0.02467" />
+        <joint name="front_left_wheel" pos="0 0 0" axis="0 1 0" />
+        <geom size="0.1651 0.05715" quat="0.707107 0.707106 0 0" type="cylinder" density="0" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.2 1" mesh="visual_1" />
+      </body>
+      <body name="front_right_wheel_link" pos="0.256 -0.2775 0.03282">
+        <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="2.637" diaginertia="0.04411 0.02467 0.02467" />
+        <joint name="front_right_wheel" pos="0 0 0" axis="0 1 0" />
+        <geom size="0.1651 0.05715" quat="0.707107 0.707106 0 0" type="cylinder" density="0" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.2 1" mesh="visual_2" />
+      </body>
+      <body name="rear_left_wheel_link" pos="-0.256 0.2775 0.03282">
+        <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="2.637" diaginertia="0.04411 0.02467 0.02467" />
+        <joint name="rear_left_wheel" pos="0 0 0" axis="0 1 0" />
+        <geom size="0.1651 0.05715" quat="0.707107 0.707106 0 0" type="cylinder" density="0" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.2 1" mesh="visual_3" />
+      </body>
+      <body name="rear_right_wheel_link" pos="-0.256 -0.2775 0.03282">
+        <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="2.637" diaginertia="0.04411 0.02467 0.02467" />
+        <joint name="rear_right_wheel" pos="0 0 0" axis="0 1 0" />
+        <geom size="0.1651 0.05715" quat="0.707107 0.707106 0 0" type="cylinder" density="0" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.2 1" mesh="visual_4" />
+      </body>
+      <body name="top_chassis_link">
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.8 0.8 0 1" mesh="visual_5" />
+      </body>
+      <body name="front_bumper_link" pos="0.48 0 0.091">
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.101961 0.101961 0.101961 1" mesh="visual_6" />
+      </body>
+      <body name="rear_bumper_link" pos="-0.48 0 0.091" quat="1.32679e-06 0 0 1">
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.101961 0.101961 0.101961 1" mesh="visual_7" />
+      </body>
+      <body name="user_rail_link" pos="0.272 0 0.245">
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.101961 0.101961 0.101961 1" mesh="visual_8" />
+      </body>
+      <body name="top_plate_link" pos="0.0812 0 0.245">
+        <geom type="mesh" mesh="collision_10" density="0" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.0784314 0.0784314 0.0784314 1" mesh="visual_9" />
+        <body name="top_plate_front_link" pos="0.36367 0 0.00639" />
+        <body name="top_plate_rear_link" pos="-0.36633 0 0.00639" />
+      </body>
+      <body name="imu_link" pos="0.19 0 0.149" quat="-2.59734e-06 0.707108 2.59735e-06 0.707105" />
+    </body>
+  </worldbody>
+</mujoco>

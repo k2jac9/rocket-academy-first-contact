@@ -414,8 +414,8 @@ export function RunPanel({ mission, body, run, onRun, onNotice, onConnection }: 
         </div>
       )}
       <p className="fidelity-note">
-        <strong>Kinematic prototype.</strong> Records actions, poses, and derived state observations. Contact
-        physics, obstacles, camera/LiDAR sensors, and policy training are not implemented.
+        <strong>Kinematic mission tools.</strong> These runs record modeled paths without terrain contact.
+        Open Robot lab for the separate experimental contact-physics and RGB/depth workflow.
       </p>
       <details className="run-history">
         <summary>
