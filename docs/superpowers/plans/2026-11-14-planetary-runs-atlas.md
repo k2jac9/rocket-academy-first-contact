@@ -58,6 +58,6 @@
 - [x] Wire planet/layer controls, example traverse, baseline/Gemini planner, replay, MCAP download, and Atlas saves/history.
 - [x] Add service startup/proxy, environment examples, data architecture, and precise setup documentation.
 - [x] Run full tests/build, independent review, source access checks, and available browser checks.
-- [ ] Publish the tested source and verify GitHub CI; state live-provider and graphics verification limits.
+- [x] Publish the tested source and verify GitHub CI; state live-provider and graphics verification limits.
 
-Local implementation and verification are complete. Publication and its CI result are the final delivery gate, tracked by the GitHub workflow for the published commit. See [the v0.2 QA report](../../qa/2026-11-14-planetary-runs-atlas.md) for observed results and remaining live-provider/graphics limits.
+Implementation and verification are complete. Source commit `28c8aa4f9a12aabce249af67ba27a20f00e2ed40` was published to `main`; [GitHub CI](https://github.com/k2jac9/rocket-academy-first-contact/actions/runs/43623051337) passed installation, tests, and build. See [the v0.2 QA report](../../qa/2026-11-14-planetary-runs-atlas.md) for observed results and remaining live-provider/graphics limits.

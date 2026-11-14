@@ -13,6 +13,8 @@ The final local checks ran against the integrated source after review correction
 | `npm run build` | TypeScript check and production Vite build passed |
 | Independent code review | No unresolved Critical or Important findings after corrections |
 | Focused correction review | Five Atlas recovery/Gemini provenance regression tests passed independently |
+| Published implementation | `28c8aa4f9a12aabce249af67ba27a20f00e2ed40` on `main` |
+| GitHub CI | [Run 43623051337](https://github.com/k2jac9/rocket-academy-first-contact/actions/runs/43623051337) **passed** `npm ci`, `npm test`, and `npm run build` |
 
 The build emits a non-fatal warning for the main JavaScript chunk, approximately 1.05 MB minified / 285 KB gzip. MCAP serialization is a separate, lazily imported chunk of approximately 198 KB minified / 33 KB gzip. No bundle-size claim is made for future sensor/physics integrations.
 
