@@ -100,7 +100,7 @@ For saved physics episodes, configure **MongoDB Atlas** in `.env.local` and inst
 | **Robot catalog** | 30 profiles across six classifications; search, filters, 3D inspection where available, specification comparison and CSV export |
 | **Physics pilot** | Two Husky/Jackal instances in one MuJoCo world; body-specific gravity; rigid terrain contact; simple virtual RGB/depth sensors |
 | **Scenario Studio** | Exploration briefs, imported reference images/videos, provenance and immutable runnable pilot settings |
-| **Atlas** | Saved runs, physical episodes and scenarios; hashed GridFS artifacts; active connection probes and bounded retry handling |
+| **Atlas** | Saved runs, physical episodes and scenarios; hashed GridFS artifacts; exact filters and native semantic episode search (Preview); active connection probes |
 | **Replay and export** | Recorded poses, camera previews, local recovery artifacts and compressed physical-episode MCAP |
 
 The physical pilot is experimental. Sensor calibration, planetary contact models and downstream policy training are still research milestones. Catalog membership does not imply a runnable robot model; household robots and standalone arms are excluded from the catalog.
@@ -145,6 +145,7 @@ The Atlas diagnostic checks the configured connection, indexes and representativ
 | Original film and preview details | [Media notes](docs/media/README.md) |
 | Mission audio and voice configuration | [ElevenLabs narration](docs/elevenlabs-narration.md) |
 | Atlas roadmap and delivery status | [Sequential implementation plan](docs/atlas-implementation-plan.md) |
+| Native Atlas semantic-search prototype | [Setup, operation and limits](docs/atlas-semantic-search.md) |
 
 ---
 

@@ -2,13 +2,13 @@
 
 **Reviewed:** November 14, 2026 (America/Toronto)
 
-**Status:** Suitable candidate for a local prototype; live activation and relevance remain unverified.
+**Status:** Prototype implemented and verified against the live Atlas index. See the [operator guide](atlas-semantic-search.md) and [verification evidence](qa/2026-11-14-atlas-semantic-search.md).
 
 ## Recommendation
 
 Use a small, versioned projection of factual episode summaries with Atlas Automated Embedding and `voyage-4`. Atlas can embed both stored text and natural-language queries without another embedding API key or an application embedding pipeline. This removes a separate Gemini embedding dependency; Gemini can retain its mission-planning role. [Atlas integration documentation](https://www.mongodb.com/docs/atlas/ai-integrations/vercel-ai/)
 
-This investigation changed documentation only. No collection, search index, embeddings, billing settings, resource policies or validators were changed. The owner's deferral of live schema enforcement still applies.
+The initial investigation changed documentation only. The owner subsequently requested implementation. The follow-up found an authenticated Atlas CLI outside PATH and created the bounded search projection and native embedding index. Billing settings, resource policies and validators remain unchanged; the deferral of live schema enforcement still applies.
 
 ## Verified against this application
 
@@ -51,4 +51,4 @@ The projection builder and mocked endpoint tests can proceed without live schema
 
 ## Remaining account evidence
 
-The available database connection cannot establish deployment tier, organization policies, billing balance or inference geography. The browser session was unauthenticated. No entitlement was inferred from server version or `createSearchIndexes`, and no billable operation was used to probe it. Resume these read-only account checks through an authenticated Atlas session or authorized management API access before activation.
+The initial database-only inspection could not establish deployment tier, organization policies, billing balance or inference geography. Follow-up using the authenticated Atlas CLI verified that the configured application connects to the inspected AWS M10 cluster in `US_WEST_1`, with storage auto-scaling enabled. Its sole resource policy contains restrictions on cluster/provider/region/count and private endpoints; it does not restrict search index creation. The cluster had zero Search indexes before this implementation. The billing endpoint was unavailable to this session, so remaining free tokens and inference scope are still unverified. Native browser access was unavailable; no account setting was changed to work around that limitation.

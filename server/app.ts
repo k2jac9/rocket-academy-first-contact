@@ -20,6 +20,7 @@ import { GENIE_ADAPTER } from '../src/scenarios/contracts.ts';
 import { createElevenLabsSpeech } from './elevenlabs.ts';
 import type { ElevenLabsSpeech } from './elevenlabs.ts';
 import { parseEpisodeQuery } from './episodeQuery.ts';
+import { parseEpisodeSearch } from './episodeSearch.ts';
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 function requestId(request: Request): string {
@@ -208,6 +209,12 @@ export function createApiHandler(dependencies: {
         const episodes = dependencies.episodes;
         if (!episodes)
           throw new ApiError(503, 'PHYSICS_UNAVAILABLE', 'The physics episode service is unavailable.');
+        if (url.pathname === '/api/episodes/search/status' && request.method === 'GET')
+          return json(await episodes.searchStatus(request.signal));
+        if (url.pathname === '/api/episodes/search' && request.method === 'POST')
+          return json(
+            await episodes.search(parseEpisodeSearch(await readJsonRequest(request)), request.signal),
+          );
         if (url.pathname === '/api/episodes/stats' && request.method === 'GET') {
           return json(
             await episodes.stats(request.signal, parseEpisodeQuery(url.searchParams, false).filters),

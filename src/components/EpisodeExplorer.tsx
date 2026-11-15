@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { Download, RefreshCw } from 'lucide-react';
 import { EpisodeOverview } from './EpisodeOverview';
+import { EpisodeSemanticSearch } from './EpisodeSemanticSearch';
 import { episodeFilterParams } from '../simulation/episodeQuery';
 import type { EpisodeFilters, EpisodePage } from '../simulation/episodeQuery';
 
@@ -212,6 +213,13 @@ export function EpisodeExplorer({
           </p>
         )}
       </form>
+      <EpisodeSemanticSearch
+        active={active}
+        filterQuery={filterQuery}
+        revision={revision + refreshVersion}
+        replayDisabled={replayDisabled}
+        onLoad={onLoad}
+      />
       <EpisodeOverview
         key={filterQuery}
         active={active}

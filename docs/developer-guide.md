@@ -262,6 +262,8 @@ Server saves additionally bound run JSON to 8 MiB and MCAP to 16 MiB; the browse
 
 ## Architecture and verification
 
+Episode Explorer also includes a native Atlas semantic-search prototype over factual summaries. See the [semantic-search operator guide](atlas-semantic-search.md) for activation, bounded reconciliation, provider costs and readiness checks. It uses Atlas-managed Voyage embeddings and does not require another Gemini key.
+
 | Area | Responsibility |
 | --- | --- |
 | [App and components](../src/App.tsx) | Planet/layer selection, mission editing, planning controls, replay, downloads, and connection state |

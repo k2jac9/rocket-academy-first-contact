@@ -9,6 +9,7 @@ import type { EpisodeJob, PhysicsEpisode } from '../src/simulation/episode.ts';
 import type { EpisodeStore } from './episodeStore.ts';
 import type { EpisodeQuery } from './episodeQuery.ts';
 import type { EpisodeFilters } from '../src/simulation/episodeQuery.ts';
+import type { EpisodeSearchQuery } from './episodeSearch.ts';
 import { encodeEpisodeMcap } from './episodeRecording.ts';
 import { ApiError } from './errors.ts';
 import { bytesHash, canonicalJson, jsonHash } from './hash.ts';
@@ -25,6 +26,12 @@ export class EpisodeService {
   }
   stats(signal?: AbortSignal, filters: EpisodeFilters = {}) {
     return this.store.stats(signal, filters);
+  }
+  searchStatus(signal?: AbortSignal) {
+    return this.store.searchStatus(signal);
+  }
+  search(query: EpisodeSearchQuery, signal?: AbortSignal) {
+    return this.store.search(query, signal);
   }
   async create(id: string, value: unknown, lineage?: ScenarioLineage): Promise<EpisodeJob> {
     let input;

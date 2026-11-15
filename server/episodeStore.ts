@@ -11,6 +11,8 @@ import { readEpisodeStats } from './episodeStats.ts';
 import { readEpisodePage } from './episodePage.ts';
 import type { EpisodeQuery } from './episodeQuery.ts';
 import type { EpisodeFilters } from '../src/simulation/episodeQuery.ts';
+import { episodeSearchStatus, searchEpisodes } from './episodeSearch.ts';
+import type { EpisodeSearchQuery } from './episodeSearch.ts';
 
 type Stored = Document & {
   _id: string;
@@ -30,6 +32,22 @@ function record(doc: Stored): EpisodeRecord {
   };
 }
 export class EpisodeStore extends AtlasRepository {
+  private searchRunning = false;
+  private searchAfter = 0;
+  searchStatus(signal?: AbortSignal) {
+    return this.operation(async () => episodeSearchStatus(await this.database(), signal), signal);
+  }
+  async search(query: EpisodeSearchQuery, signal?: AbortSignal) {
+    if (this.searchRunning || Date.now() < this.searchAfter)
+      throw new ApiError(429, 'SEARCH_BUSY', 'Wait a moment before searching again.', true);
+    this.searchRunning = true;
+    this.searchAfter = Date.now() + 2000;
+    try {
+      return await this.operation(async () => searchEpisodes(await this.database(), query, signal), signal);
+    } finally {
+      this.searchRunning = false;
+    }
+  }
   async stats(signal?: AbortSignal, filters: EpisodeFilters = {}) {
     return this.operation(
       async () => readEpisodeStats((await this.database()).collection('physics_episodes'), signal, filters),
