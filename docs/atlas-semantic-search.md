@@ -6,6 +6,8 @@
 
 Open **Robot lab → Episode Explorer → Search by meaning**. Apply exact filters first, then submit a phrase such as “vehicle overturned” or “lunar rover experiments.” Results include a factual summary, replay and MCAP links. Similarity ranks candidates; it does not prove success, physical validity or training eligibility. Search runs only when submitted, not on every keystroke.
 
+Selecting a World updates the library immediately and clears a terrain filter from another world. The terrain menu then lists compatible sites. Other edited filters use Apply filters; active and pending selections are identified below the controls. If additional filters return nothing, **Show all Moon episodes** (or the selected world) clears those constraints while retaining the world.
+
 Exact-filter browsing remains available during indexing or embedding failures. The status endpoint generates no embeddings. Refresh library rechecks readiness. A changed library can temporarily omit stale results while Atlas indexes updates.
 
 ## Implementation

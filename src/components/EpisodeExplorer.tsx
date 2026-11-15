@@ -4,6 +4,7 @@ import { EpisodeOverview } from './EpisodeOverview';
 import { EpisodeSemanticSearch } from './EpisodeSemanticSearch';
 import { episodeFilterParams } from '../simulation/episodeQuery';
 import type { EpisodeFilters, EpisodePage } from '../simulation/episodeQuery';
+import { SITE_FOR_BODY } from '../domain/surfaceSites';
 
 const fields = {
   body: {
@@ -48,6 +49,9 @@ const label = (key: keyof typeof fields, value: string) =>
   fields[key].options.find(([id]) => id === value)?.[1] ?? 'Unknown / other';
 type Draft = Record<keyof EpisodeFilters, string>;
 const empty: Draft = { body: '', site: '', robot: '', termination: '', from: '', to: '' };
+function siteMatchesWorld(site: string, body: string) {
+  return !site || !body || site === 'unknown' || SITE_FOR_BODY[body as keyof typeof SITE_FOR_BODY] === site;
+}
 
 export function EpisodeExplorer({
   active,
@@ -73,6 +77,15 @@ export function EpisodeExplorer({
   const [filterError, setFilterError] = useState('');
   const previousRevision = useRef(revision);
   const cursor = cursors.at(-1) ?? null;
+  const appliedFilters = new URLSearchParams(filterQuery);
+  const appliedWorld = appliedFilters.get('body');
+  const activeLabels = Array.from(appliedFilters, ([key, value]) =>
+    key in fields
+      ? `${fields[key as keyof typeof fields].label}: ${label(key as keyof typeof fields, value)}`
+      : `${key === 'from' ? 'From' : 'Through'}: ${value} UTC`,
+  );
+  const pendingFilters =
+    episodeFilterParams(draft as EpisodeFilters).toString() !== filterQuery || draftSize !== size;
   useEffect(() => {
     if (previousRevision.current !== revision) {
       previousRevision.current = revision;
@@ -123,6 +136,25 @@ export function EpisodeExplorer({
     setSize(draftSize);
     refresh();
   }
+  function changeWorld(body: string) {
+    const next = { ...draft, body, site: siteMatchesWorld(draft.site, body) ? draft.site : '' };
+    setDraft(next);
+    // Apply this selection to the current query without silently applying other draft controls.
+    const params = new URLSearchParams(filterQuery);
+    if (body) params.set('body', body);
+    else params.delete('body');
+    if (!siteMatchesWorld(params.get('site') ?? '', body)) params.delete('site');
+    const current = Object.fromEntries(params) as EpisodeFilters;
+    setFilterQuery(episodeFilterParams(current).toString());
+    setCursors([null]);
+  }
+  function showAllInWorld() {
+    const next = { ...empty, body: appliedWorld ?? '' };
+    setDraft(next);
+    setFilterQuery(episodeFilterParams(next as EpisodeFilters).toString());
+    setFilterError('');
+    setCursors([null]);
+  }
   function reset() {
     setDraft(empty);
     setDraftSize(20);
@@ -155,14 +187,20 @@ export function EpisodeExplorer({
               <select
                 id={`${id}-${key}`}
                 value={draft[key]}
-                onChange={(e) => setDraft((previous) => ({ ...previous, [key]: e.target.value }))}
+                onChange={(e) =>
+                  key === 'body'
+                    ? changeWorld(e.target.value)
+                    : setDraft((previous) => ({ ...previous, [key]: e.target.value }))
+                }
               >
                 <option value="">All</option>
-                {fields[key].options.map(([value, text]) => (
-                  <option key={value} value={value}>
-                    {text}
-                  </option>
-                ))}
+                {fields[key].options
+                  .filter(([value]) => key !== 'site' || siteMatchesWorld(value, draft.body))
+                  .map(([value, text]) => (
+                    <option key={value} value={value}>
+                      {text}
+                    </option>
+                  ))}
               </select>
             </div>
           ))}
@@ -207,6 +245,12 @@ export function EpisodeExplorer({
             Reset filters
           </button>
         </div>
+        <p className="muted" role="status">
+          {activeLabels.length
+            ? `Active filters — ${activeLabels.join(' · ')}`
+            : 'Showing all worlds and episodes.'}
+          {pendingFilters && ' Other filter changes are pending. Select Apply filters to use them.'}
+        </p>
         {filterError && (
           <p className="operation-error" role="alert">
             {filterError}
@@ -240,7 +284,16 @@ export function EpisodeExplorer({
               Page {cursors.length} · {data.episodes.length} shown. Overview totals cover all matching
               episodes.
             </p>
-            {!data.episodes.length && <p>No saved episodes match these filters.</p>}
+            {!data.episodes.length && (
+              <div>
+                <p>No saved episodes match these filters.</p>
+                {appliedWorld && activeLabels.length > 1 && (
+                  <button className="secondary-button compact" onClick={showAllInWorld}>
+                    Show all {label('body', appliedWorld)} episodes
+                  </button>
+                )}
+              </div>
+            )}
             <div className="episode-result-list">
               {data.episodes.map((item) => (
                 <article key={item.id}>

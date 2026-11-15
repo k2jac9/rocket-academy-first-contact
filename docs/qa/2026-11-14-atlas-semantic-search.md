@@ -26,3 +26,18 @@ Mobile browser submission of “vehicle overturned” returned the same first ma
 - [Mobile search](atlas-semantic-mobile.png)
 
 No recorded episode or GridFS artifact was modified. No cluster upgrade, billing edit, resource-policy change or deferred validator activation was performed. Actual remaining free-token allocation is still unverified; successful native embedding and query execution are verified.
+
+## Follow-up: Moon world selection
+
+The owner reported no results after selecting Moon in the World dropdown. Direct reads confirmed both lunar episodes existed. Browser reproduction found two UI problems: selecting a world alone retained the previous query until Apply, and changing from Earth/Amboy Crater to Moon retained the incompatible terrain filter, producing zero results.
+
+World selection now applies immediately and clears incompatible terrain filters. Terrain options follow the selected world, and active versus pending filters are shown explicitly. An empty filtered list offers a button to retain the world while clearing other constraints.
+
+Browser verification:
+
+- Earth + Amboy Crater → select Moon, without Apply: request contained `body=moon` with no stale site; both Apollo 17 episodes appeared.
+- Moon + rollover: zero results, as expected; **Show all Moon episodes** restored both episodes and cleared the end-reason filter.
+- Pending edits were visibly identified; remaining metadata constraints were not silently discarded on world changes.
+- Production build passed. This change affects the filter UI; no database or search-index changes were needed.
+
+[Verified Moon library](atlas-moon-filter.png)
