@@ -34,7 +34,7 @@ Ship one independently useful step at a time, ordered by implementation effort a
 | 4 | Backup, restore and alert verification | Medium; account access dependent | Authorized Atlas management access | Planned; settings unverified |
 | 5 | Keyword search over versioned episode summaries | Medium | 2; search permissions/capacity checked | Planned |
 | 6 | Reviewed dataset manifests and split groups | Medium/large | 2–3; explicit eligibility rules | Planned |
-| 7 | Semantic and hybrid retrieval | Large | 5–6; embedding model/access and relevance set | Planned |
+| 7 | Semantic and hybrid retrieval | Large | 5–6 for governed retrieval; embedding access and relevance set | Investigated — [native Atlas embedding findings](atlas-automated-embedding-investigation.md); implementation planned |
 | 8 | Recoverable background processing and live updates | Large | Projection and review events defined | Planned |
 | 9 | Training/evaluation lineage and curriculum queries | Large | 6–8; actual learning worker integration | Planned |
 
@@ -86,6 +86,7 @@ Ship one independently useful step at a time, ordered by implementation effort a
 
 ### 7. Semantic retrieval
 
+- The November 14 [Automated Embedding investigation](atlas-automated-embedding-investigation.md) recommends evaluating Atlas-managed Voyage embeddings over deterministic summaries. Database version and index privileges were verified; account policy, tier, billing and actual `autoEmbed` execution remain unverified. The feature is Preview. A bounded discovery prototype can proceed independently of deferred validator activation; governed training selection still requires Step 6.
 - Select and pin an embedding provider/model, dimensions, input schema and version. Check account access and cost before backfill.
 - Embed factual summaries first. Combine lexical and vector ranking with hard metadata/access filters and canonical eligibility checks.
 - Build a reviewed relevance set; measure retrieval quality and indexing lag. Explain matches with recorded evidence, not embedding similarity alone.
